@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+  <style>
+    body { margin: 0; background: #F5F8FA; font-family: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif; color: #22303A; }
+    a { color: #14477D; } a:hover { color: #0D3560; }
+    h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; margin: 0; }
+  </style>
+</helmet>
+<div style="width: 1440px; background: #F5F8FA;">
+
+  <!-- Header -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 72px; background: #FFFFFF; border-bottom: 1px solid #DCE5EC;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="36" height="36" viewBox="0 0 512 512"><circle cx="256" cy="256" r="230" fill="none" stroke="#14477D" stroke-width="30"/><ellipse cx="256" cy="112" rx="58" ry="20" fill="none" stroke="#C99532" stroke-width="26"/><circle cx="256" cy="196" r="38" fill="#14477D"/><g><ellipse cx="352.6" cy="248.8" rx="69.0" ry="26.0" fill="#14477D" transform="rotate(-6 352.6 248.8)"/><ellipse cx="331.0" cy="310.2" rx="60.0" ry="23.0" fill="#14477D" transform="rotate(28 331.0 310.2)"/><ellipse cx="292.0" cy="337.6" rx="43.0" ry="18.0" fill="#14477D" transform="rotate(56 292.0 337.6)"/></g><g transform="translate(512,0) scale(-1,1)"><ellipse cx="352.6" cy="248.8" rx="69.0" ry="26.0" fill="#14477D" transform="rotate(-6 352.6 248.8)"/><ellipse cx="331.0" cy="310.2" rx="60.0" ry="23.0" fill="#14477D" transform="rotate(28 331.0 310.2)"/><ellipse cx="292.0" cy="337.6" rx="43.0" ry="18.0" fill="#14477D" transform="rotate(56 292.0 337.6)"/></g></svg>
+      <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 700; color: #14477D;">My Medicare Angel</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 34px; font-size: 18px; font-weight: 600;">
+      <div>Learn Medicare &#9662;</div>
+      <div>Compare &#9662;</div>
+      <div>Your Situation &#9662;</div>
+      <div>Resources &#9662;</div>
+      <div>Contact &#9662;</div>
+      <div style="background: #1E8A5A; color: #FFFFFF; padding: 14px 26px; border-radius: 8px;">Get a Free Quote</div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div style="display: flex; gap: 64px; padding: 72px; align-items: flex-start;">
+
+    <!-- Left: reassurance -->
+    <div style="flex-grow: 1; max-width: 560px; display: flex; flex-direction: column; gap: 32px;">
+      <h1 style="font-size: 48px; line-height: 1.15; color: #16323E;">Get a Free Medicare Quote</h1>
+      <div style="font-size: 20px; line-height: 1.65; color: #44545F;">Tell us a little about yourself and a licensed agent will call you back with the plans that fit your situation. It takes about two minutes, and it costs you nothing, now or ever.</div>
+
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10" stroke="#14477D" stroke-width="1.8"/><path d="M7.5 12.5 L10.5 15.5 L16.5 8.5" stroke="#C99532" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="font-size: 18px; line-height: 1.55; color: #33424D;"><span style="font-weight: 700;">No cost, no obligation.</span> Agents are paid by insurance carriers, never by you.</div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10" stroke="#14477D" stroke-width="1.8"/><path d="M7.5 12.5 L10.5 15.5 L16.5 8.5" stroke="#C99532" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="font-size: 18px; line-height: 1.55; color: #33424D;"><span style="font-weight: 700;">One call, not a call list.</span> Your details go to our agents only. We never sell your information.</div>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10" stroke="#14477D" stroke-width="1.8"/><path d="M7.5 12.5 L10.5 15.5 L16.5 8.5" stroke="#C99532" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="font-size: 18px; line-height: 1.55; color: #33424D;"><span style="font-weight: 700;">Plain English, always.</span> Ask anything. There are no silly questions about Medicare.</div>
+        </div>
+      </div>
+
+      <div style="background: #E3EDF5; border-radius: 12px; padding: 28px 32px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 19px; font-weight: 700; color: #16323E;">Rather talk right now?</div>
+        <div style="font-size: 18px; color: #5B6B76;">Call <span style="font-weight: 700; color: #14477D;">(617) 560-0821</span>, Mon&#8211;Fri 9am&#8211;5pm.</div>
+      </div>
+    </div>
+
+    <!-- Right: form card -->
+    <div style="width: 620px; flex-shrink: 0; background: #FFFFFF; border: 1px solid #DCE5EC; border-radius: 16px; padding: 44px; display: flex; flex-direction: column; gap: 26px;">
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">First name</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">Mary</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">Last name</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">Johnson</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">Phone</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">(555) 000-0000</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">Email</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">mary@email.com</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">Age</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">65</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 17px; font-weight: 700; color: #16323E;">Zip code</div>
+          <div style="height: 56px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 0 18px; display: flex; align-items: center; font-size: 18px; color: #8C99A6;">00000</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 17px; font-weight: 700; color: #16323E;">What do you need help with?</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; border: 2px solid #14477D; background: #E9F2EE; border-radius: 10px; padding: 14px 16px; font-size: 17px; font-weight: 600; color: #14477D;">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" fill="#14477D"/><path d="M6 10.5 L9 13.5 L14.5 7.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            New to Medicare
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 14px 16px; font-size: 17px; font-weight: 600; color: #44545F;">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2.8" y="2.8" width="14.4" height="14.4" rx="3.5" stroke="#B6C4D0" stroke-width="1.6"/></svg>
+            Medicare Advantage
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 14px 16px; font-size: 17px; font-weight: 600; color: #44545F;">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2.8" y="2.8" width="14.4" height="14.4" rx="3.5" stroke="#B6C4D0" stroke-width="1.6"/></svg>
+            Supplements
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; border: 2px solid #B6C4D0; border-radius: 10px; padding: 14px 16px; font-size: 17px; font-weight: 600; color: #44545F;">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2.8" y="2.8" width="14.4" height="14.4" rx="3.5" stroke="#B6C4D0" stroke-width="1.6"/></svg>
+            Veterans options
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 17px; font-weight: 700; color: #16323E;">How familiar are you with Medicare?</div>
+        <div style="display: flex; gap: 10px;">
+          <div style="width: 56px; height: 52px; border: 2px solid #B6C4D0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #44545F;">1</div>
+          <div style="width: 56px; height: 52px; border: 2px solid #B6C4D0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #44545F;">2</div>
+          <div style="width: 56px; height: 52px; border: 2px solid #14477D; background: #14477D; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #FFFFFF;">3</div>
+          <div style="width: 56px; height: 52px; border: 2px solid #B6C4D0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #44545F;">4</div>
+          <div style="width: 56px; height: 52px; border: 2px solid #B6C4D0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #44545F;">5</div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px; color: #7F8C99;"><div>Totally new</div><div>Very familiar</div></div>
+      </div>
+
+      <div style="background: #1E8A5A; color: #FFFFFF; font-size: 21px; font-weight: 700; padding: 20px; border-radius: 12px; text-align: center;">Request My Free Quote</div>
+
+      <div style="font-size: 14px; line-height: 1.55; color: #7F8C99;">By submitting this form you agree that a licensed insurance agent may contact you by phone or email about Medicare insurance options. This is a solicitation for insurance.</div>
+    </div>
+  </div>
+
+  <!-- Footer (condensed) -->
+  <div style="background: #16323E; padding: 40px 72px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 700; color: #FFFFFF;">My Medicare Angel</div>
+      <div style="font-size: 16px; color: #C3D1DF;">(617) 560-0821 &#183; 56 Russell Street, Suite A, Waltham, MA 02453</div>
+    </div>
+    <div style="border-top: 1px solid #24405C; padding-top: 18px; font-size: 14px; line-height: 1.6; color: #7E93A8;">My Medicare Angel is a Kyzer Solutions company. We are a non-governmental agency, not affiliated with or endorsed by any government program. We do not offer every plan available in your area.</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

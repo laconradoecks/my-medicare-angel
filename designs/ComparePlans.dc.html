@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+  <style>
+    body { margin: 0; background: #F5F8FA; font-family: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif; color: #22303A; }
+    a { color: #14477D; } a:hover { color: #0D3560; }
+    h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; margin: 0; }
+  </style>
+</helmet>
+<div style="width: 1440px; background: #F5F8FA;">
+
+  <!-- Header -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 72px; background: #FFFFFF; border-bottom: 1px solid #DCE5EC;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <svg width="36" height="36" viewBox="0 0 512 512"><circle cx="256" cy="256" r="230" fill="none" stroke="#14477D" stroke-width="30"/><ellipse cx="256" cy="112" rx="58" ry="20" fill="none" stroke="#C99532" stroke-width="26"/><circle cx="256" cy="196" r="38" fill="#14477D"/><g><ellipse cx="352.6" cy="248.8" rx="69.0" ry="26.0" fill="#14477D" transform="rotate(-6 352.6 248.8)"/><ellipse cx="331.0" cy="310.2" rx="60.0" ry="23.0" fill="#14477D" transform="rotate(28 331.0 310.2)"/><ellipse cx="292.0" cy="337.6" rx="43.0" ry="18.0" fill="#14477D" transform="rotate(56 292.0 337.6)"/></g><g transform="translate(512,0) scale(-1,1)"><ellipse cx="352.6" cy="248.8" rx="69.0" ry="26.0" fill="#14477D" transform="rotate(-6 352.6 248.8)"/><ellipse cx="331.0" cy="310.2" rx="60.0" ry="23.0" fill="#14477D" transform="rotate(28 331.0 310.2)"/><ellipse cx="292.0" cy="337.6" rx="43.0" ry="18.0" fill="#14477D" transform="rotate(56 292.0 337.6)"/></g></svg>
+      <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; font-weight: 700; color: #14477D;">My Medicare Angel</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 34px; font-size: 18px; font-weight: 600;">
+      <div>Learn Medicare &#9662;</div>
+      <div style="color: #1E8A5A;">Compare &#9662;</div>
+      <div>Your Situation &#9662;</div>
+      <div>Resources &#9662;</div>
+      <div>Contact &#9662;</div>
+      <div style="background: #1E8A5A; color: #FFFFFF; padding: 14px 26px; border-radius: 8px;">Get a Free Quote</div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div style="background: #EDF3F9; border-bottom: 1px solid #DCE5EC; padding: 56px 72px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="font-size: 16px; font-weight: 600; color: #5B6B76;">Home &#8250; Compare Plans</div>
+    <h1 style="font-size: 46px; color: #16323E;">Original Medicare vs. Medicare Advantage: Which Is Right for You?</h1>
+    <div style="font-size: 20px; color: #44545F; max-width: 780px; line-height: 1.6;">The biggest decision most people face, side by side. Neither is better for everyone; this table shows you what actually differs.</div>
+  </div>
+
+  <!-- Comparison table -->
+  <div style="padding: 64px 72px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="background: #FFFFFF; border: 1px solid #DCE5EC; border-radius: 14px; overflow: hidden;">
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: #14477D;">
+        <div style="padding: 24px 32px; font-size: 19px; font-weight: 700; color: #C6D8EA;">What matters to you</div>
+        <div style="padding: 24px 32px; font-size: 21px; font-weight: 700; color: #FFFFFF; border-left: 1px solid #2A5C8F;">Original Medicare<br><span style="font-size: 16px; font-weight: 600; color: #C6D8EA;">+ Supplement + Part D</span></div>
+        <div style="padding: 24px 32px; font-size: 21px; font-weight: 700; color: #FFFFFF; border-left: 1px solid #2A5C8F;">Medicare Advantage<br><span style="font-size: 16px; font-weight: 600; color: #C6D8EA;">all-in-one plan</span></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">Choice of doctors</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">See any doctor in the country who accepts Medicare. No referrals needed.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Usually a network of doctors in your area; referrals may be required.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">Monthly cost</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Higher monthly premiums, but very predictable out-of-pocket costs.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Often low or $0 premium, but you pay as you go when you use care.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">Drug coverage</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Added separately through a Part D plan.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Usually built into the plan.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">Extras (dental, vision, hearing)</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Not included; bought separately if wanted.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Often included, varies by plan.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">Travel</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Coverage travels with you across the country.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">Best suited to care near home; emergencies covered anywhere.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #E7EDF2;">
+        <div style="padding: 22px 32px; font-size: 19px; font-weight: 700; color: #16323E; background: #F5F8FA;">A good fit if you&#8230;</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">want maximum freedom and predictable bills, and don&#8217;t mind a higher premium.</div>
+        <div style="padding: 22px 32px; font-size: 18px; line-height: 1.55; color: #33424D; border-left: 1px solid #E7EDF2;">want one simple plan, a low premium, and extras like dental included.</div>
+      </div>
+    </div>
+
+    <!-- Guidance strip -->
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; background: #FFFFFF; border: 1px solid #DCE5EC; border-radius: 14px; padding: 36px 40px;">
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" stroke="#14477D" stroke-width="1.8"/><path d="M3 20 C3 16 5.5 14 9 14 C12.5 14 15 16 15 20" stroke="#14477D" stroke-width="1.8" stroke-linecap="round"/><path d="M16 8.5 L18 10.5 L21.5 6.5" stroke="#C99532" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div style="font-size: 19px; line-height: 1.55; color: #33424D; max-width: 760px;"><span style="font-weight: 700; color: #16323E;">Your health, your doctors and your zip code change this picture.</span> A ten-minute call with a licensed agent turns this general table into your specific answer.</div>
+      </div>
+      <div style="background: #1E8A5A; color: #FFFFFF; font-size: 19px; font-weight: 700; padding: 18px 34px; border-radius: 10px; white-space: nowrap;">Get My Free Quote</div>
+    </div>
+  </div>
+
+  <!-- Footer (condensed) -->
+  <div style="background: #16323E; padding: 40px 72px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 700; color: #FFFFFF;">My Medicare Angel</div>
+      <div style="font-size: 16px; color: #C3D1DF;">(617) 560-0821 &#183; 56 Russell Street, Suite A, Waltham, MA 02453</div>
+    </div>
+    <div style="border-top: 1px solid #24405C; padding-top: 18px; font-size: 14px; line-height: 1.6; color: #7E93A8;">My Medicare Angel is a Kyzer Solutions company. We are a non-governmental agency, not affiliated with or endorsed by any government program. We do not offer every plan available in your area.</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 3150, "title": "Homepage — Desktop" },
+    { "file": "MedicareExplained.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 2500, "title": "Teaching Page Template" },
+    { "file": "ComparePlans.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 2100, "title": "Comparison Page" },
+    { "file": "GetQuote.dc.html", "x": 0, "y": 3320, "w": 1440, "h": 1800, "title": "Get a Quote" },
+    { "file": "MobileHome.dc.html", "x": 1560, "y": 3320, "w": 390, "h": 2400, "title": "Homepage — Mobile" }
+  ],
+  "annotations": [
+    { "id": "brand-note", "x": 0, "y": -170, "w": 420, "text": "Brand: My Medicare Angel (mymedicareangel.com), a Kyzer Solutions company. Contact details from kyzersolutions.com. Still placeholders: carrier logos, photos, and the client quote." }
+  ],
+  "launch": { "view": "canvas" }
+}

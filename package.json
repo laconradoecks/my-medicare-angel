@@ -1,0 +1,26 @@
+{
+  "name": "mymedicareangel",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "My Medicare Angel — independent Medicare insurance agency website",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/generate-sitemap.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "sitemap": "node scripts/generate-sitemap.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  }
+}

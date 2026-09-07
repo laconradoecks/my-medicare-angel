@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Per-machine Claude Code permissions; launch.json is shared, this is not.
+.claude/settings.local.json
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.log
+npm-debug.log*
+.vercel
+.netlify
