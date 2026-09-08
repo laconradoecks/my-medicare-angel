@@ -14,6 +14,7 @@ export default function Footer() {
             <span className="footbrand">{site.name}</span>
           </div>
           <p className="footdesc">{site.blurb}</p>
+          <p className="footdesc">{site.blurbMore}</p>
         </div>
 
         <div className="footcols">

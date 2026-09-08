@@ -70,7 +70,6 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
       { label: 'Veterans', to: paths.veterans },
-      { label: 'Articles', to: paths.blog },
       { label: 'FAQs', to: paths.faqs },
     ],
   },
@@ -88,6 +87,7 @@ export const footerColumns: FooterColumn[] = [
     heading: 'Company',
     links: [
       { label: 'Our Insurance Partners', to: paths.partners },
+      { label: 'Articles', to: paths.blog },
       { label: 'Privacy Policy', to: paths.privacy },
       { label: 'Terms of Use', to: paths.terms },
       { label: 'Medicare Disclaimers', to: paths.disclaimers },

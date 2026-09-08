@@ -607,8 +607,10 @@ footer.site {
   gap: 40px;
   flex-wrap: wrap;
 }
+/* Wider than the reference's 300px: the blurb runs to two paragraphs here, and
+   the extra width keeps the block level with the link columns. */
 .brandblock {
-  max-width: 300px;
+  max-width: 360px;
 }
 .brandrow {
   display: flex;
@@ -627,6 +629,9 @@ footer.site {
   line-height: 1.65;
   color: #9fb0c2;
   margin: 0;
+}
+.footdesc + .footdesc {
+  margin-top: 12px;
 }
 .footcols {
   display: flex;

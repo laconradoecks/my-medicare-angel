@@ -13,9 +13,15 @@ export const site = {
   tagline: 'Medicare, made clear',
   description:
     'Independent Medicare insurance agency. Licensed agents explain Medicare Advantage, Supplements and Part D in plain English and help you enroll, at no cost to you.',
-  /** Footer brand block. Full wording, per designs/footer-reference.html. */
+  /**
+   * Footer brand block, in two paragraphs. Every claim here already appears on
+   * the site (the homepage "Independent Medicare help" section and the How it
+   * works steps) — nothing about the agency's history or scale is invented.
+   */
   blurb:
     'An independent Medicare insurance agency. We explain your options in plain English, compare plans across carriers, and help you enroll with confidence, at no cost to you.',
+  blurbMore:
+    'Whether you are turning 65, leaving employer coverage, or reviewing your plan at Annual Enrollment, a licensed agent compares your options and stays your point of contact for as long as you keep the plan.',
 
   phone: {
     display: '(617) 560-0821',
