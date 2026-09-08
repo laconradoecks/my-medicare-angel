@@ -3,29 +3,17 @@ import { footerColumns, legalLinks } from '@/data/nav';
 import { site } from '@/config/site';
 import { LogoMark } from './Icons';
 
+/** Layout follows designs/footer-reference.html. */
 export default function Footer() {
   return (
     <footer className="site">
       <div className="wrap foot">
-        <div className="foot-brand-col">
-          <div className="foot-brandrow">
+        <div className="brandblock">
+          <div className="brandrow">
             <LogoMark size={34} tone="light" />
             <span className="footbrand">{site.name}</span>
           </div>
-
-          <p className="footmeta">{site.blurb}</p>
-
-          <address className="foot-contact">
-            <a className="phone" href={site.phone.href}>
-              {site.phone.display}
-            </a>
-            <span>{site.hours}</span>
-            <span>
-              {site.address.street}
-              <br />
-              {site.address.city}, {site.address.state} {site.address.zip}
-            </span>
-          </address>
+          <p className="footdesc">{site.blurb}</p>
         </div>
 
         <div className="footcols">
@@ -37,30 +25,38 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
-              {col.cta && (
-                <Link className="btn btn-amber foot-cta" to={col.cta.to}>
-                  {col.cta.label}
-                </Link>
-              )}
             </div>
           ))}
-        </div>
-      </div>
-      <div className="wrap legal">
-        <div className="legal-bar">
-          <div className="legal-copy">
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+
+          <div className="footcol">
+            <span className="h">Visit or call</span>
+            <address>
+              {site.address.street}
+              <br />
+              {site.address.city}, {site.address.state} {site.address.zip}
+            </address>
+            <span>{site.hours}</span>
+            {/* A link rather than the reference's plain text, so it is tappable
+                on a phone. Styled to match the surrounding text. */}
+            <a href={site.phone.href}>{site.phone.display}</a>
           </div>
-          <nav className="legal-links" aria-label="Legal">
-            {legalLinks.map((link) => (
-              <Link key={link.to} to={link.to}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
         </div>
-        <p className="legal-disclaimer">{site.disclaimer}</p>
       </div>
+
+      <div className="wrap legalrow">
+        <span>
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </span>
+        <span>
+          {legalLinks.map((link) => (
+            <Link key={link.to} to={link.to}>
+              {link.label}
+            </Link>
+          ))}
+        </span>
+      </div>
+
+      <div className="wrap legal">{site.disclaimer}</div>
     </footer>
   );
 }

@@ -52,56 +52,50 @@ export const navGroups: NavGroup[] = [
 ];
 
 /**
- * Footer link columns.
- *
- * Grouped to mirror the header nav rather than by page order: Articles and FAQs
- * sit with the other resources instead of padding out Learn, and the three
- * conversion links get their own column so they are not buried. The address,
- * hours and phone moved up into the brand block, which was otherwise empty.
+ * Footer link columns. The "Visit or call" column is rendered separately in
+ * Footer.tsx because it holds contact details rather than links.
  */
 export type FooterColumn = {
   heading: string;
   links: { label: string; to: string }[];
-  /** Rendered as a button at the foot of the column. */
-  cta?: { label: string; to: string };
 };
 
+/** Columns per designs/footer-reference.html. */
 export const footerColumns: FooterColumn[] = [
   {
     heading: 'Learn',
     links: [
       { label: 'Medicare Explained', to: paths.learn },
       { label: 'Compare Plans', to: paths.compare },
-      { label: 'Our Insurance Partners', to: paths.partners },
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
       { label: 'Veterans', to: paths.veterans },
-    ],
-  },
-  {
-    heading: 'Resources',
-    links: [
       { label: 'Articles', to: paths.blog },
       { label: 'FAQs', to: paths.faqs },
-      { label: 'Events & Seminars', to: paths.events },
-      { label: 'Refer a Friend', to: paths.refer },
     ],
   },
   {
-    heading: 'Get in touch',
+    heading: 'Connect',
     links: [
+      { label: 'Get a Quote', to: paths.quote },
       { label: 'Book an Appointment', to: paths.book },
+      { label: 'Events & Seminars', to: paths.events },
+      { label: 'Refer a Friend', to: paths.refer },
       { label: 'Contact Us', to: paths.contact },
     ],
-    cta: { label: 'Get My Free Quote', to: paths.quote },
+  },
+  {
+    heading: 'Company',
+    links: [
+      { label: 'Our Insurance Partners', to: paths.partners },
+      { label: 'Privacy Policy', to: paths.privacy },
+      { label: 'Terms of Use', to: paths.terms },
+      { label: 'Medicare Disclaimers', to: paths.disclaimers },
+    ],
   },
 ];
 
-/**
- * Legal pages live in the bottom bar rather than a "Company" column — they are
- * compliance links, not navigation, and pulling them out lets the footer sit on
- * a single row alongside the contact block.
- */
+/** Repeated in the bottom bar, as the reference does. */
 export const legalLinks = [
   { label: 'Privacy Policy', to: paths.privacy },
   { label: 'Terms of Use', to: paths.terms },

@@ -13,10 +13,9 @@ export const site = {
   tagline: 'Medicare, made clear',
   description:
     'Independent Medicare insurance agency. Licensed agents explain Medicare Advantage, Supplements and Part D in plain English and help you enroll, at no cost to you.',
-  /** Footer only. The condensed wording from the MobileHome artboard — the long
-      version made the footer's brand block twice the height of the link columns. */
+  /** Footer brand block. Full wording, per designs/footer-reference.html. */
   blurb:
-    'An independent Medicare insurance agency. Plain-English guidance, plans compared across carriers, no cost to you.',
+    'An independent Medicare insurance agency. We explain your options in plain English, compare plans across carriers, and help you enroll with confidence, at no cost to you.',
 
   phone: {
     display: '(617) 560-0821',
