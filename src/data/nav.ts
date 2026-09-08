@@ -51,7 +51,14 @@ export const navGroups: NavGroup[] = [
   },
 ];
 
-/** Footer link columns. */
+/**
+ * Footer link columns.
+ *
+ * Grouped to mirror the header nav rather than by page order: Articles and FAQs
+ * sit with the other resources instead of padding out Learn, and the three
+ * conversion links get their own column so they are not buried. The address,
+ * hours and phone moved up into the brand block, which was otherwise empty.
+ */
 export const footerColumns = [
   {
     heading: 'Learn',
@@ -61,17 +68,22 @@ export const footerColumns = [
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
       { label: 'Veterans', to: paths.veterans },
-      { label: 'Articles', to: paths.blog },
-      { label: 'FAQs', to: paths.faqs },
     ],
   },
   {
-    heading: 'Connect',
+    heading: 'Resources',
     links: [
-      { label: 'Get a Quote', to: paths.quote },
-      { label: 'Book an Appointment', to: paths.book },
+      { label: 'Articles', to: paths.blog },
+      { label: 'FAQs', to: paths.faqs },
       { label: 'Events & Seminars', to: paths.events },
       { label: 'Refer a Friend', to: paths.refer },
+    ],
+  },
+  {
+    heading: 'Get in touch',
+    links: [
+      { label: 'Get a Free Quote', to: paths.quote },
+      { label: 'Book an Appointment', to: paths.book },
       { label: 'Contact Us', to: paths.contact },
     ],
   },
