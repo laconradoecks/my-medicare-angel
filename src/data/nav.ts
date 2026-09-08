@@ -59,7 +59,14 @@ export const navGroups: NavGroup[] = [
  * conversion links get their own column so they are not buried. The address,
  * hours and phone moved up into the brand block, which was otherwise empty.
  */
-export const footerColumns = [
+export type FooterColumn = {
+  heading: string;
+  links: { label: string; to: string }[];
+  /** Rendered as a button at the foot of the column. */
+  cta?: { label: string; to: string };
+};
+
+export const footerColumns: FooterColumn[] = [
   {
     heading: 'Learn',
     links: [
@@ -82,10 +89,10 @@ export const footerColumns = [
   {
     heading: 'Get in touch',
     links: [
-      { label: 'Get a Free Quote', to: paths.quote },
       { label: 'Book an Appointment', to: paths.book },
       { label: 'Contact Us', to: paths.contact },
     ],
+    cta: { label: 'Get My Free Quote', to: paths.quote },
   },
   {
     heading: 'Company',

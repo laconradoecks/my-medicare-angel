@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { footerColumns } from '@/data/nav';
 import { site } from '@/config/site';
-import { paths } from '@/routes';
 import { LogoMark } from './Icons';
 
 export default function Footer() {
@@ -27,10 +26,6 @@ export default function Footer() {
               {site.address.city}, {site.address.state} {site.address.zip}
             </span>
           </address>
-
-          <Link className="btn btn-amber foot-cta" to={paths.quote}>
-            Get My Free Quote
-          </Link>
         </div>
 
         <div className="footcols">
@@ -42,6 +37,11 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              {col.cta && (
+                <Link className="btn btn-amber foot-cta" to={col.cta.to}>
+                  {col.cta.label}
+                </Link>
+              )}
             </div>
           ))}
         </div>

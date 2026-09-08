@@ -43,7 +43,7 @@ export default function Header() {
     <header className="site">
       <div className="nav" ref={navRef}>
         <Link className="brand" to={paths.home} aria-label={`${site.name} — home`}>
-          <LogoMark />
+          <LogoMark size={42} />
           <span className="brand-name">{site.name}</span>
         </Link>
 
