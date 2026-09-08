@@ -17,3 +17,6 @@ dist-ssr
 npm-debug.log*
 .vercel
 .netlify
+
+# Deploy credentials for scripts/deploy-namecheap.sh
+.env.deploy

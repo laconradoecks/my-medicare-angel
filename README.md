@@ -173,7 +173,75 @@ directory, SPA rewrite and cache headers.
 
 **Vercel** — [`vercel.json`](vercel.json) does the same.
 
+**Namecheap / cPanel shared hosting** — see below.
+
 **Anywhere else** — serve `dist/` and add a catch-all rewrite to `/index.html`.
+
+### Namecheap (cPanel shared hosting)
+
+cPanel runs Apache, so it ignores `netlify.toml`, `vercel.json` and
+`public/_redirects`. It reads [`public/.htaccess`](public/.htaccess) instead, which
+ships in every build and provides the SPA rewrite, compression, cache headers and
+the security headers. **Without it every URL except `/` returns a 404** — that file
+is the whole reason deep links work on this host.
+
+There is no Node build step on the server. Build locally, upload `dist/`.
+
+**Option A — SSH (Namecheap Stellar Plus and above):**
+
+```bash
+cp .env.deploy.example .env.deploy
+```
+
+Fill in your cPanel host and username, then dry-run first — it prints exactly what
+would change and uploads nothing:
+
+```bash
+./scripts/deploy-namecheap.sh
+```
+
+```bash
+./scripts/deploy-namecheap.sh --run
+```
+
+The script skips `.well-known` (AutoSSL's validation path) and `cgi-bin`, and does
+**not** delete anything on the server unless you add `--prune`. `.env.deploy` is
+gitignored; authentication is your SSH key, so no password is stored anywhere.
+
+Note that Namecheap shared hosting listens on **port 21098**, not 22 — already the
+script's default.
+
+**Option B — cPanel File Manager, no SSH:**
+
+1. `npm run build`
+2. Zip the *contents* of `dist/` (not the folder itself)
+3. File Manager → `public_html` → Upload → Extract
+4. Confirm `.htaccess` is present afterwards — turn on **Settings → Show Hidden
+   Files** to see it. If it did not survive the zip, upload it separately; nothing
+   but the homepage will work without it.
+
+**After the first upload:**
+
+- Wait for cPanel to show AutoSSL as active, then uncomment the two HTTPS-redirect
+  lines at the top of `.htaccess` and re-upload. Enabling it before the certificate
+  exists makes the site unreachable behind a certificate warning.
+- Set `site.url` and `public/robots.txt` to the live address (see below).
+
+**Deploying to a subfolder** (e.g. `yourdomain.com/preview/`) needs two changes,
+because the app currently assumes it is served from the domain root:
+
+```ts
+// vite.config.ts
+export default defineConfig({ base: '/preview/', /* ... */ });
+```
+
+```tsx
+// src/main.tsx
+<BrowserRouter basename="/preview">
+```
+
+A cPanel **subdomain** (`preview.yourdomain.com`) avoids both edits and is the
+cleaner way to host a client preview — point `DEPLOY_PATH` at its document root.
 
 ### Deploying from git
 
