@@ -35,11 +35,7 @@ export default function Events() {
                   disabled={isSaved}
                   onClick={() => setSaved((s) => [...s, event.id])}
                 >
-                  {isSaved
-                    ? isDemoForms
-                      ? 'Seat saved (demo)'
-                      : 'Seat saved'
-                    : 'Save My Seat'}
+                  {isSaved ? (isDemoForms ? 'Seat saved (preview)' : 'Seat saved') : 'Save My Seat'}
                 </button>
               </article>
             );

@@ -191,12 +191,9 @@ export function ThankYou({
       <SuccessIcon />
       <h2>{heading}</h2>
       {children}
-      {isDemoForms && (
-        <p className="note">
-          (Form delivery is not configured yet, so nothing was actually sent. Set
-          VITE_FORM_ENDPOINT to go live.)
-        </p>
-      )}
+      {/* Wording from the designs — this is read by clients reviewing the
+          preview, not by developers. */}
+      {isDemoForms && <p className="note">(This is a preview; nothing was actually sent.)</p>}
       <Link className="btn btn-teal" to={paths.home}>
         Back to homepage
       </Link>
