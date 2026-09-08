@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { footerColumns } from '@/data/nav';
+import { footerColumns, legalLinks } from '@/data/nav';
 import { site } from '@/config/site';
 import { LogoMark } from './Icons';
 
@@ -46,7 +46,21 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="wrap legal">{site.disclaimer}</div>
+      <div className="wrap legal">
+        <div className="legal-bar">
+          <div className="legal-copy">
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </div>
+          <nav className="legal-links" aria-label="Legal">
+            {legalLinks.map((link) => (
+              <Link key={link.to} to={link.to}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <p className="legal-disclaimer">{site.disclaimer}</p>
+      </div>
     </footer>
   );
 }

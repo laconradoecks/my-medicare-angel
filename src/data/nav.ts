@@ -72,6 +72,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'Medicare Explained', to: paths.learn },
       { label: 'Compare Plans', to: paths.compare },
+      { label: 'Our Insurance Partners', to: paths.partners },
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
       { label: 'Veterans', to: paths.veterans },
@@ -94,15 +95,17 @@ export const footerColumns: FooterColumn[] = [
     ],
     cta: { label: 'Get My Free Quote', to: paths.quote },
   },
-  {
-    heading: 'Company',
-    links: [
-      { label: 'Our Insurance Partners', to: paths.partners },
-      { label: 'Privacy Policy', to: paths.privacy },
-      { label: 'Terms of Use', to: paths.terms },
-      { label: 'Medicare Disclaimers', to: paths.disclaimers },
-    ],
-  },
+];
+
+/**
+ * Legal pages live in the bottom bar rather than a "Company" column — they are
+ * compliance links, not navigation, and pulling them out lets the footer sit on
+ * a single row alongside the contact block.
+ */
+export const legalLinks = [
+  { label: 'Privacy Policy', to: paths.privacy },
+  { label: 'Terms of Use', to: paths.terms },
+  { label: 'Medicare Disclaimers', to: paths.disclaimers },
 ];
 
 /** The "In this section" sidebar shared across the Learn pages. */
