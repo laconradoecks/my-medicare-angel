@@ -377,7 +377,7 @@ find them.
 
 - [x] ~~Logo~~ — the angel mark from the pack is wired into the header, favicons,
       app icons and manifest.
-- [ ] **Hero photograph** — `src/pages/Home.tsx`
+- [x] ~~Hero photograph~~ — placed with the rest of the photography (see Photography).
 - [ ] **Carrier logos and descriptions** — `src/data/carriers.ts`. The count also
       feeds the "[X] organizations / [Y] products" line on the disclaimers page,
       which must reflect actual contracts.
@@ -388,10 +388,10 @@ find them.
 - [ ] **Five unwritten articles** — `src/data/articles.ts`. They render a clearly
       marked draft state and are `noindex` until `body` is filled in.
 - [ ] **Privacy policy and terms** — `src/pages/legal/LegalPages.tsx`
-- [ ] **Office map embed** — `src/pages/forms/Contact.tsx`
+- [x] ~~Office map placeholder~~ — replaced by the office photo on the contact page. Add
+      an embedded map later if one is wanted.
 - [ ] **Form endpoint** — see above
-- [ ] **Social card** — rasterise `public/logo/og-card.svg` and add the `og:image`
-      tag (see Brand assets)
+- [x] ~~Social card~~ — `public/logo/og-card.jpg`, set as `og:image` on every page.
 
 ### Compliance note
 
