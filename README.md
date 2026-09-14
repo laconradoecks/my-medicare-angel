@@ -27,10 +27,12 @@ Then open http://localhost:5173.
 | Script | What it does |
 | --- | --- |
 | `npm run dev` | Dev server with hot reload |
-| `npm run build` | Typecheck, production build to `dist/`, then write `sitemap.xml` |
+| `npm run build` | Typecheck, production build to `dist/`, write `sitemap.xml`, then prerender every page |
 | `npm run preview` | Serve the production build locally |
 | `npm run typecheck` | TypeScript only, no build |
 | `npm run sitemap` | Regenerate `dist/sitemap.xml` |
+| `npm run prerender` | Prerender `dist/` again without rebuilding |
+| `npm run og-image` | Re-export the social card PNG from its SVG |
 
 ---
 
@@ -122,15 +124,8 @@ The header pairs the small cut with the text wordmark at 32px, matching the desi
 (the navy app icon), a 32px PNG fallback, an Apple touch icon, and
 [`site.webmanifest`](public/site.webmanifest) for add-to-homescreen.
 
-**Social card.** [`public/logo/og-card.svg`](public/logo/og-card.svg) is a
-1200×630 card built from the new mark, but no `og:image` tag is set yet — Facebook,
-LinkedIn and iMessage will not render an SVG, and the pack's PNGs have transparent
-backgrounds, which those clients composite unpredictably. Rasterise it once and add
-the tag:
-
-```bash
-npx svgexport public/logo/og-card.svg public/og-image.png 1200:630
-```
+**Social card.** `og:image` uses [`public/logo/og-card.png`](public/logo/og-card.png), a
+1200x630 export of `og-card.svg`. See Prerendering below for how to regenerate it.
 
 ---
 
@@ -176,6 +171,36 @@ directory, SPA rewrite and cache headers.
 **Namecheap / cPanel shared hosting** — see below.
 
 **Anywhere else** — serve `dist/` and add a catch-all rewrite to `/index.html`.
+
+### Prerendering
+
+`npm run build` finishes by prerendering every URL in the sitemap
+([`scripts/prerender.mjs`](scripts/prerender.mjs)). Each route is loaded in headless
+Chromium and saved as `dist/<route>/index.html`, so crawlers and link previews get that
+page's own title, description, content and structured data instead of the empty app
+shell. The app still loads on top and handles navigation exactly as before.
+
+**This needs a machine that can run Chromium.** Puppeteer downloads it during
+`npm install`. If it cannot start (some shared hosts cannot run it), the build stops
+with a message rather than shipping unprerendered pages.
+
+On Apache and LiteSpeed, [`public/.htaccess`](public/.htaccess) serves `/areas-we-serve`
+from `areas-we-serve/index.html` and turns off the automatic trailing-slash redirect, so
+clean URLs return 200 rather than a 301. After a deploy, confirm one deep link:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://www.mymedicareangel.com/areas-we-serve
+```
+
+```bash
+curl -s https://www.mymedicareangel.com/areas-we-serve | grep '<title>'
+```
+
+The first should print `200` and the second the Areas We Serve title, not the homepage's.
+
+**Social card.** `og:image` points at `public/logo/og-card.png`, a 1200x630 PNG exported
+from `og-card.svg` (platforms ignore SVG previews). After editing the SVG, run
+`npm run og-image` and commit the PNG.
 
 ### Namecheap (cPanel shared hosting)
 

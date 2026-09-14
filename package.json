@@ -6,10 +6,12 @@
   "description": "My Medicare Angel — independent Medicare insurance agency website",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/generate-sitemap.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/generate-sitemap.mjs && node scripts/prerender.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "sitemap": "node scripts/generate-sitemap.mjs"
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "prerender": "node scripts/prerender.mjs",
+    "og-image": "node scripts/export-og-image.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -20,6 +22,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.2",
+    "puppeteer": "^25.11.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.9"
   }

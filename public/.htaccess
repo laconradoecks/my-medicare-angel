@@ -9,6 +9,16 @@
 # ---------------------------------------------------------------------------
 # SPA routing — without this, every URL except "/" returns 404 on Apache.
 # ---------------------------------------------------------------------------
+
+# Prerendered pages live in folders (/areas-we-serve/index.html). By default the
+# server answers /areas-we-serve with a 301 to /areas-we-serve/ before the rewrite
+# rules below run, so every clean URL would redirect. Turning that off lets the
+# prerender rule serve the page at the clean URL directly. Directory listings stay
+# disabled by "Options -Indexes" further down.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -21,17 +31,21 @@
   # RewriteCond %{HTTPS} !=on
   # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Never rewrite a request that maps to a real file or directory. This is what
-  # keeps /assets/*, /logo/*, sitemap.xml and robots.txt served directly.
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule ^ - [L]
-
   # Leave AutoSSL's validation path alone.
   RewriteRule ^\.well-known/ - [L]
 
-  # Everything else is a React Router path: hand it index.html and let the app
-  # resolve it (including its own 404 page).
+  # Prerendered pages. The build writes /areas-we-serve as
+  # /areas-we-serve/index.html; serve that file directly for the clean URL,
+  # rather than letting the server redirect to a trailing-slash address first.
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+  # Real files (/assets/*, /logo/*, sitemap.xml, robots.txt) are served as-is.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Anything else goes to the app, which resolves it (including its own 404
+  # page). A safety net: every known route is prerendered above.
   RewriteRule ^ index.html [L]
 </IfModule>
 

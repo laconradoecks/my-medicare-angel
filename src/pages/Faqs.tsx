@@ -7,9 +7,12 @@ import { paths } from '@/routes';
 export default function Faqs() {
   const [open, setOpen] = useState<number | null>(null);
 
-  // FAQPage structured data, built from the same list the page renders.
+  // FAQPage structured data, built from the same list the page renders. The
+  // prerendered HTML already carries a copy, so replace it rather than add a second.
   useEffect(() => {
+    document.getElementById('faq-jsonld')?.remove();
     const script = document.createElement('script');
+    script.id = 'faq-jsonld';
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
