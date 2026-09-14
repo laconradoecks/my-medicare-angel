@@ -53,10 +53,6 @@ export const site = {
    * forms run in demo mode: they validate and show the success state without
    * sending anything, exactly like the prototype.
    */
-  /** Short non-government notice shown above the header on every page. */
-  govNotice:
-    'My Medicare Angel is a non-governmental agency, not affiliated with or endorsed by any government agency.',
-
   formEndpoint: import.meta.env.VITE_FORM_ENDPOINT ?? '',
 } as const;
 
