@@ -12,8 +12,8 @@ export default function Veterans() {
   return (
     <>
       <Seo
-        title="Medicare for Veterans: VA Benefits, TRICARE For Life and Medicare"
-        description="VA care, TRICARE For Life and Medicare fit together in specific ways, and getting the order right can save you real money."
+        title="Medicare for Veterans: VA, TRICARE For Life and Medicare"
+        description="How VA health care, TRICARE For Life and Medicare fit together, explained for New England veterans by agents who work with veterans weekly."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Veterans' }]}

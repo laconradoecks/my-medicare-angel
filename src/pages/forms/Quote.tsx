@@ -35,7 +35,7 @@ const helpOptions = [
 
 const enrollmentOptions = [
   { value: 'Initial Enrollment', hint: 'Turning 65 or new to Medicare' },
-  { value: 'Annual Enrollment', hint: 'Changing plans, October 15 – December 7' },
+  { value: 'Annual Enrollment', hint: 'Changing plans, October 15 to December 7' },
   { value: 'Special Enrollment', hint: 'A life change, like losing coverage or moving' },
   { value: 'Not sure', hint: 'We will work it out with you' },
 ];
@@ -68,15 +68,15 @@ export default function Quote() {
   return (
     <>
       <Seo
-        title="Get Free Medicare Help"
-        description="Tell us your name, your phone number and what you need help with, and a licensed Medicare agent will call you back. Free, with no obligation."
+        title="Get Free Medicare Help in Greater Boston and New England"
+        description="Tell us your name, phone number and what you need help with. A licensed Medicare agent serving New England and New York will call you back, free."
       />
       <div className="wrap quote-layout">
         <div className="reassure">
           <h1>Get Free Medicare Help</h1>
           <p>
             Share your name, the best number to reach you and what you need help with. A licensed
-            agent will call you back — at no cost to you, now or ever.
+            agent will call you back, at no cost to you, now or ever.
           </p>
           <Point>
             <CheckCircleIcon />

@@ -12,10 +12,7 @@ export const site = {
   url: 'https://www.mymedicareangel.com',
   tagline: 'Medicare, made clear',
   description:
-    'Independent Medicare insurance agency serving Greater Boston, Massachusetts, New England and New York. Licensed agents explain Medicare Advantage, Supplements and Part D in plain English and help you enroll, at no cost to you.',
-  /** Client service area: Greater Boston, the rest of Massachusetts, New England and New York. */
-  serviceArea:
-    'Greater Boston and communities across Massachusetts, Maine, New Hampshire, Rhode Island, Connecticut and New York',
+    'Independent Medicare agency serving Greater Boston, Massachusetts and all of New England plus New York. Licensed agents explain your options in plain English and help you enroll, free.',
   /**
    * Footer brand block, in two paragraphs. Every claim here already appears on
    * the site (the homepage "Independent Medicare help" section and the How it
@@ -24,7 +21,7 @@ export const site = {
   blurb:
     'An independent Medicare insurance agency. We explain your options in plain English, compare plans across carriers, and help you enroll with confidence, at no cost to you.',
   blurbMore:
-    'From Greater Boston across New England and New York — whether you are turning 65, leaving employer coverage or reviewing your plan at Annual Enrollment, a licensed agent compares your options and stays your point of contact.',
+    'From Greater Boston across New England and New York, whether you are turning 65, leaving employer coverage or reviewing your plan at Annual Enrollment, a licensed agent compares your options and stays your point of contact.',
 
   phone: {
     display: '(617) 560-0821',

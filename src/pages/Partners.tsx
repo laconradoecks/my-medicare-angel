@@ -8,7 +8,7 @@ export default function Partners() {
     <>
       <Seo
         title="The Insurance Carriers We Work With"
-        description="We are independent, which means we compare plans across multiple carriers and recommend what fits you, not what fits a quota."
+        description="The Medicare carriers My Medicare Angel represents across Massachusetts, New England and New York, and what being independent means for you."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Our Insurance Partners' }]}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { CtaBand, Testimonial } from '@/components/Blocks';
+import { CtaBand, ImageSlot, Testimonial } from '@/components/Blocks';
 import { CardIcon, ClockIcon, ShieldIcon, TickIcon } from '@/components/Icons';
 import { homepageCarriers } from '@/data/carriers';
 import { paths } from '@/routes';
@@ -48,7 +48,10 @@ const steps = [
 export default function Home() {
   return (
     <>
-      <Seo title={`${site.name} — Medicare Made Clear`} description={site.description} />
+      <Seo
+        title="Medicare Help in Greater Boston and New England"
+        description={site.description}
+      />
 
       {/* Hero */}
       <div className="wrap">
@@ -131,7 +134,7 @@ export default function Home() {
             Advantage plans, Medicare Supplement (Medigap) plans and Part D prescription drug
             coverage, whether you are turning 65, retiring and leaving employer coverage, or
             reviewing your options during the Annual Enrollment Period. Because we are independent,
-            our advice starts with your situation, not with any one carrier’s products. We serve {site.serviceArea}.
+            our advice starts with your situation, not with any one carrier’s products.
           </p>
           <div className="cards4">
             <Link className="card-link" to={paths.book}>
@@ -156,6 +159,28 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      {/* Service area */}
+      <section className="wrap sect">
+        <h2>Serving Greater Boston and all of New England</h2>
+        <p style={{ maxWidth: 860, fontSize: 19, margin: '0 0 16px' }}>
+          From our office in Waltham, Massachusetts, we help people across Greater Boston and the
+          surrounding communities, and throughout New England: Massachusetts, Maine, New Hampshire,
+          Rhode Island and Connecticut, as well as New York. Medicare plan choices change from
+          county to county, so advice that starts with your zip code matters. Wherever you are in
+          the region, a licensed agent reviews the plans actually available where you live, by phone
+          or in person.
+        </p>
+        <p style={{ fontSize: 19, margin: '0 0 36px' }}>
+          <Link to={paths.areas}>
+            <strong>See the areas we serve</strong>
+          </Link>
+        </p>
+        <ImageSlot
+          description="warm photo or illustrated map of New England"
+          alt="Map of the New England states and New York served by My Medicare Angel"
+        />
+      </section>
 
       {/* Carriers */}
       <section className="wrap" style={{ padding: '44px 24px' }}>

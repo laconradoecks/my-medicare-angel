@@ -10,6 +10,11 @@ import Supplements from '@/pages/learn/Supplements';
 import PartD from '@/pages/learn/PartD';
 import MedicareVsMedicaid from '@/pages/learn/MedicareVsMedicaid';
 import Enrollment from '@/pages/learn/Enrollment';
+import HmoPlans from '@/pages/learn/advantage/HmoPlans';
+import PpoPlans from '@/pages/learn/advantage/PpoPlans';
+import PffsPlans from '@/pages/learn/advantage/PffsPlans';
+import MsaPlans from '@/pages/learn/advantage/MsaPlans';
+import SpecialNeedsPlans from '@/pages/learn/advantage/SpecialNeedsPlans';
 import Compare from '@/pages/compare/Compare';
 import CompareAdvantage from '@/pages/compare/CompareAdvantage';
 import CompareSupplements from '@/pages/compare/CompareSupplements';
@@ -17,6 +22,7 @@ import Partners from '@/pages/Partners';
 import Turning65 from '@/pages/situation/Turning65';
 import EmployerCoverage from '@/pages/situation/EmployerCoverage';
 import Veterans from '@/pages/situation/Veterans';
+import AreasWeServe from '@/pages/situation/AreasWeServe';
 import Faqs from '@/pages/Faqs';
 import Articles from '@/pages/Articles';
 import Article from '@/pages/Article';
@@ -42,6 +48,11 @@ export default function App() {
         <Route path={paths.learnPartD} element={<PartD />} />
         <Route path={paths.learnMedicaid} element={<MedicareVsMedicaid />} />
         <Route path={paths.enrollment} element={<Enrollment />} />
+        <Route path={paths.maHmo} element={<HmoPlans />} />
+        <Route path={paths.maPpo} element={<PpoPlans />} />
+        <Route path={paths.maPffs} element={<PffsPlans />} />
+        <Route path={paths.maMsa} element={<MsaPlans />} />
+        <Route path={paths.maSnp} element={<SpecialNeedsPlans />} />
 
         {/* Compare */}
         <Route path={paths.compare} element={<Compare />} />
@@ -53,6 +64,7 @@ export default function App() {
         <Route path={paths.turning65} element={<Turning65 />} />
         <Route path={paths.employer} element={<EmployerCoverage />} />
         <Route path={paths.veterans} element={<Veterans />} />
+        <Route path={paths.areas} element={<AreasWeServe />} />
 
         {/* Resources */}
         <Route path={paths.blog} element={<Articles />} />

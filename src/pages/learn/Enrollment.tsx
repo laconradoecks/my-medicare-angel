@@ -15,8 +15,8 @@ export default function Enrollment() {
   return (
     <>
       <Seo
-        title="Medicare Enrollment Periods: Initial, Annual and Special"
-        description="When you can sign up for Medicare or change your plan: the Initial Enrollment Period, Annual Enrollment and Special Enrollment Periods, explained plainly."
+        title="Medicare Enrollment Periods: Initial, Annual, Special and Open"
+        description="Every Medicare enrollment window explained: Initial, Annual (October 15 to December 7), Open (January 1 to March 31) and Special Enrollment Periods."
       />
       <TitleBand
         crumbs={[
@@ -24,7 +24,7 @@ export default function Enrollment() {
           { label: 'Medicare Explained', to: paths.learn },
           { label: 'Medicare Enrollment' },
         ]}
-        title="Medicare Enrollment Periods: Initial, Annual and Special"
+        title="Medicare Enrollment Periods: Initial, Annual, Special and Open"
         lede="You can only join or change Medicare coverage at certain times. Here is when each enrollment period happens, who it is for, and what you can do during it."
       />
       <ArticleLayout
@@ -56,6 +56,11 @@ export default function Enrollment() {
               term: 'Annual',
               termWidth: 96,
               def: 'October 15 to December 7 every year, for changing your coverage.',
+            },
+            {
+              term: 'Open',
+              termWidth: 96,
+              def: 'January 1 to March 31, for people already on a Medicare Advantage plan.',
             },
             {
               term: 'Special',
@@ -91,11 +96,19 @@ export default function Enrollment() {
           join, switch or drop a Part D drug plan.
         </p>
         <p>
-          Two more windows fall early in the year. From January 1 to March 31, people already in a
-          Medicare Advantage plan can make one change: switch to another Advantage plan, or return to
-          Original Medicare and add a drug plan. The same dates are also the General Enrollment
-          Period, for signing up for Part A or Part B if you missed your Initial Enrollment Period;
-          late enrollment penalties may apply.
+          From January 1 to March 31 each year there is also a General Enrollment Period, for
+          signing up for Part A or Part B if you missed your Initial Enrollment Period; late
+          enrollment penalties may apply.
+        </p>
+
+        <h2 id="open">Medicare Advantage Open Enrollment Period</h2>
+        <p>
+          If you are already in a Medicare Advantage plan and January arrives with regrets, you get
+          one more chance. From January 1 to March 31 each year, you can switch to a different
+          Medicare Advantage plan, or drop Medicare Advantage and return to Original Medicare with a
+          Part D drug plan. You can make one change during this window, and it is only for people
+          who already have a Medicare Advantage plan. Few people know this period exists, which is
+          exactly why it is worth a call if your new plan is not what you expected.
         </p>
 
         <h2 id="special">Special Enrollment Periods</h2>

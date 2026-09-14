@@ -14,8 +14,8 @@ export default function Supplements() {
   return (
     <>
       <Seo
-        title="Medicare Supplement (Medigap) Plans, Explained Simply"
-        description="Add-on insurance that pays the share of medical bills Original Medicare leaves to you, in exchange for a predictable monthly premium."
+        title="Medicare Supplement (Medigap) Plans in New England"
+        description="How Medigap plans work, why Plan G and Plan N are the popular choices, and how to compare Supplement prices across insurers in New England."
       />
       <TitleBand
         crumbs={[

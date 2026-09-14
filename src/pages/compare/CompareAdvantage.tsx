@@ -33,7 +33,7 @@ export default function CompareAdvantage() {
     <>
       <Seo
         title="Comparing Medicare Advantage Plans: HMO vs. PPO vs. SNP"
-        description="Once you have chosen the Advantage path, the plan types differ in freedom, cost and who they are built for."
+        description="HMO, PPO and Special Needs Plans compared for people in Massachusetts, New England and New York choosing a Medicare Advantage plan."
       />
       <TitleBand
         crumbs={[

@@ -6,8 +6,8 @@ export default function EmployerCoverage() {
   return (
     <>
       <Seo
-        title="Retiring After 65: Moving From Employer Coverage to Medicare"
-        description="If you worked past 65 with employer insurance, you have a special enrollment window when that coverage ends. Here is how to land smoothly."
+        title="Retiring After 65: Employer Coverage to Medicare"
+        description="Your special enrollment window when employer coverage ends, the COBRA trap to avoid, and how to time Parts A, B and D so nothing lapses."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Leaving Employer Coverage' }]}

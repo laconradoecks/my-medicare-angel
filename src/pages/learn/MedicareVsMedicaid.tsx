@@ -7,8 +7,8 @@ export default function MedicareVsMedicaid() {
   return (
     <>
       <Seo
-        title="Medicare vs. Medicaid: What Is the Difference?"
-        description="Two similar names, two very different programs. The difference in plain terms, and what happens if you qualify for both."
+        title="Medicare vs. Medicaid: The Difference Explained"
+        description="The difference between Medicare and Medicaid in plain terms, and what dual eligibility means for Massachusetts and New England residents."
       />
       <TitleBand
         crumbs={[

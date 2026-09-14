@@ -7,8 +7,8 @@ export default function PartD() {
   return (
     <>
       <Seo
-        title="Medicare Part D: Prescription Drug Coverage Explained"
-        description="How drug plans work, why the same medicine can cost different amounts on different plans, and why enrolling on time matters."
+        title="Medicare Part D Drug Plans, Explained"
+        description="How Part D prescription coverage works, the late enrollment penalty, and how we check your medicines against every plan in your area, free."
       />
       <TitleBand
         crumbs={[

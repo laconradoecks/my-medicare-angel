@@ -32,6 +32,7 @@ export const navGroups: NavGroup[] = [
       { label: 'Turning 65', blurb: 'Your enrollment checklist', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', blurb: 'Retiring after 65', to: paths.employer },
       { label: 'Veterans', blurb: 'VA, TRICARE & Medicare', to: paths.veterans },
+      { label: 'Areas We Serve', blurb: 'Greater Boston, New England and NY', to: paths.areas },
     ],
   },
   {
@@ -72,6 +73,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
       { label: 'Veterans', to: paths.veterans },
+      { label: 'Areas We Serve', to: paths.areas },
       { label: 'FAQs', to: paths.faqs },
     ],
   },
@@ -113,4 +115,19 @@ export const learnSectionNav = [
   { label: 'Supplements (Medigap)', to: paths.learnSupplements },
   { label: 'Part D Drug Plans', to: paths.learnPartD },
   { label: 'Medicare vs Medicaid', to: paths.learnMedicaid },
+];
+
+/** The five Medicare Advantage plan type pages. */
+export const planTypeLinks = [
+  { label: 'HMO plans', to: paths.maHmo },
+  { label: 'PPO plans', to: paths.maPpo },
+  { label: 'PFFS plans', to: paths.maPffs },
+  { label: 'MSA plans', to: paths.maMsa },
+  { label: 'Special Needs Plans', to: paths.maSnp },
+];
+
+/** Shared "Plan types" sidebar on the plan type pages: the overview plus all five. */
+export const planTypeNav = [
+  { label: 'Medicare Advantage overview', to: paths.learnAdvantage },
+  ...planTypeLinks,
 ];

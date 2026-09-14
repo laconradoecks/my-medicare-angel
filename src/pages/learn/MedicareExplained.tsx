@@ -15,8 +15,8 @@ export default function MedicareExplained() {
   return (
     <>
       <Seo
-        title="Medicare Explained: Parts A, B, C and D in Plain English"
-        description="What Medicare covers, who qualifies, when to enroll, and how Medicare Advantage, Supplements and Part D drug plans fit together."
+        title="Medicare Explained in Plain English, for New England"
+        description="What Medicare covers, who qualifies and when to enroll, explained simply by a Massachusetts based agency serving all of New England and New York."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Medicare Explained' }]}

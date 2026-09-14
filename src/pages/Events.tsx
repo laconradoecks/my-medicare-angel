@@ -11,8 +11,8 @@ export default function Events() {
   return (
     <>
       <Seo
-        title="Free Medicare Seminars & Events"
-        description="Join one of our free Medicare sessions: turning 65, annual enrollment, and Medicare for veterans."
+        title="Free Medicare Seminars in Greater Boston"
+        description="Free Medicare education sessions in and around Greater Boston. Learn the parts, the paths and the deadlines, and bring your questions."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Events & Seminars' }]}

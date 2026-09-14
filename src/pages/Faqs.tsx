@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Seo from '@/components/Seo';
 import { Guidance, TitleBand } from '@/components/Blocks';
 import { faqs } from '@/data/faqs';
@@ -7,11 +7,28 @@ import { paths } from '@/routes';
 export default function Faqs() {
   const [open, setOpen] = useState<number | null>(null);
 
+  // FAQPage structured data, built from the same list the page renders.
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, []);
+
   return (
     <>
       <Seo
-        title="Frequently Asked Questions"
-        description="Quick answers to the Medicare questions people ask us most: what our help costs, when you can enroll, and whether you can change plans later."
+        title="Medicare Questions Answered"
+        description="Plain answers to the Medicare questions people in Massachusetts and New England ask us most."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'FAQs' }]}

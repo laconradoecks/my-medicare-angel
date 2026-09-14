@@ -46,7 +46,7 @@ export default function Article() {
             <p>{article.excerpt}</p>
             <Callout>
               <strong>This article is still being written.</strong> In the meantime, a licensed agent
-              will answer the same question directly, at no cost — or browse the guides in the
+              will answer the same question directly, at no cost, or browse the guides in the
               sidebar.
             </Callout>
           </>

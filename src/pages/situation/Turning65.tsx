@@ -13,8 +13,8 @@ export default function Turning65() {
   return (
     <>
       <Seo
-        title="Turning 65: Your Medicare Enrollment Checklist"
-        description="Your first enrollment window opens three months before your 65th birthday month. What to do, in order, so you never pay a late penalty."
+        title="Turning 65 in Massachusetts or New England: Medicare Checklist"
+        description="Your month by month Medicare enrollment checklist for turning 65, from a licensed agency serving Greater Boston and all of New England."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Turning 65' }]}

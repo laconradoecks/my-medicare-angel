@@ -14,8 +14,8 @@ export default function OriginalMedicare() {
   return (
     <>
       <Seo
-        title="Original Medicare: What Parts A and B Cover"
-        description="The foundation of all Medicare coverage: hospital insurance and medical insurance, what each pays for, and what they leave out."
+        title="Original Medicare (Parts A and B) Explained"
+        description="Part A hospital insurance and Part B medical insurance explained in plain English by licensed agents serving Massachusetts and New England."
       />
       <TitleBand
         crumbs={[

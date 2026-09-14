@@ -8,8 +8,8 @@ export default function Articles() {
   return (
     <>
       <Seo
-        title="Medicare Articles & Guides"
-        description="Plain-English answers to the Medicare questions people actually search. Guides on enrollment, costs, plan types and appeals."
+        title="Medicare Articles and Guides for New England"
+        description="Plain English answers to the Medicare questions people actually search, written for Massachusetts, New England and New York residents."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Articles' }]}

@@ -54,8 +54,8 @@ export default function Compare() {
   return (
     <>
       <Seo
-        title="Original Medicare vs. Medicare Advantage: Which Is Right for You?"
-        description="The biggest Medicare decision most people face, compared side by side: doctors, monthly costs, drug coverage, extras and travel."
+        title="Original Medicare vs. Medicare Advantage Comparison"
+        description="The two Medicare paths compared side by side on doctors, costs, drug coverage, extras and travel, by an independent New England agency."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Compare Plans' }]}

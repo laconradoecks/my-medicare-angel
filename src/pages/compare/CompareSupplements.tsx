@@ -32,8 +32,8 @@ export default function CompareSupplements() {
   return (
     <>
       <Seo
-        title="Comparing Medicare Supplement Plans: G, N and High-Deductible G"
-        description="Supplement plans are standardized by law, so the real comparison is between a few popular letters, and then between insurers on price."
+        title="Comparing Medicare Supplement Plans: G, N and More"
+        description="Plan G and Plan N compared on coverage, copays and long term cost, and why the same lettered plan is priced differently by different insurers."
       />
       <TitleBand
         crumbs={[
