@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Seo from '@/components/Seo';
 import { TitleBand } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { events } from '@/data/events';
 import { paths } from '@/routes';
 import { isDemoForms } from '@/config/site';
@@ -20,6 +21,12 @@ export default function Events() {
         lede="Prefer to learn in a room with other people asking the same questions? Join one of our free sessions."
       />
       <div className="wrap pagebody">
+        <SiteImage
+          name="events-seminar"
+          alt="A free Medicare seminar in progress"
+          sizes={imageSizes.banner}
+          className="banner-media"
+        />
         <div className="cards3">
           {events.map((event) => {
             const isSaved = saved.includes(event.id);

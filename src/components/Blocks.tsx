@@ -258,18 +258,3 @@ export function Testimonial({ quote, attribution }: { quote: string; attribution
 export function Point({ children }: { children: ReactNode }) {
   return <div className="point">{children}</div>;
 }
-
-/* --------------------------------------------------------------- Image slot */
-
-/**
- * Placeholder for an image arriving in a later phase. Same styled block as the
- * other photo placeholders; the intended alt text travels with it so the real
- * image can drop straight into this slot.
- */
-export function ImageSlot({ description, alt }: { description: string; alt: string }) {
-  return (
-    <div className="photo" role="img" aria-label={alt} data-image-alt={alt}>
-      [Image: {description}]
-    </div>
-  );
-}

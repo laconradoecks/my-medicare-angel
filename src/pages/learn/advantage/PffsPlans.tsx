@@ -3,11 +3,11 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { planTypeNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -92,10 +92,7 @@ export default function PffsPlans() {
           with the plan we sell: it changes with your situation.
         </p>
 
-        <ImageSlot
-          description="photo of a senior speaking with a receptionist at a clinic"
-          alt="A Medicare member confirming that a clinic accepts their PFFS plan"
-        />
+        <SiteImage name="plan-pffs" alt="A Medicare member confirming that a clinic accepts their PFFS plan" sizes={imageSizes.article} />
 
         <ArticleCta
           title="Not sure if PFFS is right for you?"

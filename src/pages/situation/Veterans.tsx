@@ -6,6 +6,7 @@ import {
   Parts,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { paths } from '@/routes';
 
 export default function Veterans() {
@@ -21,6 +22,7 @@ export default function Veterans() {
         lede="If you served, your benefits work differently. VA care, TRICARE For Life and Medicare fit together in specific ways, and getting the order right can save you real money."
       />
       <ArticleLayout sidebar={<ContactSideCard />}>
+        <SiteImage name="veterans" alt="A veteran at home in his garden" sizes={imageSizes.article} />
         <h2>VA coverage and Medicare are separate systems</h2>
         <p>
           VA health care covers you at VA facilities. Medicare covers you everywhere else. Many

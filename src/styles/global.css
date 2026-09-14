@@ -417,6 +417,34 @@ header.site {
   padding: 20px;
 }
 
+/* ===================== Photography ===================== */
+/* Same corner radius as the .photo placeholders these images replaced. */
+.site-picture {
+  display: block;
+}
+.site-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+.hero-media {
+  flex: 1 1 380px;
+  min-width: 0;
+}
+.section-media {
+  max-width: 860px;
+}
+/* Banners above card grids are shown wider than their 16:9 files, so the cards
+   stay near the top of the page. */
+.banner-media {
+  margin-bottom: 36px;
+}
+.banner-media .site-img {
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+}
+
 /* ===================== Cards ===================== */
 .cards3 {
   display: grid;
@@ -1234,6 +1262,12 @@ footer.site {
   }
   .photo {
     width: 100%;
+  }
+  .hero-media {
+    width: 100%;
+  }
+  .banner-media .site-img {
+    aspect-ratio: 16 / 9;
   }
   .article-layout {
     flex-direction: column;

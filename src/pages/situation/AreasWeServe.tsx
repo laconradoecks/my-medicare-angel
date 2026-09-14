@@ -3,10 +3,10 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { paths } from '@/routes';
 
 /** Copy from content/pages/areas-we-serve.md, used verbatim. */
@@ -94,10 +94,7 @@ export default function AreasWeServe() {
           because agents are paid by insurance carriers, never by you.
         </p>
 
-        <ImageSlot
-          description="friendly photo of an agent on a phone call, or a warm regional landscape"
-          alt="A licensed Medicare agent helping a client over the phone"
-        />
+        <SiteImage name="areas-agent-call" alt="A licensed Medicare agent helping a client over the phone" sizes={imageSizes.article} />
 
         <ArticleCta
           title="Tell us where you live and take it from there."

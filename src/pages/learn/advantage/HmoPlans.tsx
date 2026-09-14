@@ -3,11 +3,11 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { planTypeNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -93,10 +93,7 @@ export default function HmoPlans() {
           at a time or insist on seeing any specialist directly, look at a PPO instead.
         </p>
 
-        <ImageSlot
-          description="photo of a senior with their local doctor"
-          alt="A Medicare member visiting a doctor in their HMO network"
-        />
+        <SiteImage name="plan-hmo" alt="A Medicare member visiting a doctor in their HMO network" sizes={imageSizes.article} />
 
         <ArticleCta
           title="Is there a good HMO where you live?"

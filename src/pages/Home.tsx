@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { CtaBand, ImageSlot, Testimonial } from '@/components/Blocks';
+import { CtaBand, Testimonial } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { CardIcon, ClockIcon, ShieldIcon, TickIcon } from '@/components/Icons';
 import { homepageCarriers } from '@/data/carriers';
 import { paths } from '@/routes';
@@ -83,8 +84,13 @@ export default function Home() {
               </span>
             </div>
           </div>
-          {/* TODO: replace with the real hero photograph before launch. */}
-          <div className="photo">[Photo: a couple in their late 60s, relaxed and smiling]</div>
+          <SiteImage
+            name="home-hero"
+            alt="A couple in their late 60s, relaxed and smiling"
+            sizes={imageSizes.hero}
+            priority
+            className="hero-media"
+          />
         </section>
       </div>
 
@@ -176,9 +182,11 @@ export default function Home() {
             <strong>See the areas we serve</strong>
           </Link>
         </p>
-        <ImageSlot
-          description="warm photo or illustrated map of New England"
-          alt="Map of the New England states and New York served by My Medicare Angel"
+        <SiteImage
+          name="home-new-england"
+          alt="An autumn view of a New England coastal town"
+          sizes={imageSizes.section}
+          className="section-media"
         />
       </section>
 

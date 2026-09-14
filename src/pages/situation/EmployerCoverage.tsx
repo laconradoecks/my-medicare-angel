@@ -1,5 +1,6 @@
 import Seo from '@/components/Seo';
 import { ArticleCta, ArticleLayout, Callout, SideCard, TitleBand } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { paths } from '@/routes';
 
 export default function EmployerCoverage() {
@@ -26,6 +27,7 @@ export default function EmployerCoverage() {
           />
         }
       >
+        <SiteImage name="employer-retirement" alt="A man leaving the office on his last day of work" sizes={imageSizes.article} />
         <h2>Your special enrollment period</h2>
         <p>
           When you (or your spouse) stop working or lose employer coverage, you get an eight-month

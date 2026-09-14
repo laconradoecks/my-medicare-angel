@@ -3,11 +3,11 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { planTypeNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -93,10 +93,7 @@ export default function PpoPlans() {
           wants to book specialists without asking permission first.
         </p>
 
-        <ImageSlot
-          description="photo of an older couple traveling or driving"
-          alt="A retired couple who travel and use a Medicare PPO plan"
-        />
+        <SiteImage name="plan-ppo" alt="A retired couple who travel and use a Medicare PPO plan" sizes={imageSizes.article} />
 
         <ArticleCta
           title="HMO or PPO for your situation?"

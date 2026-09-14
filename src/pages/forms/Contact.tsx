@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import Seo from '@/components/Seo';
 import { TitleBand } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { Field, SubmitError, TextareaField, ThankYou } from '@/components/FormControls';
 import { site } from '@/config/site';
 import { paths } from '@/routes';
@@ -73,10 +74,11 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          {/* TODO: swap for an embedded map before launch. */}
-          <div className="photo" style={{ minHeight: 200 }}>
-            [Map of the office location]
-          </div>
+          <SiteImage
+            name="contact-office"
+            alt="The My Medicare Angel office"
+            sizes={imageSizes.contact}
+          />
         </div>
 
         {status === 'done' ? (

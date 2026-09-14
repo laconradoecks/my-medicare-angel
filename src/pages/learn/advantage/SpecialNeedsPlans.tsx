@@ -3,11 +3,11 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { planTypeNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -83,10 +83,7 @@ export default function SpecialNeedsPlans() {
           love, this is the first conversation to have.
         </p>
 
-        <ImageSlot
-          description="warm photo of a caregiver with an older family member"
-          alt="A family member helping a senior explore Medicare Special Needs Plans"
-        />
+        <SiteImage name="plan-snp" alt="A family member helping a senior explore Medicare Special Needs Plans" sizes={imageSizes.article} />
 
         <ArticleCta
           title="Think you might qualify?"

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
 import { TitleBand } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { articles } from '@/data/articles';
 import { paths } from '@/routes';
 
@@ -17,6 +18,12 @@ export default function Articles() {
         lede="Plain-English answers to the questions people actually search. New articles added regularly."
       />
       <div className="wrap pagebody">
+        <SiteImage
+          name="articles"
+          alt="A reader taking time with a Medicare guide"
+          sizes={imageSizes.banner}
+          className="banner-media"
+        />
         <div className="cards3">
           {articles.map((article) => (
             <Link className="card-link" key={article.slug} to={paths.article(article.slug)}>

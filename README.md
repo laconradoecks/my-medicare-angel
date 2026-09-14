@@ -124,8 +124,36 @@ The header pairs the small cut with the text wordmark at 32px, matching the desi
 (the navy app icon), a 32px PNG fallback, an Apple touch icon, and
 [`site.webmanifest`](public/site.webmanifest) for add-to-homescreen.
 
-**Social card.** `og:image` uses [`public/logo/og-card.png`](public/logo/og-card.png), a
-1200x630 export of `og-card.svg`. See Prerendering below for how to regenerate it.
+**Social card.** `og:image` uses [`public/logo/og-card.jpg`](public/logo/og-card.jpg), a
+1200x630 composite of the `og-background` photo and the white logo lockup. See
+Prerendering below for how to regenerate it.
+
+---
+
+## Photography
+
+Page photos live in [`public/images/`](public/images/) as `<name>.webp` with a
+`<name>.jpg` fallback, plus `<name>@2x.webp` where the source had enough resolution for
+one. [`scripts/process-images.mjs`](scripts/process-images.mjs) crops, resizes and
+compresses them, and writes their dimensions to `src/data/images.ts`.
+
+Pages use `<SiteImage name="plan-hmo" alt="..." sizes={imageSizes.article} />` from
+[`src/components/SiteImage.tsx`](src/components/SiteImage.tsx). It sets width and height
+so nothing shifts while images load, and lazy-loads everything except the homepage hero.
+
+To add or replace images, put the originals in a folder outside `public/`, add them to
+`SPEC` in the script, then run:
+
+```bash
+npm install --no-save sharp
+```
+
+```bash
+node scripts/process-images.mjs path/to/originals
+```
+
+Keep each 1x file under about 150 KB. Delete the originals afterwards rather than
+committing them.
 
 ---
 
@@ -198,9 +226,11 @@ curl -s https://www.mymedicareangel.com/areas-we-serve | grep '<title>'
 
 The first should print `200` and the second the Areas We Serve title, not the homepage's.
 
-**Social card.** `og:image` points at `public/logo/og-card.png`, a 1200x630 PNG exported
-from `og-card.svg` (platforms ignore SVG previews). After editing the SVG, run
-`npm run og-image` and commit the PNG.
+**Social card.** `og:image` points at `public/logo/og-card.jpg`, composed at 1200x630 by
+[`scripts/export-og-image.mjs`](scripts/export-og-image.mjs) from
+`public/images/og-background.jpg` and the white logo lockup. It is a JPEG rather than a
+PNG because WhatsApp drops link previews whose image is much over 300 KB. After changing
+the background or the lockup, run `npm run og-image` and commit the JPEG.
 
 ### Namecheap (cPanel shared hosting)
 

@@ -3,11 +3,11 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
-  ImageSlot,
   Parts,
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { planTypeNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -92,10 +92,7 @@ export default function MsaPlans() {
           copays help you sleep, an HMO, PPO or a Supplement will suit you better.
         </p>
 
-        <ImageSlot
-          description="photo of a senior reviewing finances at a kitchen table"
-          alt="A Medicare member managing their Medical Savings Account"
-        />
+        <SiteImage name="plan-msa" alt="A Medicare member managing their Medical Savings Account" sizes={imageSizes.article} />
 
         <ArticleCta
           title="Could an MSA work for you?"

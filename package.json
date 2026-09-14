@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "prerender": "node scripts/prerender.mjs",
-    "og-image": "node scripts/export-og-image.mjs"
+    "og-image": "node scripts/export-og-image.mjs",
+    "images": "node scripts/process-images.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

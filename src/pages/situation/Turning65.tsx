@@ -7,6 +7,7 @@ import {
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
+import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { paths } from '@/routes';
 
 export default function Turning65() {
@@ -33,6 +34,7 @@ export default function Turning65() {
           />
         }
       >
+        <SiteImage name="turning-65" alt="A woman celebrating her 65th birthday" sizes={imageSizes.article} />
         <Parts
           rows={[
             {
