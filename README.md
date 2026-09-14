@@ -215,25 +215,33 @@ this host cannot run it (it lacks `libatk-bridge` and `libatspi`), so the server
 builds anything. On every push to `main`,
 [`.github/workflows/build-and-publish.yml`](.github/workflows/build-and-publish.yml)
 builds and prerenders the site on GitHub and publishes the finished files to the `deploy`
-branch. The server pulls that branch and copies it into the web root.
+branch. A cron job on the server checks that branch every 5 minutes and copies any new
+build into the web root, and the workflow's last step waits until the live site serves
+it. **A green tick on the commit means the change is live.**
 
-One-time setup, in the cPanel terminal:
-
-```bash
-git clone --branch deploy --single-branch https://github.com/laconradoecks/my-medicare-angel.git ~/repos/my-medicare-angel-site
-```
-
-Each deploy, once the Actions run for your push has finished (green tick next to the
-commit on GitHub):
+One-time setup, in the cPanel terminal. Install the deploy script
+([`scripts/server-deploy.sh`](scripts/server-deploy.sh)) and run it once:
 
 ```bash
-cd ~/repos/my-medicare-angel-site && git fetch -q origin deploy && git reset -q --hard origin/deploy && rsync -av --exclude '.git' --exclude '.well-known' --exclude 'cgi-bin' ./ ~/mymedicareangel.com/
+mkdir -p ~/bin && curl -fsSL https://raw.githubusercontent.com/laconradoecks/my-medicare-angel/main/scripts/server-deploy.sh -o ~/bin/deploy-mymedicareangel.sh && bash ~/bin/deploy-mymedicareangel.sh
 ```
 
-`deploy` is replaced on every run, which is why this uses `fetch` and `reset` rather
-than `pull`. `--exclude '.git'` keeps the git folder out of the public web root. To take
-the forms live, set `VITE_FORM_ENDPOINT` as a repository variable (Settings → Secrets and
-variables → Actions → Variables); the next run builds it in.
+Then schedule it every 5 minutes (safe to re-run; it replaces its own entry):
+
+```bash
+(crontab -l 2>/dev/null | grep -v deploy-mymedicareangel; echo "*/5 * * * * /bin/bash $HOME/bin/deploy-mymedicareangel.sh >> $HOME/logs/mymedicareangel-deploy.log 2>&1") | crontab - && crontab -l
+```
+
+If the host blocks `crontab`, add the same job in cPanel → Cron Jobs ("Once per five
+minutes"). Each published build adds a line to `~/logs/mymedicareangel-deploy.log`.
+
+The script clones `deploy` on first run, copies a build only when its `version.txt`
+differs from the live one, never copies `.git` into the web root, and skips a run if
+the previous one is still going. If a run's final step fails, GitHub says so on the
+commit, and the log above is the first place to look.
+
+To take the forms live, set `VITE_FORM_ENDPOINT` as a repository variable (Settings →
+Secrets and variables → Actions → Variables); the next run builds it in.
 
 The two options below build on your own computer instead, if GitHub Actions is ever
 unavailable.
