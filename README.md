@@ -210,7 +210,33 @@ ships in every build and provides the SPA rewrite, compression, cache headers an
 the security headers. **Without it every URL except `/` returns a 404** — that file
 is the whole reason deep links work on this host.
 
-There is no Node build step on the server. Build locally, upload `dist/`.
+**How deploys work: GitHub builds, the server copies.** Prerendering needs Chromium, and
+this host cannot run it (it lacks `libatk-bridge` and `libatspi`), so the server no longer
+builds anything. On every push to `main`,
+[`.github/workflows/build-and-publish.yml`](.github/workflows/build-and-publish.yml)
+builds and prerenders the site on GitHub and publishes the finished files to the `deploy`
+branch. The server pulls that branch and copies it into the web root.
+
+One-time setup, in the cPanel terminal:
+
+```bash
+git clone --branch deploy --single-branch https://github.com/laconradoecks/my-medicare-angel.git ~/repos/my-medicare-angel-site
+```
+
+Each deploy, once the Actions run for your push has finished (green tick next to the
+commit on GitHub):
+
+```bash
+cd ~/repos/my-medicare-angel-site && git fetch -q origin deploy && git reset -q --hard origin/deploy && rsync -av --exclude '.git' --exclude '.well-known' --exclude 'cgi-bin' ./ ~/mymedicareangel.com/
+```
+
+`deploy` is replaced on every run, which is why this uses `fetch` and `reset` rather
+than `pull`. `--exclude '.git'` keeps the git folder out of the public web root. To take
+the forms live, set `VITE_FORM_ENDPOINT` as a repository variable (Settings → Secrets and
+variables → Actions → Variables); the next run builds it in.
+
+The two options below build on your own computer instead, if GitHub Actions is ever
+unavailable.
 
 **Option A — SSH (Namecheap Stellar Plus and above):**
 

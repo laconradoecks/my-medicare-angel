@@ -1,0 +1,66 @@
+# Builds the site on every push to main, prerenders every page in headless
+# Chromium, and publishes the finished files to the `deploy` branch.
+#
+# The Namecheap host cannot run Chromium (it lacks libatk-bridge and libatspi),
+# so it no longer builds anything: it pulls `deploy` and copies the files into
+# the web root. See "Namecheap" in README.md.
+#
+# `deploy` is generated. Each run replaces it with a single commit holding only
+# the build output, so never commit to it by hand.
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Cache Chromium for puppeteer
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      # Ubuntu 24.04 blocks the user namespaces Chromium's sandbox relies on.
+      - name: Allow Chromium's sandbox
+        run: |
+          if [ -e /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]; then
+            echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+          fi
+
+      - run: npm ci
+
+      - name: Build and prerender
+        run: npm run build
+        env:
+          # Optional. Set as a repository variable to take the forms live;
+          # unset, the forms stay in preview mode.
+          VITE_FORM_ENDPOINT: ${{ vars.VITE_FORM_ENDPOINT }}
+
+      - name: Publish dist/ to the deploy branch
+        working-directory: dist
+        run: |
+          git init -q
+          git checkout -q -b deploy
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Build of ${GITHUB_SHA::7} from main"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy
