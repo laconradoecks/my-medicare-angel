@@ -13,6 +13,7 @@ export const paths = {
   learnSupplements: '/medicare-explained/medicare-supplements',
   learnPartD: '/medicare-explained/part-d-drug-plans',
   learnMedicaid: '/medicare-explained/medicare-vs-medicaid',
+  enrollment: '/medicare-enrollment',
 
   compare: '/compare',
   compareAdvantage: '/compare/advantage-plans',
@@ -48,6 +49,7 @@ export const staticRoutes: string[] = [
   paths.learnSupplements,
   paths.learnPartD,
   paths.learnMedicaid,
+  paths.enrollment,
   paths.compare,
   paths.compareAdvantage,
   paths.compareSupplements,

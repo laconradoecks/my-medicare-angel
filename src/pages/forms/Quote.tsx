@@ -2,61 +2,51 @@ import { useCallback } from 'react';
 import Seo from '@/components/Seo';
 import { Point } from '@/components/Blocks';
 import { CheckCircleIcon } from '@/components/Icons';
-import {
-  ChoiceGroup,
-  Field,
-  OptionGroup,
-  SubmitError,
-  ThankYou,
-} from '@/components/FormControls';
+import { Field, SubmitError, TextareaField, ThankYou } from '@/components/FormControls';
 import { site } from '@/config/site';
-import {
-  required,
-  useLeadForm,
-  validAge,
-  validEmail,
-  validPhone,
-  validZip,
-} from '@/lib/forms';
+import { required, useLeadForm, validPhone } from '@/lib/forms';
 
-type QuoteValues = {
-  firstName: string;
-  lastName: string;
+/**
+ * Short help form, per client feedback: name, phone, the Medicare issue and
+ * the enrollment type, in place of the original quote form. Live chat is
+ * planned for later.
+ */
+type HelpValues = {
+  name: string;
   phone: string;
-  email: string;
-  age: string;
-  zip: string;
   helpWith: string[];
-  familiarity: string | null;
+  enrollment: string | null;
+  details: string;
 };
 
-const initial: QuoteValues = {
-  firstName: '',
-  lastName: '',
-  phone: '',
-  email: '',
-  age: '',
-  zip: '',
-  helpWith: [],
-  familiarity: null,
-};
+const initial: HelpValues = { name: '', phone: '', helpWith: [], enrollment: null, details: '' };
 
+/** Same topics as the client's reference site. */
 const helpOptions = [
-  'New to Medicare',
+  'Original Medicare',
+  'Medicare Supplements',
   'Medicare Advantage',
-  'Supplements',
-  'Veterans options',
+  'Veteran',
+  'Employer Coverage',
+  'Enrollment',
+  'Eligibility',
+  'Cost',
+];
+
+const enrollmentOptions = [
+  { value: 'Initial Enrollment', hint: 'Turning 65 or new to Medicare' },
+  { value: 'Annual Enrollment', hint: 'Changing plans, October 15 – December 7' },
+  { value: 'Special Enrollment', hint: 'A life change, like losing coverage or moving' },
+  { value: 'Not sure', hint: 'We will work it out with you' },
 ];
 
 export default function Quote() {
   const validate = useCallback(
-    (v: QuoteValues) => ({
-      firstName: required(v.firstName, 'First name'),
-      lastName: required(v.lastName, 'Last name'),
+    (v: HelpValues) => ({
+      name: required(v.name, 'Your name'),
       phone: required(v.phone, 'Phone') ?? validPhone(v.phone),
-      email: required(v.email, 'Email') ?? validEmail(v.email),
-      age: required(v.age, 'Age') ?? validAge(v.age),
-      zip: required(v.zip, 'Zip code') ?? validZip(v.zip),
+      helpWith: v.helpWith.length ? undefined : 'Choose at least one topic.',
+      enrollment: v.enrollment ? undefined : 'Choose an enrollment type, or “Not sure”.',
     }),
     [],
   );
@@ -64,7 +54,7 @@ export default function Quote() {
   const { values, errors, status, setValue, handleSubmit } = useLeadForm(
     initial,
     validate,
-    'quote',
+    'help',
   );
 
   const toggleHelp = (option: string) =>
@@ -78,16 +68,15 @@ export default function Quote() {
   return (
     <>
       <Seo
-        title="Get a Free Medicare Quote"
-        description="Tell us a little about yourself and a licensed agent will call you back with the Medicare plans that fit your situation. Free, with no obligation."
+        title="Get Free Medicare Help"
+        description="Tell us your name, your phone number and what you need help with, and a licensed Medicare agent will call you back. Free, with no obligation."
       />
       <div className="wrap quote-layout">
         <div className="reassure">
-          <h1>Get a Free Medicare Quote</h1>
+          <h1>Get Free Medicare Help</h1>
           <p>
-            Tell us a little about yourself and a licensed agent will call you back with the plans
-            that fit your situation. It takes about two minutes, and it costs you nothing, now or
-            ever.
+            Share your name, the best number to reach you and what you need help with. A licensed
+            agent will call you back — at no cost to you, now or ever.
           </p>
           <Point>
             <CheckCircleIcon />
@@ -126,8 +115,8 @@ export default function Quote() {
         {status === 'done' ? (
           <ThankYou heading="Thank you!">
             <p>
-              A licensed agent will call you within one business day. If you would rather not wait,
-              call us now on{' '}
+              A licensed agent will call you within one business day to help with your Medicare
+              question. If you would rather not wait, call us now on{' '}
               <a href={site.phone.href}>
                 <strong>{site.phone.display}</strong>
               </a>
@@ -139,25 +128,14 @@ export default function Quote() {
             {status === 'error' && <SubmitError />}
             <div className="frow">
               <Field
-                name="firstName"
-                label="First name"
-                placeholder="Mary"
-                autoComplete="given-name"
-                value={values.firstName}
-                error={errors.firstName}
-                onChange={(v) => setValue('firstName', v)}
+                name="name"
+                label="Your name"
+                placeholder="Mary Johnson"
+                autoComplete="name"
+                value={values.name}
+                error={errors.name}
+                onChange={(v) => setValue('name', v)}
               />
-              <Field
-                name="lastName"
-                label="Last name"
-                placeholder="Johnson"
-                autoComplete="family-name"
-                value={values.lastName}
-                error={errors.lastName}
-                onChange={(v) => setValue('lastName', v)}
-              />
-            </div>
-            <div className="frow">
               <Field
                 name="phone"
                 label="Phone"
@@ -169,62 +147,72 @@ export default function Quote() {
                 error={errors.phone}
                 onChange={(v) => setValue('phone', v)}
               />
-              <Field
-                name="email"
-                label="Email"
-                type="email"
-                inputMode="email"
-                placeholder="mary@email.com"
-                autoComplete="email"
-                value={values.email}
-                error={errors.email}
-                onChange={(v) => setValue('email', v)}
-              />
-            </div>
-            <div className="frow">
-              <Field
-                name="age"
-                label="Age"
-                type="number"
-                inputMode="numeric"
-                placeholder="65"
-                value={values.age}
-                error={errors.age}
-                onChange={(v) => setValue('age', v)}
-              />
-              <Field
-                name="zip"
-                label="Zip code"
-                inputMode="numeric"
-                placeholder="02453"
-                autoComplete="postal-code"
-                value={values.zip}
-                error={errors.zip}
-                onChange={(v) => setValue('zip', v)}
-              />
             </div>
 
-            <OptionGroup
-              label="What do you need help with?"
-              options={helpOptions}
-              selected={values.helpWith}
-              onToggle={toggleHelp}
+            <fieldset className="plainfs">
+              <legend className="grouplabel">What can we help you with?</legend>
+              <div className="helpgrid">
+                {helpOptions.map((option) => {
+                  const on = values.helpWith.includes(option);
+                  return (
+                    <button
+                      type="button"
+                      name="helpWith"
+                      key={option}
+                      className={`helpopt${on ? ' sel' : ''}`}
+                      aria-pressed={on}
+                      onClick={() => toggleHelp(option)}
+                    >
+                      {option}
+                    </button>
+                  );
+                })}
+              </div>
+              {errors.helpWith && <div className="grouperr">{errors.helpWith}</div>}
+            </fieldset>
+
+            <fieldset className="plainfs">
+              <legend className="grouplabel">Which enrollment applies to you?</legend>
+              <div className="helpgrid" role="radiogroup" aria-label="Enrollment type">
+                {enrollmentOptions.map((option) => {
+                  const on = values.enrollment === option.value;
+                  return (
+                    <button
+                      type="button"
+                      name="enrollment"
+                      role="radio"
+                      aria-checked={on}
+                      key={option.value}
+                      className={`helpopt enroll-opt${on ? ' sel' : ''}`}
+                      onClick={() => setValue('enrollment', option.value)}
+                    >
+                      <strong>{option.value}</strong>
+                      <span>{option.hint}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {errors.enrollment && <div className="grouperr">{errors.enrollment}</div>}
+            </fieldset>
+
+            <TextareaField
+              name="details"
+              label="Anything else we should know? (optional)"
+              placeholder="For example: my employer coverage ends in March"
+              value={values.details}
+              onChange={(v) => setValue('details', v)}
             />
 
-            <ChoiceGroup
-              label="How familiar are you with Medicare?"
-              options={['1', '2', '3', '4', '5']}
-              value={values.familiarity}
-              onSelect={(v) => setValue('familiarity', v)}
-              scaleLabels={['Totally new', 'Very familiar']}
-            />
-
-            <button className="btn btn-amber btn-block" type="submit" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Sending…' : 'Request My Free Quote'}
+            <button
+              className="btn btn-amber btn-block"
+              type="submit"
+              disabled={status === 'submitting'}
+            >
+              {status === 'submitting' ? 'Sending…' : 'Submit'}
             </button>
             <div className="consent">
               By submitting this form you agree that a licensed insurance agent may contact you by
-              phone or email about Medicare insurance options. This is a solicitation for insurance.
+              phone about Medicare insurance options. This is a solicitation for insurance.
             </div>
           </form>
         )}

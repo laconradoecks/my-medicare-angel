@@ -7,7 +7,7 @@ export default function MedicareAdvantage() {
   return (
     <>
       <Seo
-        title="Medicare Advantage (Part C): HMO, PPO and SNP Plans Explained"
+        title="Medicare Advantage (Part C): HMO, PPO, PFFS, MSA and Special Needs Plans"
         description="All-in-one plans from private insurers that replace how you receive your Medicare benefits, often with drug coverage and extras built in."
       />
       <TitleBand
@@ -16,7 +16,7 @@ export default function MedicareAdvantage() {
           { label: 'Medicare Explained', to: paths.learn },
           { label: 'Medicare Advantage' },
         ]}
-        title="Medicare Advantage (Part C): HMO, PPO and SNP Plans Explained"
+        title="Medicare Advantage (Part C): HMO, PPO, PFFS, MSA and Special Needs Plans"
         lede="All-in-one plans from private insurers that replace how you receive your Medicare benefits, often with drug coverage and extras built in."
       />
       <ArticleLayout
@@ -51,18 +51,33 @@ export default function MedicareAdvantage() {
           rows={[
             {
               term: 'HMO',
-              termWidth: 64,
+              termWidth: 76,
               def: 'You use the plan’s network of doctors and usually need a referral for specialists. Typically the lowest premiums.',
             },
             {
               term: 'PPO',
-              termWidth: 64,
+              termWidth: 76,
               def: 'More freedom: you can see out-of-network doctors at a higher cost, and referrals are usually not needed.',
             },
             {
-              term: 'SNP',
-              termWidth: 64,
-              def: 'Special Needs Plans, designed for people with certain chronic conditions or who qualify for both Medicare and Medicaid.',
+              term: 'PFFS',
+              termWidth: 76,
+              def: 'Private Fee-for-Service. The plan sets what it pays providers and what you pay. You can see any Medicare-approved doctor or hospital that accepts the plan’s terms, and they can decide visit by visit. If drug coverage is not included, you can usually add a separate Part D plan.',
+            },
+            {
+              term: 'MSA',
+              termWidth: 76,
+              def: 'Medical Savings Account. A high-deductible plan paired with a savings account the plan deposits money into each year, for health costs before you reach the deductible. MSA plans do not include drug coverage, so you would add a separate Part D plan.',
+            },
+            {
+              term: 'D-SNP',
+              termWidth: 76,
+              def: 'Dual-Eligible Special Needs Plan, for people who have both Medicare and Medicaid. These plans coordinate the two programs and typically include drug coverage and extra benefits, often at little or no premium.',
+            },
+            {
+              term: 'C-SNP',
+              termWidth: 76,
+              def: 'Chronic Condition Special Needs Plan, for people living with certain severe or disabling chronic conditions, such as diabetes, chronic heart failure or chronic lung disease. Doctors, benefits and drug coverage are organized around that condition.',
             },
           ]}
         />

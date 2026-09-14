@@ -9,8 +9,9 @@ export const navGroups: NavGroup[] = [
     label: 'Learn Medicare',
     items: [
       { label: 'Medicare Explained', blurb: 'Start here: the whole picture', to: paths.learn },
+      { label: 'Medicare Enrollment', blurb: 'Initial, Annual & Special periods', to: paths.enrollment },
       { label: 'Original Medicare', blurb: 'Parts A & B', to: paths.learnOriginal },
-      { label: 'Medicare Advantage', blurb: 'HMO, PPO & SNP plans', to: paths.learnAdvantage },
+      { label: 'Medicare Advantage', blurb: 'HMO, PPO, PFFS, MSA & SNP plans', to: paths.learnAdvantage },
       { label: 'Supplements (Medigap)', blurb: 'Cover the gaps', to: paths.learnSupplements },
       { label: 'Part D Drug Plans', blurb: 'Prescription coverage', to: paths.learnPartD },
       { label: 'Medicare vs Medicaid', blurb: 'The difference, plainly', to: paths.learnMedicaid },
@@ -66,6 +67,7 @@ export const footerColumns: FooterColumn[] = [
     heading: 'Learn',
     links: [
       { label: 'Medicare Explained', to: paths.learn },
+      { label: 'Medicare Enrollment', to: paths.enrollment },
       { label: 'Compare Plans', to: paths.compare },
       { label: 'Turning 65', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', to: paths.employer },
@@ -76,7 +78,7 @@ export const footerColumns: FooterColumn[] = [
   {
     heading: 'Connect',
     links: [
-      { label: 'Get a Quote', to: paths.quote },
+      { label: 'Get Medicare Help', to: paths.quote },
       { label: 'Book an Appointment', to: paths.book },
       { label: 'Events & Seminars', to: paths.events },
       { label: 'Refer a Friend', to: paths.refer },
@@ -105,6 +107,7 @@ export const legalLinks = [
 /** The "In this section" sidebar shared across the Learn pages. */
 export const learnSectionNav = [
   { label: 'Medicare Explained', to: paths.learn },
+  { label: 'Medicare Enrollment', to: paths.enrollment },
   { label: 'Original Medicare (A & B)', to: paths.learnOriginal },
   { label: 'Medicare Advantage (Part C)', to: paths.learnAdvantage },
   { label: 'Supplements (Medigap)', to: paths.learnSupplements },

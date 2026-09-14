@@ -1,5 +1,12 @@
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, Callout, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  Callout,
+  Parts,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { learnSectionNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -50,6 +57,69 @@ export default function Supplements() {
           What differs is the price, which is why comparing insurers matters more than comparing
           brochures.
         </p>
+
+        <h2>The plans, letter by letter</h2>
+        <Parts
+          rows={[
+            {
+              term: 'Plan A',
+              termWidth: 84,
+              def: 'The basic benefits: Part A coinsurance and hospital costs, Part B coinsurance or copays, the first three pints of blood, and hospice coinsurance.',
+            },
+            {
+              term: 'Plan B',
+              termWidth: 84,
+              def: 'Everything in Plan A, plus the Part A deductible.',
+            },
+            {
+              term: 'Plan C',
+              termWidth: 84,
+              def: 'Adds skilled nursing coinsurance, the Part B deductible and foreign travel emergency care. Only available if you were eligible for Medicare before January 1, 2020.',
+            },
+            {
+              term: 'Plan D',
+              termWidth: 84,
+              def: 'Like Plan C, but without the Part B deductible.',
+            },
+            {
+              term: 'Plan F',
+              termWidth: 84,
+              def: 'The most complete coverage, including the Part B deductible and Part B excess charges. Only available if you were eligible before January 1, 2020. A high-deductible version also exists.',
+            },
+            {
+              term: 'Plan G',
+              termWidth: 84,
+              def: 'Everything in Plan F except the Part B deductible. A high-deductible version is also available.',
+            },
+            {
+              term: 'Plan K',
+              termWidth: 84,
+              def: 'Pays 50 percent of many costs, with a yearly out-of-pocket limit, for a lower premium.',
+            },
+            {
+              term: 'Plan L',
+              termWidth: 84,
+              def: 'Pays 75 percent of many costs, with a yearly out-of-pocket limit.',
+            },
+            {
+              term: 'Plan M',
+              termWidth: 84,
+              def: 'Like Plan D, but pays only half of the Part A deductible.',
+            },
+            {
+              term: 'Plan N',
+              termWidth: 84,
+              def: 'Similar to Plan G, but with copays of up to $20 for some office visits and up to $50 for emergency room visits that do not lead to an admission, and no coverage for Part B excess charges.',
+            },
+          ]}
+        />
+        <p>
+          <strong>Live in Massachusetts?</strong> Massachusetts does not use these lettered plans. It
+          has its own standardized Supplements: the Core Plan and Supplement 1A, plus Supplement 1 for
+          people eligible for Medicare before 2020. Rules in other states can differ too, so ask us
+          what applies where you live.
+        </p>
+
         <Callout>
           <strong>Timing matters here more than anywhere:</strong> in the six months after you enroll
           in Part B, insurers must accept you regardless of your health. After that window, they can

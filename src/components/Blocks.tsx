@@ -130,7 +130,7 @@ export function Parts({ rows }: { rows: PartRow[] }) {
 export function ArticleCta({
   title,
   sub,
-  ctaLabel = 'Get My Free Quote',
+  ctaLabel = 'Get Medicare Help',
   ctaTo = paths.quote,
 }: {
   title: string;
@@ -161,7 +161,7 @@ export function CtaBand() {
         </div>
         <div className="acts">
           <Link className="btn btn-amber" to={paths.quote}>
-            Get My Free Quote
+            Get Medicare Help
           </Link>
           <Link className="btn btn-ghost" to={paths.compare}>
             Compare Plans First
@@ -174,7 +174,7 @@ export function CtaBand() {
 
 export function Guidance({
   children,
-  ctaLabel = 'Get My Free Quote',
+  ctaLabel = 'Get Medicare Help',
   ctaTo = paths.quote,
 }: {
   children: ReactNode;

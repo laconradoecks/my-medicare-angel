@@ -89,6 +89,17 @@ a:hover {
   color: #fff;
 }
 
+/* ===================== Non-government notice ===================== */
+.govbar {
+  background: #edf3f9;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 8px 16px;
+}
+
 /* ===================== Header ===================== */
 header.site {
   background: var(--white);
@@ -1053,6 +1064,35 @@ footer.site {
   font-size: 14px;
   color: var(--faint);
   margin-top: 6px;
+}
+/* Short help form: option groups and the enrollment-type choice. */
+.plainfs {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.plainfs legend {
+  padding: 0;
+}
+.grouperr {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #b4432f;
+  margin-top: 8px;
+}
+.enroll-opt {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.enroll-opt span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.formcard #details {
+  min-height: 96px;
 }
 .consent {
   font-size: 13.5px;

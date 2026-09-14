@@ -70,7 +70,7 @@ export default function Header() {
             </div>
           ))}
           <Link className="btn btn-teal" to={paths.quote}>
-            Get a Free Quote
+            Get Medicare Help
           </Link>
         </nav>
 
@@ -99,7 +99,7 @@ export default function Header() {
           </div>
         ))}
         <NavLink to={paths.quote} style={{ color: 'var(--amber)' }}>
-          Get a Free Quote
+          Get Medicare Help
         </NavLink>
       </div>
     </header>

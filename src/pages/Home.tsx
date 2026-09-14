@@ -54,7 +54,7 @@ export default function Home() {
       <div className="wrap">
         <section className="hero">
           <div className="hero-copy">
-            <div className="kicker">MEDICARE, MADE CLEAR</div>
+            <div className="kicker">MEDICARE HELP FOR GREATER BOSTON &amp; NEW ENGLAND</div>
             <h1>The right Medicare plan, chosen with someone you trust.</h1>
             <div className="hero-sub">
               Turning 65 or reviewing your coverage? A licensed agent will walk you through your
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             <div className="hero-cta">
               <Link className="btn btn-amber" to={paths.quote}>
-                Get My Free Quote
+                Get Medicare Help
               </Link>
               <Link className="navlink" to={paths.learn} style={{ fontSize: 18 }}>
                 New to Medicare? Start here
@@ -131,7 +131,7 @@ export default function Home() {
             Advantage plans, Medicare Supplement (Medigap) plans and Part D prescription drug
             coverage, whether you are turning 65, retiring and leaving employer coverage, or
             reviewing your options during the Annual Enrollment Period. Because we are independent,
-            our advice starts with your situation, not with any one carrier’s products.
+            our advice starts with your situation, not with any one carrier’s products. We serve {site.serviceArea}.
           </p>
           <div className="cards4">
             <Link className="card-link" to={paths.book}>
