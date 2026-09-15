@@ -378,9 +378,13 @@ find them.
 - [x] ~~Logo~~ — the angel mark from the pack is wired into the header, favicons,
       app icons and manifest.
 - [x] ~~Hero photograph~~ — placed with the rest of the photography (see Photography).
-- [ ] **Carrier logos and descriptions** — `src/data/carriers.ts`. The count also
-      feeds the "[X] organizations / [Y] products" line on the disclaimers page,
-      which must reflect actual contracts.
+- [x] ~~Carrier names~~ — Cigna, UnitedHealthcare, Aetna, Humana and Blue Cross Blue
+      Shield, in `src/data/carriers.ts`, shown as text. Add a carrier's logo only with
+      its permission; carriers set brand-usage rules for agents.
+- [ ] **Disclaimer counts** — the "[X] organizations / [Y] products" line on the
+      disclaimers page must match actual contracts. Blue Cross Blue Shield plans are
+      separate companies by state, so confirm which ones the agency is appointed with
+      before counting.
 - [ ] **Client testimonial** — `src/pages/Home.tsx`. Needs a real, permissioned quote.
 - [ ] **Email address** — `src/config/site.ts` (currently a best guess)
 - [ ] **Part B premium figure** — `src/pages/learn/OriginalMedicare.tsx`, updates yearly

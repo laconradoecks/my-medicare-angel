@@ -1,26 +1,24 @@
 /**
- * Carrier logos were placeholders in the designs and must reflect actual
- * contracts before launch (see the canvas annotation and the disclaimers page).
- * Add `logo` (a path under /public) and a real `blurb` as each is confirmed.
+ * The carriers the agency works with, as confirmed by the client. Listed in the
+ * client's order and shown as text names: carriers set brand-usage rules for
+ * agents, so add a `logo` (a path under /public) only once there is permission
+ * to use it. `blurb` is optional; leave it out rather than guess at a carrier's
+ * plans or strengths.
  */
 
 export type Carrier = {
   name: string;
   logo?: string;
-  blurb: string;
+  blurb?: string;
 };
 
 export const carriers: Carrier[] = [
-  {
-    name: '[Carrier logo]',
-    blurb: '[One line on this carrier’s strengths, e.g. strong Advantage network in this state]',
-  },
-  { name: '[Carrier logo]', blurb: '[One line on this carrier’s strengths]' },
-  { name: '[Carrier logo]', blurb: '[One line on this carrier’s strengths]' },
-  { name: '[Carrier logo]', blurb: '[One line on this carrier’s strengths]' },
-  { name: '[Carrier logo]', blurb: '[One line on this carrier’s strengths]' },
-  { name: '[Carrier logo]', blurb: '[One line on this carrier’s strengths]' },
+  { name: 'Cigna' },
+  { name: 'UnitedHealthcare' },
+  { name: 'Aetna' },
+  { name: 'Humana' },
+  { name: 'Blue Cross Blue Shield' },
 ];
 
-/** The homepage strip shows the first five. */
-export const homepageCarriers = carriers.slice(0, 5);
+/** The homepage strip shows all of them. */
+export const homepageCarriers = carriers;

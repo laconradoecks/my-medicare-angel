@@ -3,7 +3,9 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
+  SideCard,
   TitleBand,
 } from '@/components/Blocks';
 import { SiteImage, imageSizes } from '@/components/SiteImage';
@@ -22,8 +24,30 @@ export default function AreasWeServe() {
         title="Where We Work: Greater Boston, New England and New York"
         lede="Medicare advice has to be local, because the plans are. Here is where we serve, and why your location is the first thing we ask."
       />
-      {/* No sidebar on this page, per the content pack. */}
-      <ArticleLayout>
+      <ArticleLayout
+        sidebar={
+          <>
+            <SideCard
+              heading="Explore"
+              links={[
+                { label: 'Get Medicare Help', to: paths.quote },
+                { label: 'Book a Call', to: paths.book },
+                { label: 'Medicare Explained', to: paths.learn },
+                { label: 'Compare Plans', to: paths.compare },
+              ]}
+            />
+            <SideCard
+              heading="Popular guides"
+              links={[
+                { label: 'Turning 65', to: paths.turning65 },
+                { label: 'Leaving Employer Coverage', to: paths.employer },
+                { label: 'Medicare Enrollment', to: paths.enrollment },
+              ]}
+            />
+            <ContactSideCard />
+          </>
+        }
+      >
         <h2>Based in Waltham, at home across the region</h2>
 
         <p>

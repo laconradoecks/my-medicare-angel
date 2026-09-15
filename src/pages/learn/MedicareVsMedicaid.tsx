@@ -1,5 +1,12 @@
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, Parts, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  ContactSideCard,
+  Parts,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { learnSectionNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -21,11 +28,14 @@ export default function MedicareVsMedicaid() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="In this section"
-            links={learnSectionNav}
-            currentPath={paths.learnMedicaid}
-          />
+          <>
+            <SideCard
+              heading="In this section"
+              links={learnSectionNav}
+              currentPath={paths.learnMedicaid}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <Parts

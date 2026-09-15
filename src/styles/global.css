@@ -730,7 +730,8 @@ footer.site {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 780px;
+  /* Fills the wrap beside the 320px sidebar (round 4). */
+  max-width: 830px;
 }
 .article h2 {
   font-size: 29px;
@@ -970,6 +971,25 @@ footer.site {
   display: flex;
   flex-direction: column;
   gap: 22px;
+}
+/* Contact page: the form and the office photo share the right-hand column, so
+   both columns end at about the same height. */
+.form-column {
+  flex: 1 1 440px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.form-column > .formcard {
+  flex: none;
+  max-width: none;
+}
+/* Carrier names shown as text rather than logos. */
+.chip.named {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
 }
 .frow {
   display: grid;

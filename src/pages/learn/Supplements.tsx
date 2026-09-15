@@ -3,6 +3,7 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
   SideCard,
   TitleBand,
@@ -38,6 +39,7 @@ export default function Supplements() {
               heading="Compare"
               links={[{ label: 'Comparing Supplement plans', to: paths.compareSupplements }]}
             />
+            <ContactSideCard />
           </>
         }
       >

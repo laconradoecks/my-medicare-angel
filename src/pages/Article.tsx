@@ -1,6 +1,13 @@
 import { Navigate, useParams } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, Callout, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  Callout,
+  ContactSideCard,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { getArticle } from '@/data/articles';
 import { paths } from '@/routes';
 
@@ -31,14 +38,25 @@ export default function Article() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="More articles"
-            links={[
-              { label: 'All articles', to: paths.blog },
-              { label: 'Turning 65 checklist', to: paths.turning65 },
-              { label: 'Leaving employer coverage', to: paths.employer },
-            ]}
-          />
+          <>
+            <SideCard
+              heading="More articles"
+              links={[
+                { label: 'All articles', to: paths.blog },
+                { label: 'Turning 65 checklist', to: paths.turning65 },
+                { label: 'Leaving employer coverage', to: paths.employer },
+              ]}
+            />
+            <SideCard
+              heading="Related guides"
+              links={[
+                { label: 'Medicare Explained', to: paths.learn },
+                { label: 'Medicare Enrollment', to: paths.enrollment },
+                { label: 'Compare your options', to: paths.compare },
+              ]}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         {isDraft ? (

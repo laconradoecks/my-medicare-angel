@@ -3,6 +3,7 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
   SideCard,
   TitleBand,
@@ -24,14 +25,17 @@ export default function Turning65() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="Related guides"
-            links={[
-              { label: 'Medicare Explained', to: paths.learn },
-              { label: 'Leaving employer coverage', to: paths.employer },
-              { label: 'Compare your options', to: paths.compare },
-            ]}
-          />
+          <>
+            <SideCard
+              heading="Related guides"
+              links={[
+                { label: 'Medicare Explained', to: paths.learn },
+                { label: 'Leaving employer coverage', to: paths.employer },
+                { label: 'Compare your options', to: paths.compare },
+              ]}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <SiteImage name="turning-65" alt="A woman celebrating her 65th birthday" sizes={imageSizes.article} />

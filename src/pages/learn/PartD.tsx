@@ -1,5 +1,11 @@
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  ContactSideCard,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { learnSectionNav } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -21,11 +27,14 @@ export default function PartD() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="In this section"
-            links={learnSectionNav}
-            currentPath={paths.learnPartD}
-          />
+          <>
+            <SideCard
+              heading="In this section"
+              links={learnSectionNav}
+              currentPath={paths.learnPartD}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <h2>How Part D works</h2>

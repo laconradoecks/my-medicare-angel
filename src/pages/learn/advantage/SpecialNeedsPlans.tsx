@@ -3,6 +3,7 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
   SideCard,
   TitleBand,
@@ -31,7 +32,18 @@ export default function SpecialNeedsPlans() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard heading="Plan types" links={planTypeNav} currentPath={paths.maSnp} />
+          <>
+            <SideCard heading="Plan types" links={planTypeNav} currentPath={paths.maSnp} />
+            <SideCard
+              heading="Related guides"
+              links={[
+                { label: 'Original Medicare vs Advantage', to: paths.compare },
+                { label: 'Medicare Enrollment', to: paths.enrollment },
+                { label: 'Areas We Serve', to: paths.areas },
+              ]}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <h2>What a Special Needs Plan is</h2>

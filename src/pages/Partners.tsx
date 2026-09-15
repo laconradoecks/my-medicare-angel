@@ -19,10 +19,10 @@ export default function Partners() {
         <div className="cards3" style={{ marginBottom: 36 }}>
           {carriers.map((carrier, i) => (
             <div className="card on-cream" key={i}>
-              <div className="chip" style={{ height: 70 }}>
+              <div className={carrier.logo ? 'chip' : 'chip named'} style={{ height: 70 }}>
                 {carrier.logo ? <img src={carrier.logo} alt={carrier.name} /> : carrier.name}
               </div>
-              <p style={{ fontSize: 16 }}>{carrier.blurb}</p>
+              {carrier.blurb && <p style={{ fontSize: 16 }}>{carrier.blurb}</p>}
             </div>
           ))}
         </div>

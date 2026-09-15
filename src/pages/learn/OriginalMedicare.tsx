@@ -3,6 +3,7 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
   SideCard,
   TitleBand,
@@ -28,11 +29,14 @@ export default function OriginalMedicare() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="In this section"
-            links={learnSectionNav}
-            currentPath={paths.learnOriginal}
-          />
+          <>
+            <SideCard
+              heading="In this section"
+              links={learnSectionNav}
+              currentPath={paths.learnOriginal}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <h2>Part A: hospital insurance</h2>

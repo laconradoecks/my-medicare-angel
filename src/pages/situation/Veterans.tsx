@@ -4,6 +4,7 @@ import {
   ArticleLayout,
   ContactSideCard,
   Parts,
+  SideCard,
   TitleBand,
 } from '@/components/Blocks';
 import { SiteImage, imageSizes } from '@/components/SiteImage';
@@ -21,7 +22,21 @@ export default function Veterans() {
         title="Medicare for Veterans: VA Benefits, TRICARE For Life and Medicare"
         lede="If you served, your benefits work differently. VA care, TRICARE For Life and Medicare fit together in specific ways, and getting the order right can save you real money."
       />
-      <ArticleLayout sidebar={<ContactSideCard />}>
+      <ArticleLayout
+        sidebar={
+          <>
+            <SideCard
+              heading="Related guides"
+              links={[
+                { label: 'Medicare Explained', to: paths.learn },
+                { label: 'Turning 65', to: paths.turning65 },
+                { label: 'Medicare Enrollment', to: paths.enrollment },
+              ]}
+            />
+            <ContactSideCard />
+          </>
+        }
+      >
         <SiteImage name="veterans" alt="A veteran at home in his garden" sizes={imageSizes.article} />
         <h2>VA coverage and Medicare are separate systems</h2>
         <p>

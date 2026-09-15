@@ -74,52 +74,54 @@ export default function Contact() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="form-column">
+          {status === 'done' ? (
+            <ThankYou heading="Message received">
+              <p>We will get back to you within one business day.</p>
+            </ThankYou>
+          ) : (
+            <form className="formcard" onSubmit={handleSubmit} noValidate>
+              {status === 'error' && <SubmitError />}
+              <div className="frow">
+                <Field
+                  name="name"
+                  label="Your name"
+                  placeholder="Mary Johnson"
+                  autoComplete="name"
+                  value={values.name}
+                  error={errors.name}
+                  onChange={(v) => setValue('name', v)}
+                />
+                <Field
+                  name="contact"
+                  label="Phone or email"
+                  placeholder="(555) 000-0000"
+                  value={values.contact}
+                  error={errors.contact}
+                  onChange={(v) => setValue('contact', v)}
+                />
+              </div>
+              <TextareaField
+                name="message"
+                label="Your message"
+                placeholder="How can we help?"
+                value={values.message}
+                error={errors.message}
+                onChange={(v) => setValue('message', v)}
+              />
+              <button className="btn btn-amber btn-block" type="submit" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending…' : 'Send Message'}
+              </button>
+            </form>
+          )}
           <SiteImage
             name="contact-office"
             alt="The My Medicare Angel office"
             sizes={imageSizes.contact}
           />
         </div>
-
-        {status === 'done' ? (
-          <ThankYou heading="Message received">
-            <p>We will get back to you within one business day.</p>
-          </ThankYou>
-        ) : (
-          <form className="formcard" onSubmit={handleSubmit} noValidate>
-            {status === 'error' && <SubmitError />}
-            <div className="frow">
-              <Field
-                name="name"
-                label="Your name"
-                placeholder="Mary Johnson"
-                autoComplete="name"
-                value={values.name}
-                error={errors.name}
-                onChange={(v) => setValue('name', v)}
-              />
-              <Field
-                name="contact"
-                label="Phone or email"
-                placeholder="(555) 000-0000"
-                value={values.contact}
-                error={errors.contact}
-                onChange={(v) => setValue('contact', v)}
-              />
-            </div>
-            <TextareaField
-              name="message"
-              label="Your message"
-              placeholder="How can we help?"
-              value={values.message}
-              error={errors.message}
-              onChange={(v) => setValue('message', v)}
-            />
-            <button className="btn btn-amber btn-block" type="submit" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Sending…' : 'Send Message'}
-            </button>
-          </form>
-        )}
       </div>
     </>
   );

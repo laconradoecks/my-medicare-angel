@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, Parts, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  ContactSideCard,
+  Parts,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { learnSectionNav, planTypeLinks } from '@/data/nav';
 import { paths } from '@/routes';
 
@@ -36,6 +43,7 @@ export default function MedicareAdvantage() {
                 { label: 'Comparing Advantage plans', to: paths.compareAdvantage },
               ]}
             />
+            <ContactSideCard />
           </>
         }
       >

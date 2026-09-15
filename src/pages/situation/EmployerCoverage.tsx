@@ -1,5 +1,12 @@
 import Seo from '@/components/Seo';
-import { ArticleCta, ArticleLayout, Callout, SideCard, TitleBand } from '@/components/Blocks';
+import {
+  ArticleCta,
+  ArticleLayout,
+  Callout,
+  ContactSideCard,
+  SideCard,
+  TitleBand,
+} from '@/components/Blocks';
 import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { paths } from '@/routes';
 
@@ -17,14 +24,17 @@ export default function EmployerCoverage() {
       />
       <ArticleLayout
         sidebar={
-          <SideCard
-            heading="Related guides"
-            links={[
-              { label: 'Turning 65 checklist', to: paths.turning65 },
-              { label: 'Part D drug plans', to: paths.learnPartD },
-              { label: 'Supplements (Medigap)', to: paths.learnSupplements },
-            ]}
-          />
+          <>
+            <SideCard
+              heading="Related guides"
+              links={[
+                { label: 'Turning 65 checklist', to: paths.turning65 },
+                { label: 'Part D drug plans', to: paths.learnPartD },
+                { label: 'Supplements (Medigap)', to: paths.learnSupplements },
+              ]}
+            />
+            <ContactSideCard />
+          </>
         }
       >
         <SiteImage name="employer-retirement" alt="A man leaving the office on his last day of work" sizes={imageSizes.article} />

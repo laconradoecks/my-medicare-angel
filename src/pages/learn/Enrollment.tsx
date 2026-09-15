@@ -3,6 +3,7 @@ import {
   ArticleCta,
   ArticleLayout,
   Callout,
+  ContactSideCard,
   Parts,
   SideCard,
   TitleBand,
@@ -42,6 +43,7 @@ export default function Enrollment() {
                 { label: 'Leaving employer coverage', to: paths.employer },
               ]}
             />
+            <ContactSideCard />
           </>
         }
       >

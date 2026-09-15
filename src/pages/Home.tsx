@@ -195,7 +195,7 @@ export default function Home() {
         <div className="eyebrow">WE WORK WITH TRUSTED CARRIERS</div>
         <div className="carriers">
           {homepageCarriers.map((carrier, i) => (
-            <div className="chip" key={i}>
+            <div className={carrier.logo ? 'chip' : 'chip named'} key={i}>
               {carrier.logo ? <img src={carrier.logo} alt={carrier.name} /> : carrier.name}
             </div>
           ))}
