@@ -1,0 +1,2 @@
+# SPA fallback so deep links like /compare/advantage-plans resolve on Netlify.
+/*  /index.html  200
