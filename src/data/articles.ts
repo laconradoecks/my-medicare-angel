@@ -30,7 +30,7 @@ export const articles: Article[] = [
     title: 'Can I Delay Medicare Part B If I Am Still Working?',
     excerpt:
       'When employer coverage lets you wait, when it does not, and the one trap (COBRA) that catches people.',
-    date: '[DATE]',
+    date: 'September 14, 2026',
     crumb: 'Delaying Part B',
     body: [
       {

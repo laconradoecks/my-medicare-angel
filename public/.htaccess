@@ -23,16 +23,19 @@
   RewriteEngine On
   RewriteBase /
 
-  # --- HTTPS redirect -------------------------------------------------------
-  # Leave this commented until cPanel shows an active AutoSSL certificate for
-  # the domain. Enabling it first makes the site unreachable behind a cert
-  # warning. Once SSL is issued, remove the leading "#" from the next two lines.
-  #
-  # RewriteCond %{HTTPS} !=on
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # Leave AutoSSL's validation path alone.
+  # Certificate renewal happens over plain http, so this stays above the
+  # redirects below.
   RewriteRule ^\.well-known/ - [L]
+
+  # One address per page. Without these, http://, https:// and the bare domain
+  # all answer 200, so every page exists at three addresses. AutoSSL is active,
+  # so forcing https is safe; if a certificate ever lapses, comment these out.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://www.mymedicareangel.com%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.mymedicareangel.com%{REQUEST_URI} [L,R=301]
 
   # Prerendered pages. The build writes /areas-we-serve as
   # /areas-we-serve/index.html; serve that file directly for the clean URL,

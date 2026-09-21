@@ -134,6 +134,10 @@ export default function Book() {
             <button className="btn btn-amber btn-block" type="submit" disabled={status === 'submitting'}>
               {status === 'submitting' ? 'Booking…' : 'Confirm My Appointment'}
             </button>
+            <div className="consent">
+              By submitting this form you agree that a licensed insurance agent may contact you by
+              phone about Medicare insurance options. This is a solicitation for insurance.
+            </div>
           </form>
         )}
       </div>

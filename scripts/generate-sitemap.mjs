@@ -37,9 +37,16 @@ const pathValues = [...staticBlock[0].matchAll(/paths\.(\w+),/g)]
   .map((m) => byName[m[1]])
   .filter((p) => p && !p.includes(':'));
 
-// Article detail pages.
+// Article detail pages, skipping drafts. An article with an empty `body` renders
+// a "still being written" state and sets noindex, so listing it here would tell
+// search engines two different things.
 const articlesSrc = readFileSync(join(root, 'src/data/articles.ts'), 'utf8');
-const slugs = [...articlesSrc.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
+const slugs = articlesSrc
+  .split(/\n  \{\n/)
+  .slice(1)
+  .map((block) => ({ slug: block.match(/slug:\s*'([^']+)'/)?.[1], draft: /body:\s*\[\s*\]/.test(block) }))
+  .filter((a) => a.slug && !a.draft)
+  .map((a) => a.slug);
 
 const urls = [...new Set([...pathValues, ...slugs.map((s) => `/articles/${s}`)])].sort();
 const today = new Date().toISOString().slice(0, 10);
