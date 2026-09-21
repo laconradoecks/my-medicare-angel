@@ -4,8 +4,9 @@
  * The prototype shipped six cards on the Articles page and one fully written
  * article ("Can I Delay Medicare Part B If I Am Still Working?"). That article
  * is reproduced verbatim below. The other five keep their designed titles and
- * excerpts and render a clearly-marked draft state, matching the placeholder
- * convention used elsewhere in the designs. Fill in `body` to publish one.
+ * excerpts as a backlog, but nothing unwritten is shown to visitors: an article
+ * with an empty `body` is left out of the index, out of the sitemap, and its
+ * URL redirects to /articles. Fill in `body` (and a real `date`) to publish one.
  */
 
 export type Block =
@@ -94,5 +95,8 @@ export const articles: Article[] = [
     body: [],
   },
 ];
+
+/** Only articles with real copy. Everything visitor-facing reads this list. */
+export const publishedArticles = articles.filter((a) => a.body.length > 0);
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);

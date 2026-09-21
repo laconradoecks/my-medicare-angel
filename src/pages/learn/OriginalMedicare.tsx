@@ -51,9 +51,10 @@ export default function OriginalMedicare() {
         <h2>Part B: medical insurance</h2>
         <p>
           Part B covers doctor visits, outpatient care, preventive services like screenings and
-          annual wellness visits, lab tests, and durable medical equipment. Part B has a monthly
-          premium of [CURRENT PART B PREMIUM] for most people, and you generally pay 20 percent of
-          the cost of covered services after a small annual deductible.
+          annual wellness visits, lab tests, and durable medical equipment. Part B carries a monthly
+          premium for most people, and you generally pay 20 percent of the cost of covered services
+          after an annual deductible. Both figures are set by Medicare and change each year — ask us
+          and we will tell you what applies right now.
         </p>
         <Callout>
           <strong>The important gap:</strong> Original Medicare has no yearly limit on what you can

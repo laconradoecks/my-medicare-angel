@@ -15,18 +15,13 @@ export default function Article() {
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? getArticle(slug) : undefined;
 
-  if (!article) return <Navigate to={paths.blog} replace />;
-
-  const isDraft = article.body.length === 0;
+  // An unwritten article is treated as a URL that does not exist yet: no draft
+  // page, no index entry, no sitemap entry. Give it a `body` to publish it.
+  if (!article || article.body.length === 0) return <Navigate to={paths.blog} replace />;
 
   return (
     <>
-      <Seo
-        title={article.title}
-        description={article.excerpt}
-        // Unwritten articles stay out of the index until they have real content.
-        noindex={isDraft}
-      />
+      <Seo title={article.title} description={article.excerpt} />
       <TitleBand
         crumbs={[
           { label: 'Home', to: paths.home },
@@ -59,26 +54,15 @@ export default function Article() {
           </>
         }
       >
-        {isDraft ? (
-          <>
-            <p>{article.excerpt}</p>
-            <Callout>
-              <strong>This article is still being written.</strong> In the meantime, a licensed agent
-              will answer the same question directly, at no cost, or browse the guides in the
-              sidebar.
-            </Callout>
-          </>
-        ) : (
-          article.body.map((block, i) => {
-            if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>;
-            if (block.type === 'callout') return <Callout key={i}>{block.text}</Callout>;
-            return (
-              <p key={i}>
-                {block.strong && <strong>{block.strong}</strong>} {block.text}
-              </p>
-            );
-          })
-        )}
+        {article.body.map((block, i) => {
+          if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>;
+          if (block.type === 'callout') return <Callout key={i}>{block.text}</Callout>;
+          return (
+            <p key={i}>
+              {block.strong && <strong>{block.strong}</strong>} {block.text}
+            </p>
+          );
+        })}
 
         <ArticleCta
           title="Not sure which side you fall on?"

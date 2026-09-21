@@ -30,7 +30,7 @@ import Quote from '@/pages/forms/Quote';
 import Contact from '@/pages/forms/Contact';
 import Book from '@/pages/forms/Book';
 import Refer from '@/pages/forms/Refer';
-import { Disclaimers, Privacy, Terms } from '@/pages/legal/LegalPages';
+import { Disclaimers } from '@/pages/legal/LegalPages';
 import NotFound from '@/pages/NotFound';
 
 export default function App() {
@@ -78,9 +78,8 @@ export default function App() {
         <Route path={paths.contact} element={<Contact />} />
         <Route path={paths.book} element={<Book />} />
 
-        {/* Legal */}
-        <Route path={paths.privacy} element={<Privacy />} />
-        <Route path={paths.terms} element={<Terms />} />
+        {/* Legal. Privacy and Terms are unrouted until the client's wording
+            arrives — see the note in pages/legal/LegalPages.tsx. */}
         <Route path={paths.disclaimers} element={<Disclaimers />} />
 
         <Route path="*" element={<NotFound />} />

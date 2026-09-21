@@ -42,6 +42,8 @@ export const paths = {
   book: '/book-a-consultation',
   quote: '/get-a-quote',
 
+  /** Hidden for now: no route, footer link or sitemap entry until the client
+      supplies the policy and terms wording. */
   privacy: '/privacy-policy',
   terms: '/terms-of-use',
   disclaimers: '/medicare-disclaimers',
@@ -76,7 +78,5 @@ export const staticRoutes: string[] = [
   paths.contact,
   paths.book,
   paths.quote,
-  paths.privacy,
-  paths.terms,
   paths.disclaimers,
 ];

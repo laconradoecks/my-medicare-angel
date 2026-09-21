@@ -42,5 +42,19 @@ fi
 
 # --checksum compares file contents. rsync's default size-and-time check can skip
 # a changed file that happens to match both, which a build can produce.
-rsync -a --checksum --exclude '.git' --exclude '.well-known' --exclude 'cgi-bin' ./ "$SITE/"
+#
+# --delete removes pages the build no longer contains, so a page taken off the
+# site (an unfinished article, a section held back) actually stops being served
+# instead of sitting there from an older deploy. Excluded paths are protected
+# from deletion by rsync, which is what keeps the host's own files — AutoSSL
+# challenges, cPanel's PHP settings, logs — out of its way.
+rsync -a --checksum --delete \
+  --exclude '.git' \
+  --exclude '.well-known' \
+  --exclude 'cgi-bin' \
+  --exclude '.user.ini' \
+  --exclude 'php.ini' \
+  --exclude '.ftpquota' \
+  --exclude 'error_log' \
+  ./ "$SITE/"
 echo "$(date '+%Y-%m-%d %H:%M:%S') published build $(cat version.txt 2>/dev/null || echo '(no version.txt)')"

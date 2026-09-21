@@ -90,19 +90,18 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'Our Insurance Partners', to: paths.partners },
       { label: 'Articles', to: paths.blog },
-      { label: 'Privacy Policy', to: paths.privacy },
-      { label: 'Terms of Use', to: paths.terms },
+      // Privacy Policy and Terms of Use rejoin this column with their copy.
       { label: 'Medicare Disclaimers', to: paths.disclaimers },
     ],
   },
 ];
 
 /** Repeated in the bottom bar, as the reference does. */
-export const legalLinks = [
-  { label: 'Privacy Policy', to: paths.privacy },
-  { label: 'Terms of Use', to: paths.terms },
-  { label: 'Medicare Disclaimers', to: paths.disclaimers },
-];
+/**
+ * Privacy Policy and Terms of Use return here once the client supplies the
+ * wording; they are hidden rather than linked to a placeholder page.
+ */
+export const legalLinks = [{ label: 'Medicare Disclaimers', to: paths.disclaimers }];
 
 /** The "In this section" sidebar shared across the Learn pages. */
 export const learnSectionNav = [
