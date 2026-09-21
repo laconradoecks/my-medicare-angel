@@ -248,9 +248,16 @@ the background or the lockup, run `npm run og-image` and commit the JPEG.
 
 cPanel runs Apache, so it ignores `netlify.toml`, `vercel.json` and
 `public/_redirects`. It reads [`public/.htaccess`](public/.htaccess) instead, which
-ships in every build and provides the SPA rewrite, compression, cache headers and
+ships in every build and provides the page rewrites, compression, cache headers and
 the security headers. **Without it every URL except `/` returns a 404** — that file
 is the whole reason deep links work on this host.
+
+It serves each prerendered page at its clean URL, and because every real route is
+prerendered, an address that matches no file is not a page on this site: it answers
+404 and `ErrorDocument` returns `dist/404.html`, the app's own not-found page. An
+`/articles/<slug>` address with nothing behind it redirects to the article index
+instead, which is what the app does with those URLs. Taking a page off the site is
+therefore a code change alone — the server stops serving it without further work.
 
 **How deploys work: GitHub builds, the server copies.** Prerendering needs Chromium, and
 this host cannot run it (it lacks `libatk-bridge` and `libatspi`), so the server no longer
@@ -276,6 +283,13 @@ Then schedule it every 5 minutes (safe to re-run; it replaces its own entry):
 
 If the host blocks `crontab`, add the same job in cPanel → Cron Jobs ("Once per five
 minutes"). Each published build adds a line to `~/logs/mymedicareangel-deploy.log`.
+
+The cron runs the copy of the script in `~/bin`, not the one in this repo, so after
+editing `scripts/server-deploy.sh` run that same `curl` again to update the host.
+The copy step is an rsync with `--delete`, which is what makes a removed page stop
+being served; the host's own files (`.well-known`, PHP settings, logs) are excluded
+and so protected from it. To force a full re-sync, delete `version.txt` from the web
+root and run the script by hand.
 
 The script clones `deploy` on first run, copies a build only when its `version.txt`
 differs from the live one, never copies `.git` into the web root, and skips a run if
@@ -392,27 +406,45 @@ find them.
 - [x] ~~Hero photograph~~ — placed with the rest of the photography (see Photography).
 - [x] ~~Carrier names~~ — Cigna, UnitedHealthcare, Aetna, Humana and Blue Cross Blue
       Shield, in `src/data/carriers.ts`.
+Nothing unfinished is on the site: a page without its copy is not routed, not
+linked and not in the sitemap, and its address returns 404 (an unwritten article
+redirects to `/articles`). The homepage is the one exception — its sample
+testimonials are shown, labelled as samples, by agreement with the client. So
+each item below is content to obtain, and the note says what it unblocks.
+
 - [ ] **Carrier logo permission** — the client's logo files are processed by
       `scripts/process-logos.mjs` and now shown on the homepage strip and the partners
       page. Carriers set brand-usage rules for appointed agents, so confirm written
       permission for each, and replace the generic Blue Cross mark with the specific
       company the agency is appointed with.
-- [ ] **Real testimonials** — `src/data/testimonials.ts` holds four samples, labelled
-      as samples on the page. Replace the quotes and attributions together.
-- [ ] **Disclaimer counts** — the "[X] organizations / [Y] products" line on the
-      disclaimers page must match actual contracts. Blue Cross Blue Shield plans are
-      separate companies by state, so confirm which ones the agency is appointed with
-      before counting.
-- [ ] **Client testimonial** — `src/pages/Home.tsx`. Needs a real, permissioned quote.
-- [ ] **Email address** — `src/config/site.ts` (currently a best guess)
-- [ ] **Part B premium figure** — `src/pages/learn/OriginalMedicare.tsx`, updates yearly
-- [ ] **Event dates, times and venues** — `src/data/events.ts`
-- [ ] **Five unwritten articles** — `src/data/articles.ts`. They render a clearly
-      marked draft state and are `noindex` until `body` is filled in.
-- [ ] **Privacy policy and terms** — `src/pages/legal/LegalPages.tsx`
+- [ ] **Real testimonials** — `src/data/testimonials.ts` holds four samples, shown on
+      the homepage under a line that says they are samples. Replace the quotes and
+      attributions together, and drop `testimonialsArePlaceholders` when they are real.
+- [ ] **Disclaimer counts** — CMS expects a line naming how many organizations and
+      products the agency represents. It is held out of the disclaimers page until the
+      contracts confirm the numbers; the rest of the required wording is live. Blue
+      Cross Blue Shield plans are separate companies by state, so confirm which ones
+      the agency is appointed with before counting.
+- [ ] **Privacy policy and terms** — `src/pages/legal/LegalPages.tsx`. The pages are
+      written but unrouted, so both addresses 404. The forms collect names and phone
+      numbers, which makes the privacy policy the one item genuinely blocking launch.
+      Restoring each needs three edits: the route in `App.tsx`, the entries in
+      `src/data/nav.ts`, and `staticRoutes` in `src/routes.ts`.
+- [ ] **Five unwritten articles** — `src/data/articles.ts`. Give one a `body` and a real
+      `date` and it publishes itself: index card, sitemap entry and page.
+- [ ] **Event dates, times and venues** — `src/data/events.ts`. The page is hidden
+      entirely (no route, nav link or sitemap entry) until the dates are confirmed.
+- [ ] **Email address** — `src/config/site.ts` (currently a best guess). This is the
+      address shown to visitors; enquiries are delivered separately, by
+      `public/api/lead.php`.
+- [ ] **Form endpoint** — wired and live at `/api/lead.php`, delivering to the client's
+      inbox. Still needs one real submission through the live form to confirm delivery
+      and check it does not land in spam.
+- [ ] **Part B premium figure** — `src/pages/learn/OriginalMedicare.tsx` now describes
+      the premium without naming a figure, which stays accurate year to year. Naming it
+      is optional, and means updating the page each January.
 - [x] ~~Office map placeholder~~ — replaced by the office photo on the contact page. Add
       an embedded map later if one is wanted.
-- [ ] **Form endpoint** — see above
 - [x] ~~Social card~~ — `public/logo/og-card.jpg`, set as `og:image` on every page.
 
 ### Compliance note
