@@ -61,6 +61,7 @@ const server = await preview({
 // preview server keeps serving the original shell while pages are captured.
 const rendered = [];
 const errors = [];
+let notFoundHtml = '';
 try {
   const page = await browser.newPage();
   page.on('pageerror', (err) => errors.push(`${page.url()}: ${err.message}`));
@@ -91,6 +92,20 @@ try {
       html: await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML),
     });
   }
+  // dist/404.html, which Apache serves for any URL that is not a real page.
+  // Rendered from a path that deliberately matches no route, so the app's own
+  // not-found page is what comes back. The canonical link is dropped: it would
+  // point at this throwaway path, and a 404 has nothing to be canonical to.
+  await page.goto(origin + '/__not-found', { waitUntil: 'networkidle0', timeout: 30_000 });
+  await page.waitForSelector('main h1', { timeout: 15_000 });
+  await page.waitForFunction(
+    () => document.querySelector('meta[name="robots"]')?.getAttribute('content') === 'noindex, nofollow',
+    { timeout: 15_000 },
+  );
+  notFoundHtml = await page.evaluate(() => {
+    document.querySelector('link[rel="canonical"]')?.remove();
+    return '<!doctype html>\n' + document.documentElement.outerHTML;
+  });
 } finally {
   await browser.close();
   server.httpServer.closeAllConnections?.();
@@ -112,5 +127,8 @@ for (const { route, html } of rendered) {
   writeFileSync(file, html);
 }
 
-console.log(`prerender: wrote ${rendered.length} pages`);
+if (!notFoundHtml) fail('the 404 page did not render');
+writeFileSync(join(dist, '404.html'), notFoundHtml);
+
+console.log(`prerender: wrote ${rendered.length} pages + 404.html`);
 process.exit(0);

@@ -37,6 +37,11 @@
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ https://www.mymedicareangel.com%{REQUEST_URI} [L,R=301]
 
+  # The homepage. Its own file, kept separate because the pattern below needs at
+  # least one path segment to match — and because the catch-all 404 at the end
+  # would otherwise swallow "/".
+  RewriteRule ^$ index.html [L]
+
   # Prerendered pages. The build writes /areas-we-serve as
   # /areas-we-serve/index.html; serve that file directly for the clean URL,
   # rather than letting the server redirect to a trailing-slash address first.
@@ -47,10 +52,24 @@
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Anything else goes to the app, which resolves it (including its own 404
-  # page). A safety net: every known route is prerendered above.
-  RewriteRule ^ index.html [L]
+  # An /articles/<slug> address with no page behind it — an article that is not
+  # written yet, or a link from when one was — goes to the article index, which
+  # is what the app itself does with those URLs.
+  # Absolute, so this lands on the canonical address in one hop instead of
+  # redirecting again through the https and www rules above.
+  RewriteRule ^articles/.+ https://www.mymedicareangel.com/articles [L,R=301]
+
+  # Anything else is not a page on this site. Every real route is prerendered
+  # above, so a request that reaches here has nowhere to go: answer 404 rather
+  # than serving the app shell with a 200, which tells a crawler the address
+  # exists. ErrorDocument below sends back the app's own not-found page, and it
+  # carries the app, so a visitor still lands somewhere useful.
+  RewriteRule ^ - [L,R=404]
 </IfModule>
+
+# The prerendered not-found page, served for every 404 above. It is a real file,
+# so the rewrite rules serve it without looping back here.
+ErrorDocument 404 /404.html
 
 # ---------------------------------------------------------------------------
 # Compression — roughly a 3.5x reduction on the JS and CSS bundles.
