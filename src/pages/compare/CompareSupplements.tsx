@@ -43,6 +43,8 @@ export default function CompareSupplements() {
         ]}
         title="Comparing Medicare Supplement Plans: G, N and High-Deductible G"
         lede="Supplement plans are standardized by law, so the real comparison is between a few popular letters, and then between insurers on price."
+        region
+        mobileCta
       />
       <div className="wrap pagebody">
         <CompareTable data={table} />

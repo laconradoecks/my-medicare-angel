@@ -61,6 +61,8 @@ export default function Compare() {
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Compare Plans' }]}
         title="Original Medicare vs. Medicare Advantage: Which Is Right for You?"
         lede="The biggest Medicare decision most people face, compared side by side: doctors, monthly costs, drug coverage, extras and travel. Neither is better for everyone; this table shows what actually differs."
+        region
+        mobileCta
       >
         <div className="pillrow">
           <Link className="pill" to={paths.compareAdvantage}>

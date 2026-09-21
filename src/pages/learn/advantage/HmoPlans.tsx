@@ -29,6 +29,8 @@ export default function HmoPlans() {
         ]}
         title="Medicare Advantage HMO Plans: How They Work"
         lede="The most common Medicare Advantage plan type, and usually the cheapest. The trade is simple. You accept a network, and the plan rewards you with low costs."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

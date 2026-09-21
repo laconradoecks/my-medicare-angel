@@ -29,6 +29,8 @@ export default function PpoPlans() {
         ]}
         title="Medicare Advantage PPO Plans: Freedom With a Network"
         lede="A PPO keeps the all in one convenience of Medicare Advantage but loosens the rules. You can go outside the network, you just pay more when you do."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

@@ -26,6 +26,8 @@ export default function OriginalMedicare() {
         ]}
         title="Original Medicare: What Parts A and B Cover"
         lede="The foundation of all Medicare coverage: hospital insurance and medical insurance, what each pays for, and what they leave out."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

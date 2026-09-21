@@ -22,6 +22,8 @@ export default function MedicareExplained() {
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Medicare Explained' }]}
         title="Medicare Explained: Parts A, B, C and D in Plain English"
         lede="What Medicare covers, who qualifies, when to enroll, and how Medicare Advantage, Supplements and Part D drug plans fit together. Everything starts here."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={
@@ -85,6 +87,8 @@ export default function MedicareExplained() {
         <ArticleCta
           title="Still have questions? That is normal."
           sub="Talk them through with a licensed agent, free of charge."
+          secondaryLabel="Contact Us"
+          secondaryTo={paths.contact}
         />
       </ArticleLayout>
     </>

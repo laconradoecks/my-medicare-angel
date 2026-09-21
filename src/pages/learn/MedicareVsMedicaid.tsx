@@ -25,6 +25,8 @@ export default function MedicareVsMedicaid() {
         ]}
         title="Medicare vs. Medicaid: What Is the Difference?"
         lede="Two similar names, two very different programs. Here is the difference in plain terms, and what happens if you qualify for both."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

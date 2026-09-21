@@ -29,6 +29,8 @@ export default function PffsPlans() {
         ]}
         title="PFFS Plans: Private Fee for Service, Explained"
         lede="The least known Medicare Advantage type. No network in the usual sense, but a catch worth understanding before you choose one."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

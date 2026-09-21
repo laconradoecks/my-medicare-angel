@@ -24,6 +24,8 @@ export default function PartD() {
         ]}
         title="Medicare Part D: Prescription Drug Coverage Explained"
         lede="How drug plans work, why the same medicine can cost different amounts on different plans, and why enrolling on time matters."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

@@ -29,6 +29,8 @@ export default function MsaPlans() {
         ]}
         title="Medicare MSA Plans: A Deposit, a Deductible, and You in Control"
         lede="The most unusual Medicare Advantage type. The plan puts money into a savings account for you, and you manage your own care costs up to a high deductible."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

@@ -379,8 +379,14 @@ find them.
       app icons and manifest.
 - [x] ~~Hero photograph~~ — placed with the rest of the photography (see Photography).
 - [x] ~~Carrier names~~ — Cigna, UnitedHealthcare, Aetna, Humana and Blue Cross Blue
-      Shield, in `src/data/carriers.ts`, shown as text. Add a carrier's logo only with
-      its permission; carriers set brand-usage rules for agents.
+      Shield, in `src/data/carriers.ts`.
+- [ ] **Carrier logo permission** — the client's logo files are processed by
+      `scripts/process-logos.mjs` and now shown on the homepage strip and the partners
+      page. Carriers set brand-usage rules for appointed agents, so confirm written
+      permission for each, and replace the generic Blue Cross mark with the specific
+      company the agency is appointed with.
+- [ ] **Real testimonials** — `src/data/testimonials.ts` holds four samples, labelled
+      as samples on the page. Replace the quotes and attributions together.
 - [ ] **Disclaimer counts** — the "[X] organizations / [Y] products" line on the
       disclaimers page must match actual contracts. Blue Cross Blue Shield plans are
       separate companies by state, so confirm which ones the agency is appointed with

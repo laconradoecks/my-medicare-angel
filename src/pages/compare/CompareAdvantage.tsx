@@ -43,6 +43,8 @@ export default function CompareAdvantage() {
         ]}
         title="Comparing Medicare Advantage Plans: HMO vs. PPO vs. SNP"
         lede="Once you have chosen the Advantage path, the plan types differ in freedom, cost and who they are built for."
+        region
+        mobileCta
       />
       <div className="wrap pagebody">
         <CompareTable data={table} />

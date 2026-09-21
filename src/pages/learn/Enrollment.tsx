@@ -27,6 +27,8 @@ export default function Enrollment() {
         ]}
         title="Medicare Enrollment Periods: Initial, Annual, Special and Open"
         lede="You can only join or change Medicare coverage at certain times. Here is when each enrollment period happens, who it is for, and what you can do during it."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

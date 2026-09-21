@@ -26,6 +26,8 @@ export default function MedicareAdvantage() {
         ]}
         title="Medicare Advantage (Part C): HMO, PPO, PFFS, MSA and Special Needs Plans"
         lede="All-in-one plans from private insurers that replace how you receive your Medicare benefits, often with drug coverage and extras built in."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

@@ -334,6 +334,16 @@ header.site {
   color: var(--teal);
   text-decoration: underline;
 }
+/* Service-area line under a page title, and the phone-only CTA beneath it. */
+.region-note {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 10px 0 0;
+  max-width: 760px;
+}
+.mobile-cta {
+  display: none;
+}
 .lede {
   font-size: 20px;
   color: #44545f;
@@ -556,6 +566,18 @@ header.site {
   text-align: center;
   padding: 8px;
 }
+.chip.logo {
+  background: var(--white);
+  border: 1px solid var(--line);
+  /* Taller than a text chip: carrier marks need room to stay legible. */
+  height: 76px;
+  padding: 12px 18px;
+}
+.chip.logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
 .chip img {
   max-height: 100%;
   max-width: 100%;
@@ -569,7 +591,30 @@ header.site {
   margin-bottom: 20px;
 }
 
-/* ===================== Testimonial ===================== */
+/* ===================== Testimonials ===================== */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+.testimonial {
+  margin: 0;
+  gap: 12px;
+}
+.testimonial .q {
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+.testimonial .attrib {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ===================== Testimonial (single quote) ===================== */
 .quoteblock {
   max-width: 820px;
   margin: 0 auto;
@@ -781,6 +826,11 @@ footer.site {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: wrap;
+}
+.cta-actions {
+  display: flex;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .article-cta .t {
@@ -1271,6 +1321,14 @@ footer.site {
 }
 
 @media (max-width: 900px) {
+  .mobile-cta {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
   .cards3,
   .cards4,
   .steps {

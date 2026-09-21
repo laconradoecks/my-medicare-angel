@@ -29,6 +29,8 @@ export default function SpecialNeedsPlans() {
         ]}
         title="Special Needs Plans: Medicare Built Around Your Situation"
         lede="Medicare Advantage plans designed for specific groups of people, with benefits shaped around their needs. If you qualify, these are often the most generous plans available."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

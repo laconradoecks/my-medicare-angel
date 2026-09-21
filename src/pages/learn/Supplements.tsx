@@ -26,6 +26,8 @@ export default function Supplements() {
         ]}
         title="Medicare Supplement (Medigap) Plans, Explained Simply"
         lede="Add-on insurance that pays the share of medical bills Original Medicare leaves to you, in exchange for a predictable monthly premium."
+        region
+        mobileCta
       />
       <ArticleLayout
         sidebar={

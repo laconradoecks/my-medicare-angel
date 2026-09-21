@@ -1,5 +1,5 @@
 import Seo from '@/components/Seo';
-import { Guidance, TitleBand } from '@/components/Blocks';
+import { CarrierChip, Guidance, TitleBand } from '@/components/Blocks';
 import { carriers } from '@/data/carriers';
 import { paths } from '@/routes';
 
@@ -19,9 +19,7 @@ export default function Partners() {
         <div className="cards3" style={{ marginBottom: 36 }}>
           {carriers.map((carrier, i) => (
             <div className="card on-cream" key={i}>
-              <div className={carrier.logo ? 'chip' : 'chip named'} style={{ height: 70 }}>
-                {carrier.logo ? <img src={carrier.logo} alt={carrier.name} /> : carrier.name}
-              </div>
+              <CarrierChip carrier={carrier} height={70} />
               {carrier.blurb && <p style={{ fontSize: 16 }}>{carrier.blurb}</p>}
             </div>
           ))}

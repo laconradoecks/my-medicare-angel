@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { paths } from '@/routes';
+import { site } from '@/config/site';
+import type { Carrier } from '@/data/carriers';
 import { InfoIcon, QuoteMarkIcon } from './Icons';
 
 /* ---------------------------------------------------------------- Title band */
@@ -11,11 +13,17 @@ export function TitleBand({
   crumbs,
   title,
   lede,
+  region = false,
+  mobileCta = false,
   children,
 }: {
   crumbs: Crumb[];
   title: string;
   lede?: ReactNode;
+  /** Adds the service-area line under the lede. */
+  region?: boolean;
+  /** Adds a phone-only "Get Medicare Help" button, so plan pages carry one at the top as well as the foot. */
+  mobileCta?: boolean;
   children?: ReactNode;
 }) {
   return (
@@ -31,6 +39,17 @@ export function TitleBand({
         </div>
         <h1>{title}</h1>
         {lede && <div className="lede">{lede}</div>}
+        {region && (
+          <p className="region-note">
+            Licensed agents serving Greater Boston, Massachusetts and all of New England, plus New
+            York. <Link to={paths.areas}>See the areas we serve</Link>
+          </p>
+        )}
+        {mobileCta && (
+          <Link className="btn btn-amber mobile-cta" to={paths.quote}>
+            Get Medicare Help
+          </Link>
+        )}
         {children}
       </div>
     </div>
@@ -88,9 +107,15 @@ export function ContactSideCard() {
       <div style={{ fontSize: 16, color: 'var(--muted)' }}>
         Send us a message and a licensed agent will get back to you within one business day.
       </div>
-      <Link className="btn btn-teal" style={{ width: '100%' }} to={paths.contact}>
+      <Link className="btn btn-teal btn-block" to={paths.contact}>
         Contact Us
       </Link>
+      <div style={{ fontSize: 15, color: 'var(--muted)' }}>
+        Or call{' '}
+        <a href={site.phone.href}>
+          <strong>{site.phone.display}</strong>
+        </a>
+      </div>
     </div>
   );
 }
@@ -132,11 +157,15 @@ export function ArticleCta({
   sub,
   ctaLabel = 'Get Medicare Help',
   ctaTo = paths.quote,
+  secondaryLabel,
+  secondaryTo,
 }: {
   title: string;
   sub: string;
   ctaLabel?: string;
   ctaTo?: string;
+  secondaryLabel?: string;
+  secondaryTo?: string;
 }) {
   return (
     <div className="article-cta">
@@ -144,9 +173,16 @@ export function ArticleCta({
         <div className="t">{title}</div>
         <div className="s">{sub}</div>
       </div>
-      <Link className="btn btn-amber" to={ctaTo}>
-        {ctaLabel}
-      </Link>
+      <div className="cta-actions">
+        <Link className="btn btn-amber" to={ctaTo}>
+          {ctaLabel}
+        </Link>
+        {secondaryLabel && secondaryTo && (
+          <Link className="btn btn-ghost" to={secondaryTo}>
+            {secondaryLabel}
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
@@ -237,18 +273,59 @@ function Row({ row }: { row: { label: string; cells: string[] } }) {
   );
 }
 
-/* ------------------------------------------------------------- Testimonial */
+/* ------------------------------------------------------------ Testimonials */
 
-export function Testimonial({ quote, attribution }: { quote: string; attribution: string }) {
+export function Testimonials({
+  items,
+  placeholders = false,
+}: {
+  items: { quote: string; attribution: string }[];
+  placeholders?: boolean;
+}) {
   return (
-    <div className="wrap sect">
-      <figure className="quoteblock" style={{ margin: 0 }}>
-        <QuoteMarkIcon />
-        <blockquote className="q" style={{ margin: 0 }}>
-          “{quote}”
-        </blockquote>
-        <figcaption className="attrib">{attribution}</figcaption>
-      </figure>
+    <div className="band-white">
+      <section className="wrap sect">
+        <h2>What clients say</h2>
+        {placeholders && (
+          <div className="sub">
+            [Sample testimonials, shown until real client quotes are collected]
+          </div>
+        )}
+        <div className="testimonials">
+          {items.map((t) => (
+            <figure className="card on-cream testimonial" key={t.quote}>
+              <QuoteMarkIcon />
+              <blockquote className="q">“{t.quote}”</blockquote>
+              <figcaption className="attrib">{t.attribution}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* --------------------------------------------------------------- Carriers */
+
+/** A carrier's logo on a white tile, or its name where there is no logo. */
+export function CarrierChip({ carrier, height }: { carrier: Carrier; height?: number }) {
+  const style = height ? { height } : undefined;
+  if (!carrier.logo) {
+    return (
+      <div className="chip named" style={style}>
+        {carrier.name}
+      </div>
+    );
+  }
+  return (
+    <div className="chip logo" style={style}>
+      <img
+        src={carrier.logo}
+        srcSet={`${carrier.logo} 1x, ${carrier.logo.replace('.png', '@2x.png')} 2x`}
+        alt={carrier.name}
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { CtaBand, Testimonial } from '@/components/Blocks';
+import { CarrierChip, CtaBand, Testimonials } from '@/components/Blocks';
 import { SiteImage, imageSizes } from '@/components/SiteImage';
 import { CardIcon, ClockIcon, ShieldIcon, TickIcon } from '@/components/Icons';
 import { homepageCarriers } from '@/data/carriers';
+import { testimonials, testimonialsArePlaceholders } from '@/data/testimonials';
 import { paths } from '@/routes';
 import { site } from '@/config/site';
 
@@ -194,19 +195,14 @@ export default function Home() {
       <section className="wrap" style={{ padding: '44px 24px' }}>
         <div className="eyebrow">WE WORK WITH TRUSTED CARRIERS</div>
         <div className="carriers">
-          {homepageCarriers.map((carrier, i) => (
-            <div className={carrier.logo ? 'chip' : 'chip named'} key={i}>
-              {carrier.logo ? <img src={carrier.logo} alt={carrier.name} /> : carrier.name}
-            </div>
+          {homepageCarriers.map((carrier) => (
+            <CarrierChip carrier={carrier} key={carrier.name} />
           ))}
         </div>
       </section>
 
-      {/* Testimonial — TODO: replace with a real, permissioned client quote. */}
-      <Testimonial
-        quote="I put off dealing with Medicare for months because it felt overwhelming. One phone call sorted the whole thing out."
-        attribution="[Client name], [City]"
-      />
+      {/* Placeholder quotes: see src/data/testimonials.ts */}
+      <Testimonials items={testimonials} placeholders={testimonialsArePlaceholders} />
 
       <CtaBand />
     </>
