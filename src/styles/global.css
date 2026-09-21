@@ -1024,6 +1024,20 @@ footer.site {
 }
 /* Contact page: the form and the office photo share the right-hand column, so
    both columns end at about the same height. */
+/* Contact page: the office photo sits under the info card, cropped wide so the
+   two columns finish closer together. */
+.contact-photo img {
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+/* Honeypot input: off screen for people, still fillable by a bot. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
 .form-column {
   flex: 1 1 440px;
   max-width: 600px;

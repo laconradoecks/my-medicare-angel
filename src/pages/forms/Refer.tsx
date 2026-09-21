@@ -25,7 +25,7 @@ export default function Refer() {
     [],
   );
 
-  const { values, errors, status, setValue, handleSubmit } = useLeadForm(
+  const { values, errors, status, setValue, handleSubmit, honeypotProps } = useLeadForm(
     initial,
     validate,
     'refer',
@@ -60,6 +60,8 @@ export default function Refer() {
         ) : (
           <form className="formcard" onSubmit={handleSubmit} noValidate>
             {status === 'error' && <SubmitError />}
+            {/* Hidden from people; bots that fill it in are dropped server side. */}
+            <input className="hp-field" aria-hidden="true" {...honeypotProps} />
             <div className="frow">
               <Field
                 name="yourName"

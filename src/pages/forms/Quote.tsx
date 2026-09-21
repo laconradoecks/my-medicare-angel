@@ -51,7 +51,7 @@ export default function Quote() {
     [],
   );
 
-  const { values, errors, status, setValue, handleSubmit } = useLeadForm(
+  const { values, errors, status, setValue, handleSubmit, honeypotProps } = useLeadForm(
     initial,
     validate,
     'help',
@@ -126,6 +126,8 @@ export default function Quote() {
         ) : (
           <form className="formcard" onSubmit={handleSubmit} noValidate>
             {status === 'error' && <SubmitError />}
+            {/* Hidden from people; bots that fill it in are dropped server side. */}
+            <input className="hp-field" aria-hidden="true" {...honeypotProps} />
             <div className="frow">
               <Field
                 name="name"

@@ -8,7 +8,7 @@ import {
   SideCard,
   TitleBand,
 } from '@/components/Blocks';
-import { learnSectionNav, planTypeLinks } from '@/data/nav';
+import { learnSectionNav } from '@/data/nav';
 import { paths } from '@/routes';
 
 export default function MedicareAdvantage() {
@@ -37,7 +37,6 @@ export default function MedicareAdvantage() {
               links={learnSectionNav}
               currentPath={paths.learnAdvantage}
             />
-            <SideCard heading="Plan types" links={planTypeLinks} />
             <SideCard
               heading="Compare"
               links={[

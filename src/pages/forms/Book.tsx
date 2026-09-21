@@ -46,7 +46,7 @@ export default function Book() {
     [],
   );
 
-  const { values, errors, status, setValue, handleSubmit } = useLeadForm(
+  const { values, errors, status, setValue, handleSubmit, honeypotProps } = useLeadForm(
     initial,
     validate,
     'book',
@@ -89,6 +89,8 @@ export default function Book() {
         ) : (
           <form className="formcard" onSubmit={handleSubmit} noValidate>
             {status === 'error' && <SubmitError />}
+            {/* Hidden from people; bots that fill it in are dropped server side. */}
+            <input className="hp-field" aria-hidden="true" {...honeypotProps} />
 
             <ChoiceGroup
               label="Choose a day"

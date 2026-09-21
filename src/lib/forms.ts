@@ -28,10 +28,14 @@ export const validAge = (value: string) => {
 /* --------------------------------------------------------------- the hook */
 
 /**
- * Small form controller shared by the quote, contact, booking and referral
+ * Small form controller shared by the help, contact, booking and referral
  * forms. On submit it POSTs JSON to `site.formEndpoint`; when that is unset
  * it resolves successfully without sending anything, so the site behaves like
  * the prototype until a real handler is configured.
+ *
+ * It also carries a honeypot field: spread `honeypotProps` onto a visually
+ * hidden input. People never fill it in, so anything that arrives with it set
+ * is dropped by the server.
  */
 export function useLeadForm<T extends Record<string, unknown>>(
   initial: T,
@@ -41,6 +45,7 @@ export function useLeadForm<T extends Record<string, unknown>>(
   const [values, setValues] = useState<T>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({});
   const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [honeypot, setHoneypot] = useState('');
 
   const setValue = useCallback(<K extends keyof T>(key: K, value: T[K]) => {
     setValues((v) => ({ ...v, [key]: value }));
@@ -69,7 +74,12 @@ export function useLeadForm<T extends Record<string, unknown>>(
           const res = await fetch(site.formEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify({ form: formName, ...values, submittedAt: new Date().toISOString() }),
+            body: JSON.stringify({
+              form: formName,
+              ...values,
+              website: honeypot,
+              submittedAt: new Date().toISOString(),
+            }),
           });
           if (!res.ok) throw new Error(`Submission failed with status ${res.status}`);
         }
@@ -78,7 +88,7 @@ export function useLeadForm<T extends Record<string, unknown>>(
         setStatus('error');
       }
     },
-    [formName, validate, values],
+    [formName, honeypot, validate, values],
   );
 
   const reset = useCallback(() => {
@@ -87,5 +97,13 @@ export function useLeadForm<T extends Record<string, unknown>>(
     setStatus('idle');
   }, [initial]);
 
-  return { values, errors, status, setValue, handleSubmit, reset };
+  const honeypotProps = {
+    name: 'website',
+    value: honeypot,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => setHoneypot(e.target.value),
+    tabIndex: -1,
+    autoComplete: 'off',
+  } as const;
+
+  return { values, errors, status, setValue, handleSubmit, reset, honeypotProps };
 }

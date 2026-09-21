@@ -40,7 +40,6 @@ export const navGroups: NavGroup[] = [
     items: [
       { label: 'Articles', blurb: 'Guides & answers', to: paths.blog },
       { label: 'FAQs', blurb: 'Quick answers', to: paths.faqs },
-      { label: 'Events & Seminars', blurb: 'Free sessions', to: paths.events },
       { label: 'Refer a Friend', blurb: 'Send someone our way', to: paths.refer },
     ],
   },
@@ -82,7 +81,6 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: 'Get Medicare Help', to: paths.quote },
       { label: 'Book an Appointment', to: paths.book },
-      { label: 'Events & Seminars', to: paths.events },
       { label: 'Refer a Friend', to: paths.refer },
       { label: 'Contact Us', to: paths.contact },
     ],

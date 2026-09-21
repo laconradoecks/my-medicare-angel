@@ -26,7 +26,6 @@ import AreasWeServe from '@/pages/situation/AreasWeServe';
 import Faqs from '@/pages/Faqs';
 import Articles from '@/pages/Articles';
 import Article from '@/pages/Article';
-import Events from '@/pages/Events';
 import Quote from '@/pages/forms/Quote';
 import Contact from '@/pages/forms/Contact';
 import Book from '@/pages/forms/Book';
@@ -70,7 +69,8 @@ export default function App() {
         <Route path={paths.blog} element={<Articles />} />
         <Route path={paths.articlePattern} element={<Article />} />
         <Route path={paths.faqs} element={<Faqs />} />
-        <Route path={paths.events} element={<Events />} />
+        {/* Events & Seminars stays unrouted until the client supplies real dates
+            and venues: src/pages/Events.tsx and its nav links are ready to restore. */}
         <Route path={paths.refer} element={<Refer />} />
 
         {/* Convert */}

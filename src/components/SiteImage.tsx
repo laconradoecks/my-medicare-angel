@@ -7,7 +7,7 @@ import { images, type ImageName } from '@/data/images';
 export const imageSizes = {
   hero: '(max-width: 900px) calc(100vw - 48px), 540px',
   article: '(max-width: 900px) calc(100vw - 48px), 830px',
-  contact: '(max-width: 900px) calc(100vw - 48px), 600px',
+  contact: '(max-width: 900px) calc(100vw - 48px), 520px',
   section: '(max-width: 908px) calc(100vw - 48px), 860px',
   banner: '(max-width: 1200px) calc(100vw - 48px), 1152px',
 };

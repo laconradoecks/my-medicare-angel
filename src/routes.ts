@@ -34,6 +34,7 @@ export const paths = {
   article: (slug: string) => `/articles/${slug}`,
   articlePattern: '/articles/:slug',
   faqs: '/faqs',
+  /** Hidden for now: no route, nav link or sitemap entry until dates are confirmed. */
   events: '/events',
   refer: '/refer-a-friend',
 
@@ -71,7 +72,6 @@ export const staticRoutes: string[] = [
   paths.areas,
   paths.blog,
   paths.faqs,
-  paths.events,
   paths.refer,
   paths.contact,
   paths.book,

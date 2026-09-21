@@ -21,13 +21,21 @@ const baseUrl = (config.match(/url:\s*'([^']+)'/)?.[1] ?? 'https://www.mymedicar
   '',
 );
 
-// Static routes.
+// Static routes. staticRoutes is the list to publish: a path can exist in
+// `paths` without belonging in the sitemap (a page hidden for now, or a route
+// pattern like /articles/:slug, whose real URLs come from the article data).
 const routesSrc = readFileSync(join(root, 'src/routes.ts'), 'utf8');
-const pathValues = [...routesSrc.matchAll(/^\s{2}\w+:\s*'(\/[^']*)',/gm)]
-  .map((m) => m[1])
-  // Skip route patterns like /articles/:slug — the concrete URLs come from the
-  // article data below.
-  .filter((p) => !p.includes(':'));
+const byName = Object.fromEntries(
+  [...routesSrc.matchAll(/^\s{2}(\w+):\s*'(\/[^']*)',/gm)].map((m) => [m[1], m[2]]),
+);
+const staticBlock = routesSrc.match(/export const staticRoutes[\s\S]*?\n\];/);
+if (!staticBlock) {
+  console.error('sitemap: could not find staticRoutes in src/routes.ts');
+  process.exit(1);
+}
+const pathValues = [...staticBlock[0].matchAll(/paths\.(\w+),/g)]
+  .map((m) => byName[m[1]])
+  .filter((p) => p && !p.includes(':'));
 
 // Article detail pages.
 const articlesSrc = readFileSync(join(root, 'src/data/articles.ts'), 'utf8');

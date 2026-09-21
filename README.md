@@ -159,10 +159,22 @@ committing them.
 
 ## Wiring up the forms
 
-The four forms (quote, contact, booking, referral) validate properly and then POST
-JSON to `VITE_FORM_ENDPOINT`. **When that variable is unset they run in demo mode:**
-they validate and show the success panel, but send nothing, and the success panel
-says so.
+The four forms (help, contact, booking, referral) validate properly and then POST
+JSON to `site.formEndpoint`. In production that defaults to
+[`public/api/lead.php`](public/api/lead.php), which runs on the site's own cPanel
+hosting and mails each enquiry to the agency, so leads never pass through a
+third-party form service. The handler checks the form name, requires a name and a
+way to reply, drops anything that fills the hidden honeypot field, and limits each
+IP to ten submissions an hour.
+
+Change the destination address at the top of that file. **In development there is no
+PHP, so the forms stay in preview mode:** they validate and show the success panel,
+send nothing, and say so.
+
+If enquiries do not arrive, check the spam folder first: mail sent by shared hosting
+to a free mailbox often lands there until the domain's SPF record is in place. A
+failed send returns a 502 and the form shows its error panel rather than a false
+success.
 
 ```bash
 cp .env.example .env

@@ -21,7 +21,7 @@ export default function Contact() {
     [],
   );
 
-  const { values, errors, status, setValue, handleSubmit } = useLeadForm(
+  const { values, errors, status, setValue, handleSubmit, honeypotProps } = useLeadForm(
     initial,
     validate,
     'contact',
@@ -74,6 +74,12 @@ export default function Contact() {
               </div>
             </div>
           </div>
+          <SiteImage
+            name="contact-office"
+            alt="The My Medicare Angel office"
+            sizes={imageSizes.contact}
+            className="contact-photo"
+          />
         </div>
 
         <div className="form-column">
@@ -84,6 +90,8 @@ export default function Contact() {
           ) : (
             <form className="formcard" onSubmit={handleSubmit} noValidate>
               {status === 'error' && <SubmitError />}
+            {/* Hidden from people; bots that fill it in are dropped server side. */}
+            <input className="hp-field" aria-hidden="true" {...honeypotProps} />
               <div className="frow">
                 <Field
                   name="name"
@@ -116,11 +124,6 @@ export default function Contact() {
               </button>
             </form>
           )}
-          <SiteImage
-            name="contact-office"
-            alt="The My Medicare Angel office"
-            sizes={imageSizes.contact}
-          />
         </div>
       </div>
     </>

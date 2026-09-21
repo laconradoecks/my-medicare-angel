@@ -45,12 +45,13 @@ export const site = {
     'My Medicare Angel is a Kyzer Solutions company. We are a non-governmental agency, not affiliated with or endorsed by any government program. We do not offer every plan available in your area. Any information we provide is limited to the plans we do offer. Please contact Medicare.gov or 1-800-MEDICARE to get information on all of your options.',
 
   /**
-   * Where the lead forms POST. Set VITE_FORM_ENDPOINT in .env to a real
-   * handler (Formspree, Netlify Forms, your own API). When it is unset the
-   * forms run in demo mode: they validate and show the success state without
-   * sending anything, exactly like the prototype.
+   * Where the lead forms POST. Production defaults to public/api/lead.php,
+   * which runs on the site's own hosting and mails enquiries to the agency, so
+   * leads never pass through a third-party form service. VITE_FORM_ENDPOINT
+   * overrides it. In dev there is no PHP, so forms stay in preview mode:
+   * they validate and show the success state without sending anything.
    */
-  formEndpoint: import.meta.env.VITE_FORM_ENDPOINT ?? '',
+  formEndpoint: import.meta.env.VITE_FORM_ENDPOINT ?? (import.meta.env.DEV ? '' : '/api/lead.php'),
 } as const;
 
 export const isDemoForms = !site.formEndpoint;
