@@ -114,7 +114,7 @@ export default function AreasWeServe() {
 
         <p>
           Whichever state you call from, the process is the same: tell us your situation, we compare
-          the plans actually offered where you live, and we help you enroll. Our guidance is free,
+          the plans we offer where you live, and we help you enroll. Our guidance costs you nothing,
           because agents are paid by insurance carriers, never by you.
         </p>
 
@@ -123,7 +123,7 @@ export default function AreasWeServe() {
         <ArticleCta
           title="Tell us where you live and take it from there."
           sub="A licensed agent will call you back with the options for your area."
-          ctaLabel="Get Free Medicare Help"
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

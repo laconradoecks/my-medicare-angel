@@ -18,7 +18,7 @@ export default function HmoPlans() {
     <>
       <Seo
         title="Medicare Advantage HMO Plans, Explained"
-        description="How Medicare HMO plans work, what in network means, when referrals are needed, and who an HMO suits best, explained in plain English."
+        description="How Medicare HMO plans work, what in network means, when referrals are needed, and who an HMO suits, explained in plain English."
       />
       <TitleBand
         crumbs={[
@@ -28,7 +28,7 @@ export default function HmoPlans() {
           { label: "HMO Plans" },
         ]}
         title="Medicare Advantage HMO Plans: How They Work"
-        lede="The most common Medicare Advantage plan type, and usually the cheapest. The trade is simple. You accept a network, and the plan rewards you with low costs."
+        lede="The most common Medicare Advantage plan type, and usually priced below the other types. The trade is simple. You accept a network, and in return premiums and copays tend to be low."
         region
         mobileCta
       />
@@ -90,19 +90,19 @@ export default function HmoPlans() {
           Premiums are often low and frequently zero dollars. Copays are predictable, the plan has a
           yearly out of pocket maximum, and extras like dental, vision and hearing are often
           included. For people whose doctors are already in the network and whose care mostly
-          happens near home, an HMO is often the best value in Medicare.
+          happens near home, an HMO is often a strong fit.
         </p>
 
         <Callout>
           <strong>The one question that decides it:</strong> are your doctors in the network? We
-          check that before anything else, because the best priced plan is worthless if it does not
+          check that before anything else, because a low premium is no use if the plan does not
           include the doctor you trust.
         </Callout>
 
         <h2>Who an HMO suits</h2>
 
         <p>
-          An HMO fits people who want the lowest monthly cost, get their care close to home, and do
+          An HMO fits people who want to keep monthly costs down, get their care close to home, and do
           not mind their care being coordinated through one primary doctor. If you travel for months
           at a time or insist on seeing any specialist directly, look at a PPO instead.
         </p>
@@ -111,8 +111,8 @@ export default function HmoPlans() {
 
         <ArticleCta
           title="Is there a good HMO where you live?"
-          sub="Plans change county by county. A licensed agent will check yours, free."
-          ctaLabel="Get Free Medicare Help"
+          sub="Plans change county by county. A licensed agent will check yours, at no cost to you."
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

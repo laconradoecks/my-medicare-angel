@@ -20,7 +20,7 @@ export default function Veterans() {
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Veterans' }]}
         title="Medicare for Veterans: VA Benefits, TRICARE For Life and Medicare"
-        lede="If you served, your benefits work differently. VA care, TRICARE For Life and Medicare fit together in specific ways, and getting the order right can save you real money."
+        lede="If you served, your benefits work differently. VA care, TRICARE For Life and Medicare fit together in specific ways, and getting the order wrong can be costly."
       />
       <ArticleLayout
         sidebar={

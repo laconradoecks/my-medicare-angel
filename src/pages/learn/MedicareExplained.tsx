@@ -86,7 +86,7 @@ export default function MedicareExplained() {
 
         <ArticleCta
           title="Still have questions? That is normal."
-          sub="Talk them through with a licensed agent, free of charge."
+          sub="Talk them through with a licensed agent, at no cost to you."
           secondaryLabel="Contact Us"
           secondaryTo={paths.contact}
         />

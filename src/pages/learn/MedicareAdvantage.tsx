@@ -16,7 +16,7 @@ export default function MedicareAdvantage() {
     <>
       <Seo
         title="Medicare Advantage Plans in Massachusetts and New England"
-        description="HMO, PPO, PFFS, MSA and Special Needs Plans explained. Compare Medicare Advantage options across Greater Boston, New England and New York with a licensed agent, free."
+        description="HMO, PPO, PFFS, MSA and Special Needs Plans explained. Compare Medicare Advantage options across Greater Boston, New England and New York with a licensed agent, at no cost to you."
       />
       <TitleBand
         crumbs={[
@@ -67,7 +67,7 @@ export default function MedicareAdvantage() {
                 </Link>
               ),
               termWidth: 76,
-              def: 'You use the plan’s network of doctors and usually need a referral for specialists. Typically the lowest premiums.',
+              def: 'You use the plan’s network of doctors and usually need a referral for specialists. Premiums are typically lower than other plan types.',
             },
             {
               term: (

@@ -50,8 +50,8 @@ export default function CompareSupplements() {
         <CompareTable data={table} />
         <Guidance>
           <strong>Remember: a Plan G is a Plan G everywhere.</strong> The benefits are identical by
-          law, so the smart move is comparing what different insurers charge for the same letter. That
-          comparison is exactly what we do for you, free.
+          law, so the sensible move is comparing what different insurers charge for the same letter. That
+          comparison is exactly what we do for you, at no cost to you.
         </Guidance>
       </div>
     </>

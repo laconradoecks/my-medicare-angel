@@ -55,12 +55,12 @@ export default function Book() {
   return (
     <>
       <Seo
-        title="Book a Free Medicare Consultation"
-        description="Pick a day and time and a licensed Medicare agent serving Massachusetts and New England will call you. Free and without obligation."
+        title="Book a Medicare Consultation"
+        description="Pick a day and time and a licensed Medicare agent serving Massachusetts and New England will call you. No cost and no obligation."
       />
       <div className="wrap quote-layout">
         <div className="reassure">
-          <h1>Book a Free Consultation</h1>
+          <h1>Book a Consultation</h1>
           <p>
             Pick a day and time that suits you and a licensed agent will call you then. No phone tag,
             no waiting on hold.
@@ -74,7 +74,7 @@ export default function Book() {
           <Point>
             <CheckCircleIcon />
             <div>
-              <strong>Free and without obligation,</strong> like everything we do.
+              <strong>No cost and no obligation,</strong> like everything we do.
             </div>
           </Point>
         </div>

@@ -101,8 +101,8 @@ export default function SpecialNeedsPlans() {
 
         <ArticleCta
           title="Think you might qualify?"
-          sub="We will check, free, and tell you plainly either way."
-          ctaLabel="Get Free Medicare Help"
+          sub="We will check at no cost to you, and tell you plainly either way."
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

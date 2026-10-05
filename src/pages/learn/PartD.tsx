@@ -14,7 +14,7 @@ export default function PartD() {
     <>
       <Seo
         title="Medicare Part D Drug Plans, Explained"
-        description="How Part D prescription coverage works, the late enrollment penalty, and how we check your medicines against every plan in your area, free."
+        description="How Part D prescription coverage works, the late enrollment penalty, and how a licensed agent checks your medicines against the plans we offer, at no cost to you."
       />
       <TitleBand
         crumbs={[

@@ -12,18 +12,18 @@ export default function Events() {
   return (
     <>
       <Seo
-        title="Free Medicare Seminars in Greater Boston"
-        description="Free Medicare education sessions in and around Greater Boston. Learn the parts, the paths and the deadlines, and bring your questions."
+        title="Medicare Seminars in Greater Boston"
+        description="Medicare education sessions in and around Greater Boston. Learn the parts, the paths and the deadlines, and bring your questions."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Events & Seminars' }]}
-        title="Free Medicare Seminars & Events"
-        lede="Prefer to learn in a room with other people asking the same questions? Join one of our free sessions."
+        title="Medicare Seminars & Events"
+        lede="Prefer to learn in a room with other people asking the same questions? Join one of our sessions."
       />
       <div className="wrap pagebody">
         <SiteImage
           name="events-seminar"
-          alt="A free Medicare seminar in progress"
+          alt="A Medicare seminar in progress"
           sizes={imageSizes.banner}
           className="banner-media"
         />

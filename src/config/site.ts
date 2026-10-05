@@ -12,7 +12,7 @@ export const site = {
   url: 'https://www.mymedicareangel.com',
   tagline: 'Medicare, made clear',
   description:
-    'Independent Medicare agency serving Greater Boston, Massachusetts and all of New England plus New York. Licensed agents explain your options in plain English and help you enroll, free.',
+    'Independent Medicare agency serving Greater Boston, Massachusetts and all of New England plus New York. Licensed agents explain your options in plain English and help you enroll, at no cost to you.',
   /**
    * Footer brand block, in two paragraphs. Every claim here already appears on
    * the site (the homepage "Independent Medicare help" section and the How it

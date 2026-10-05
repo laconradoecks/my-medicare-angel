@@ -64,7 +64,7 @@ export default function PpoPlans() {
             {
               term: "Network",
               termWidth: 160,
-              def: "Cheapest care inside the network, but out of network care is still covered at a higher cost.",
+              def: "Lower costs inside the network, but out of network care is still covered at a higher cost.",
             },
             {
               term: "Primary doctor",
@@ -111,8 +111,8 @@ export default function PpoPlans() {
 
         <ArticleCta
           title="HMO or PPO for your situation?"
-          sub="Tell us how you live and we will tell you which one fits, free."
-          ctaLabel="Get Free Medicare Help"
+          sub="Tell us how you live and we will tell you which one fits, at no cost to you."
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

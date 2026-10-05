@@ -111,7 +111,7 @@ export default function PffsPlans() {
         <ArticleCta
           title="Not sure if PFFS is right for you?"
           sub="It usually is not, but sometimes it is exactly right. A licensed agent will give you a straight answer."
-          ctaLabel="Get Free Medicare Help"
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

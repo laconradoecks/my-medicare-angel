@@ -38,7 +38,7 @@ const steps = [
   {
     n: 2,
     title: 'Talk it through',
-    body: 'A licensed agent explains the plans available where you live and answers every question, with no pressure.',
+    body: 'A licensed agent explains the plans we offer where you live and answers every question, with no pressure.',
   },
   {
     n: 3,
@@ -175,7 +175,7 @@ export default function Home() {
           surrounding communities, and throughout New England: Massachusetts, Maine, New Hampshire,
           Rhode Island and Connecticut, as well as New York. Medicare plan choices change from
           county to county, so advice that starts with your zip code matters. Wherever you are in
-          the region, a licensed agent reviews the plans actually available where you live, by phone
+          the region, a licensed agent reviews the plans we offer where you live, by phone
           or in person.
         </p>
         <p style={{ fontSize: 19, margin: '0 0 36px' }}>

@@ -22,7 +22,7 @@ export const events: SiteEvent[] = [
     when: '[DATE] · [TIME]',
     title: 'Annual Enrollment: Is Your Plan Still Right?',
     description:
-      'What changes each year, how to read your plan’s annual notice, and when switching saves money.',
+      'What changes each year, how to read your plan’s annual notice, and how to decide whether switching makes sense.',
     venue: '[VENUE / or Online]',
   },
   {

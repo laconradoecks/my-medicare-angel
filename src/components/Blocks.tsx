@@ -193,7 +193,7 @@ export function CtaBand() {
       <div className="wrap ctaband-in">
         <div>
           <h2>Ready to make sense of Medicare?</h2>
-          <div className="sub">Talk to a licensed agent today. Free, friendly, and in plain English.</div>
+          <div className="sub">Talk to a licensed agent today. No cost, no obligation, and in plain English.</div>
         </div>
         <div className="acts">
           <Link className="btn btn-amber" to={paths.quote}>

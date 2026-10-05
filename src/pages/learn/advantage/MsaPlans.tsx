@@ -110,8 +110,8 @@ export default function MsaPlans() {
 
         <ArticleCta
           title="Could an MSA work for you?"
-          sub="It depends on your health, your savings and your nerves. Talk it through with a licensed agent, free."
-          ctaLabel="Get Free Medicare Help"
+          sub="It depends on your health, your savings and your nerves. Talk it through with a licensed agent, at no cost to you."
+          ctaLabel="Get Medicare Help"
           ctaTo={paths.quote}
         />
       </ArticleLayout>

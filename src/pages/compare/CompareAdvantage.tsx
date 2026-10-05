@@ -16,12 +16,12 @@ const table: CompareTableData = {
     },
     {
       label: 'Typical premium',
-      cells: ['Lowest, often $0.', 'Somewhat higher for the extra freedom.'],
+      cells: ['Often $0, and typically lower than a PPO.', 'Somewhat higher for the extra freedom.'],
     },
     {
       label: 'Best suited to',
       cells: [
-        'People whose doctors are in network and who value the lowest cost.',
+        'People whose doctors are in network and who want to keep costs down.',
         'People who want flexibility or see doctors in more than one place.',
       ],
     },
