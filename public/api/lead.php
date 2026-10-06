@@ -84,7 +84,9 @@ $hits[] = $now;
 
 $lines = array('New ' . $form . ' enquiry from mymedicareangel.com', '');
 foreach ($data as $key => $value) {
-    if ($key === 'website' || $key === 'form') {
+    // submittedAt comes from the visitor's own clock, in UTC; the server's
+    // Received line below replaces it.
+    if ($key === 'website' || $key === 'form' || $key === 'submittedAt') {
         continue;
     }
     if (is_array($value)) {
@@ -97,8 +99,12 @@ foreach ($data as $key => $value) {
     $label = ucfirst(trim(preg_replace('/([A-Z])/', ' $1', (string) $key)));
     $lines[] = str_pad($label . ':', 18) . mb_substr($value, 0, 2000);
 }
+// The office is in Waltham, so times read in Boston time (EST/EDT as the season
+// requires) rather than the server's UTC.
+$received = new DateTime('now', new DateTimeZone('America/New_York'));
 $lines[] = '';
-$lines[] = 'Sent ' . date('c') . ' from ' . $ip;
+$lines[] = str_pad('Received:', 18) . $received->format('l, F j, Y \a\t g:i A T');
+$lines[] = str_pad('Sender IP:', 18) . $ip;
 $body = implode("\n", $lines);
 
 $clean = function ($value) {
