@@ -62,6 +62,7 @@ const server = await preview({
 const rendered = [];
 const errors = [];
 let notFoundHtml = '';
+let formsMode;
 try {
   const page = await browser.newPage();
   page.on('pageerror', (err) => errors.push(`${page.url()}: ${err.message}`));
@@ -92,6 +93,11 @@ try {
       html: await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML),
     });
   }
+  // A production build whose forms do not send looks perfect: they validate and
+  // thank the visitor, and the enquiry goes nowhere. That shipped once, so it
+  // fails the build now. ALLOW_PREVIEW_FORMS=1 builds a deliberate demo.
+  formsMode = await page.evaluate(() => document.documentElement.dataset.forms);
+
   // dist/404.html, which Apache serves for any URL that is not a real page.
   // Rendered from a path that deliberately matches no route, so the app's own
   // not-found page is what comes back. The canonical link is dropped: it would
@@ -113,6 +119,13 @@ try {
 }
 
 if (errors.length) fail(`JavaScript errors while rendering:\n${errors.join('\n')}`);
+
+if (formsMode !== 'live' && process.env.ALLOW_PREVIEW_FORMS !== '1') {
+  fail(
+    `the forms are in "${formsMode}" mode, so enquiries would not be sent. Check ` +
+      'VITE_FORM_ENDPOINT and site.formEndpoint, or set ALLOW_PREVIEW_FORMS=1 for a demo build.',
+  );
+}
 
 const seen = new Map();
 for (const { route, title } of rendered) {

@@ -52,8 +52,8 @@ jobs:
       - name: Build and prerender
         run: npm run build
         env:
-          # Optional. Set as a repository variable to take the forms live;
-          # unset, the forms stay in preview mode.
+          # Optional. Set as a repository variable to send the forms somewhere
+          # other than public/api/lead.php; unset (or empty), they post there.
           VITE_FORM_ENDPOINT: ${{ vars.VITE_FORM_ENDPOINT }}
 
       # Identifies this build. The server uses it to spot a new build, and the

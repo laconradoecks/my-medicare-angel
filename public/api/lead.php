@@ -12,7 +12,7 @@
  * Written for PHP 7.4 and up, which covers every current cPanel default.
  */
 
-$TO = 'adythan@gmail.com';
+$TO = 'info@kyzersolutions.com';
 // Must be on this domain, or the host's mail server will not accept it.
 $FROM = 'noreply@mymedicareangel.com';
 $MAX_PER_HOUR = 10;

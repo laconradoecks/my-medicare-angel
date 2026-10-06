@@ -167,9 +167,17 @@ third-party form service. The handler checks the form name, requires a name and 
 way to reply, drops anything that fills the hidden honeypot field, and limits each
 IP to ten submissions an hour.
 
-Change the destination address at the top of that file. **In development there is no
-PHP, so the forms stay in preview mode:** they validate and show the success panel,
-send nothing, and say so.
+Enquiries go to `info@kyzersolutions.com`; change the address at the top of that
+file. **In development there is no PHP, so the forms stay in preview mode:** they
+validate and show the success panel, send nothing, and say so.
+
+**A production build cannot ship in preview mode.** The app marks every page
+`<html data-forms="live">` or `"preview"`, and the prerender step fails the build on
+`preview` (set `ALLOW_PREVIEW_FORMS=1` for a deliberate demo). This exists because it
+happened: CI passed an unset `VITE_FORM_ENDPOINT` through as an empty string, the
+forms went to preview mode, and every live submission was silently discarded while
+the visitor saw a thank-you. To check the live site, view source and look for
+`data-forms="live"`.
 
 If enquiries do not arrive, check the spam folder first: mail sent by shared hosting
 to a free mailbox often lands there until the domain's SPF record is in place. A
@@ -296,8 +304,9 @@ differs from the live one, never copies `.git` into the web root, and skips a ru
 the previous one is still going. If a run's final step fails, GitHub says so on the
 commit, and the log above is the first place to look.
 
-To take the forms live, set `VITE_FORM_ENDPOINT` as a repository variable (Settings →
-Secrets and variables → Actions → Variables); the next run builds it in.
+The forms post to `/api/lead.php` with no setup. To send them somewhere else instead,
+set `VITE_FORM_ENDPOINT` as a repository variable (Settings → Secrets and variables →
+Actions → Variables); the next run builds it in.
 
 The two options below build on your own computer instead, if GitHub Actions is ever
 unavailable.
@@ -437,9 +446,9 @@ each item below is content to obtain, and the note says what it unblocks.
 - [ ] **Email address** — `src/config/site.ts` (currently a best guess). This is the
       address shown to visitors; enquiries are delivered separately, by
       `public/api/lead.php`.
-- [ ] **Form endpoint** — wired and live at `/api/lead.php`, delivering to the client's
-      inbox. Still needs one real submission through the live form to confirm delivery
-      and check it does not land in spam.
+- [ ] **Form delivery** — live at `/api/lead.php`, delivering to
+      `info@kyzersolutions.com`. Needs one real submission through the live form to
+      confirm it arrives, and that the mailbox exists in cPanel.
 - [ ] **Part B premium figure** — `src/pages/learn/OriginalMedicare.tsx` now describes
       the premium without naming a figure, which stays accurate year to year. Naming it
       is optional, and means updating the page each January.

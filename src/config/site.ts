@@ -24,8 +24,8 @@ export const site = {
     'From Greater Boston across New England and New York, whether you are turning 65, leaving employer coverage or reviewing your plan at Annual Enrollment, a licensed agent compares your options and stays your point of contact.',
 
   phone: {
-    display: '(617) 560-0821',
-    href: 'tel:+16175600821',
+    display: '(857) 287-6643',
+    href: 'tel:+18572876643',
   },
   hours: 'Mon–Fri, 9am–5pm',
   // TODO: confirm the public inbox before launch (placeholder in the designs).
@@ -50,8 +50,13 @@ export const site = {
    * leads never pass through a third-party form service. VITE_FORM_ENDPOINT
    * overrides it. In dev there is no PHP, so forms stay in preview mode:
    * they validate and show the success state without sending anything.
+   *
+   * `||`, not `??`: CI passes an unset repository variable through as an empty
+   * string, and with `??` that empty string won and shipped every live form in
+   * preview mode. The prerender step now fails a build whose forms would not
+   * send (see main.tsx and scripts/prerender.mjs).
    */
-  formEndpoint: import.meta.env.VITE_FORM_ENDPOINT ?? (import.meta.env.DEV ? '' : '/api/lead.php'),
+  formEndpoint: import.meta.env.VITE_FORM_ENDPOINT || (import.meta.env.DEV ? '' : '/api/lead.php'),
 } as const;
 
 export const isDemoForms = !site.formEndpoint;
