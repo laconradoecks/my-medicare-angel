@@ -426,9 +426,9 @@ each item below is content to obtain, and the note says what it unblocks.
       page. Carriers set brand-usage rules for appointed agents, so confirm written
       permission for each, and replace the generic Blue Cross mark with the specific
       company the agency is appointed with.
-- [ ] **Real testimonials** — `src/data/testimonials.ts` holds four samples, shown on
-      the homepage under a line that says they are samples. Replace the quotes and
-      attributions together, and drop `testimonialsArePlaceholders` when they are real.
+- [x] ~~Real testimonials~~ — four client quotes supplied 2026-10-06 (Linda, Haley,
+      Tony, Bill), in `src/data/testimonials.ts`; the "sample" note is gone. Keep
+      written permission from each person on file.
 - [ ] **Disclaimer counts** — CMS expects a line naming how many organizations and
       products the agency represents. It is held out of the disclaimers page until the
       contracts confirm the numbers; the rest of the required wording is live. Blue

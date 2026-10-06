@@ -201,7 +201,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Placeholder quotes: see src/data/testimonials.ts */}
       <Testimonials items={testimonials} placeholders={testimonialsArePlaceholders} />
 
       <CtaBand />

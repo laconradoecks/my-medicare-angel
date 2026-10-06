@@ -612,6 +612,8 @@ header.site {
   font-size: 16px;
   font-weight: 600;
   color: var(--muted);
+  /* Quotes differ in length; this keeps the names level across a row. */
+  margin-top: auto;
 }
 
 /* ===================== Testimonial (single quote) ===================== */
@@ -1342,6 +1344,10 @@ footer.site {
   }
   .testimonials {
     grid-template-columns: 1fr;
+  }
+  /* Real quotes run three or four sentences; at 21px a phone shows a dozen lines each. */
+  .testimonial .q {
+    font-size: 18px;
   }
   .cards3,
   .cards4,
