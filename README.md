@@ -446,9 +446,9 @@ each item below is content to obtain, and the note says what it unblocks.
 - [ ] **Email address** — `src/config/site.ts` (currently a best guess). This is the
       address shown to visitors; enquiries are delivered separately, by
       `public/api/lead.php`.
-- [ ] **Form delivery** — live at `/api/lead.php`, delivering to
-      `info@kyzersolutions.com`. Needs one real submission through the live form to
-      confirm it arrives, and that the mailbox exists in cPanel.
+- [x] ~~Form delivery~~ — confirmed end to end on 2026-10-06: a submission through the
+      live form arrived at `info@kyzersolutions.com`. Note for the privacy policy: each
+      enquiry email records the sender's IP address.
 - [ ] **Part B premium figure** — `src/pages/learn/OriginalMedicare.tsx` now describes
       the premium without naming a figure, which stays accurate year to year. Naming it
       is optional, and means updating the page each January.
