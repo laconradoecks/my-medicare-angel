@@ -17,7 +17,7 @@ export default function AreasWeServe() {
     <>
       <Seo
         title="Medicare Help in Greater Boston, Massachusetts and New England"
-        description="My Medicare Angel serves Greater Boston, surrounding areas in Massachusetts and New England, plus neighboring New York, by phone or in person."
+        description="My Medicare Angel serves Greater Boston, surrounding areas in Massachusetts and New England, including Vermont, plus neighboring New York, by phone or in person."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Areas We Serve' }]}
@@ -53,7 +53,7 @@ export default function AreasWeServe() {
         <p>
           Our office is at 56 Russell Street, Suite A in Waltham, Massachusetts, minutes from
           Boston. Most of our clients never need to visit: nearly everything we do happens in one or
-          two phone calls. That is how one agency can genuinely serve six states without losing the
+          two phone calls. That is how one agency can genuinely serve seven states without losing the
           local knowledge that makes the advice good.
         </p>
 
@@ -95,6 +95,25 @@ export default function AreasWeServe() {
               term: "Connecticut",
               termWidth: 160,
               def: "Hartford, New Haven and across the state.",
+            },
+          ]}
+        />
+
+        {/* Served, but not where most of the agency's work is: kept in its own
+            section so the main list reads as the focus. */}
+        <h3>We also serve Vermont and New York</h3>
+
+        <p>
+          We help clients in both states too. Most of that work happens by phone, so call us and we
+          will tell you what we can do in your county.
+        </p>
+
+        <Parts
+          rows={[
+            {
+              term: "Vermont",
+              termWidth: 160,
+              def: "Our neighbor to the north, from Burlington to the smaller towns.",
             },
             {
               term: "New York",
