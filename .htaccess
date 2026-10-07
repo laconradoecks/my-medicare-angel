@@ -1,0 +1,128 @@
+# My Medicare Angel — Apache config for cPanel shared hosting (Namecheap).
+#
+# This ships in the build output, so uploading dist/ is all that's needed.
+# Netlify and Vercel ignore it; they read netlify.toml / vercel.json instead.
+#
+# Every block is wrapped in <IfModule> so a host missing a module degrades
+# instead of throwing a 500.
+
+# ---------------------------------------------------------------------------
+# SPA routing — without this, every URL except "/" returns 404 on Apache.
+# ---------------------------------------------------------------------------
+
+# Prerendered pages live in folders (/areas-we-serve/index.html). By default the
+# server answers /areas-we-serve with a 301 to /areas-we-serve/ before the rewrite
+# rules below run, so every clean URL would redirect. Turning that off lets the
+# prerender rule serve the page at the clean URL directly. Directory listings stay
+# disabled by "Options -Indexes" further down.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Certificate renewal happens over plain http, so this stays above the
+  # redirects below.
+  RewriteRule ^\.well-known/ - [L]
+
+  # One address per page. Without these, http://, https:// and the bare domain
+  # all answer 200, so every page exists at three addresses. AutoSSL is active,
+  # so forcing https is safe; if a certificate ever lapses, comment these out.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://www.mymedicareangel.com%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.mymedicareangel.com%{REQUEST_URI} [L,R=301]
+
+  # The homepage. Its own file, kept separate because the pattern below needs at
+  # least one path segment to match — and because the catch-all 404 at the end
+  # would otherwise swallow "/".
+  RewriteRule ^$ index.html [L]
+
+  # Prerendered pages. The build writes /areas-we-serve as
+  # /areas-we-serve/index.html; serve that file directly for the clean URL,
+  # rather than letting the server redirect to a trailing-slash address first.
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+  # Real files (/assets/*, /logo/*, sitemap.xml, robots.txt) are served as-is.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # An /articles/<slug> address with no page behind it — an article that is not
+  # written yet, or a link from when one was — goes to the article index, which
+  # is what the app itself does with those URLs.
+  # Absolute, so this lands on the canonical address in one hop instead of
+  # redirecting again through the https and www rules above.
+  RewriteRule ^articles/.+ https://www.mymedicareangel.com/articles [L,R=301]
+
+  # Anything else is not a page on this site. Every real route is prerendered
+  # above, so a request that reaches here has nowhere to go: answer 404 rather
+  # than serving the app shell with a 200, which tells a crawler the address
+  # exists. ErrorDocument below sends back the app's own not-found page, and it
+  # carries the app, so a visitor still lands somewhere useful.
+  RewriteRule ^ - [L,R=404]
+</IfModule>
+
+# The prerendered not-found page, served for every 404 above. It is a real file,
+# so the rewrite rules serve it without looping back here.
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# Compression — roughly a 3.5x reduction on the JS and CSS bundles.
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/manifest+json image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Caching. Vite fingerprints filenames in /assets, so those are immutable.
+# index.html must never be cached, or visitors keep loading the old build.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|svg|png|jpg|jpeg|webp|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(html|json|webmanifest)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Same headers the Netlify and Vercel configs set.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# MIME types cPanel does not always declare.
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Hardening
+# ---------------------------------------------------------------------------
+Options -Indexes
+
+<FilesMatch "^\.(env|git|gitignore)">
+  Require all denied
+</FilesMatch>

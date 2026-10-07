@@ -1,0 +1,14 @@
+{
+  "name": "My Medicare Angel",
+  "short_name": "Medicare Angel",
+  "description": "Independent Medicare insurance agency. Licensed agents explain your options in plain English and help you enroll, at no cost to you.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F8FA",
+  "theme_color": "#14477D",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/logo/app-icon-navy.png", "type": "image/png", "sizes": "1024x1024", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "1024x1024", "purpose": "maskable" }
+  ]
+}
