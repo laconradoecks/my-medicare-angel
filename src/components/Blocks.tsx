@@ -41,8 +41,8 @@ export function TitleBand({
         {lede && <div className="lede">{lede}</div>}
         {region && (
           <p className="region-note">
-            Licensed agents serving Greater Boston, Massachusetts and all of New England, plus New
-            York. <Link to={paths.areas}>See the areas we serve</Link>
+            Licensed agents serving Greater Boston, surrounding areas in Massachusetts and New
+            England. <Link to={paths.areas}>See the areas we serve</Link>
           </p>
         )}
         {mobileCta && (

@@ -35,7 +35,7 @@ export default function Articles() {
     <>
       <Seo
         title="Medicare Articles and Guides for New England"
-        description="Plain English answers to the Medicare questions people actually search, written for Massachusetts, New England and New York residents."
+        description="Plain English answers to the Medicare questions people actually search, written for people in Greater Boston, Massachusetts and New England."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Articles' }]}

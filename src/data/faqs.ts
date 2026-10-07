@@ -23,7 +23,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Which states do you serve?",
-    a: "We are based in Waltham, Massachusetts and serve Greater Boston, the rest of Massachusetts, Maine, New Hampshire, Rhode Island, Connecticut and New York. Most of our work happens over the phone, so where you are in the region makes no difference to the help you get.",
+    a: "We are based in Waltham, Massachusetts and serve Greater Boston, surrounding areas in Massachusetts and New England, including Maine, New Hampshire, Rhode Island and Connecticut. We also help clients in neighboring New York. Most of our work happens over the phone, so where you are in the region makes no difference to the help you get.",
   },
   {
     q: "Do Medicare plans differ between states, or even towns?",

@@ -69,7 +69,7 @@ export default function Quote() {
     <>
       <Seo
         title="Get Medicare Help in Greater Boston and New England"
-        description="Tell us your name, phone number and what you need help with. A licensed Medicare agent serving New England and New York will call you back, at no cost to you."
+        description="Tell us your name, phone number and what you need help with. A licensed Medicare agent serving Greater Boston, Massachusetts and New England will call you back, at no cost to you."
       />
       <div className="wrap quote-layout">
         <div className="reassure">

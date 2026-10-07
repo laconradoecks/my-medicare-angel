@@ -16,12 +16,12 @@ export default function AreasWeServe() {
   return (
     <>
       <Seo
-        title="Medicare Help in Massachusetts, New England and New York"
-        description="My Medicare Angel serves Greater Boston and communities across Massachusetts, Maine, New Hampshire, Rhode Island, Connecticut and New York, by phone or in person."
+        title="Medicare Help in Greater Boston, Massachusetts and New England"
+        description="My Medicare Angel serves Greater Boston, surrounding areas in Massachusetts and New England, plus neighboring New York, by phone or in person."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Areas We Serve' }]}
-        title="Where We Work: Greater Boston, New England and New York"
+        title="Where We Work: Greater Boston, Surrounding Areas in Massachusetts and New England"
         lede="Medicare advice has to be local, because the plans are. Here is where we serve, and why your location is the first thing we ask."
       />
       <ArticleLayout
@@ -99,7 +99,7 @@ export default function AreasWeServe() {
             {
               term: "New York",
               termWidth: 160,
-              def: "From the city to upstate, we compare the plans available in your county.",
+              def: "Our neighbor to the west. From the city to upstate, we compare the plans we offer in your county.",
             },
           ]}
         />

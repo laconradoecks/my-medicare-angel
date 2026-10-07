@@ -32,7 +32,7 @@ export const navGroups: NavGroup[] = [
       { label: 'Turning 65', blurb: 'Your enrollment checklist', to: paths.turning65 },
       { label: 'Leaving Employer Coverage', blurb: 'Retiring after 65', to: paths.employer },
       { label: 'Veterans', blurb: 'VA, TRICARE & Medicare', to: paths.veterans },
-      { label: 'Areas We Serve', blurb: 'Greater Boston, New England and NY', to: paths.areas },
+      { label: 'Areas We Serve', blurb: 'Greater Boston, Massachusetts and New England', to: paths.areas },
     ],
   },
   {

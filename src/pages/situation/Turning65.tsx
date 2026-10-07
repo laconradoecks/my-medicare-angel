@@ -16,7 +16,7 @@ export default function Turning65() {
     <>
       <Seo
         title="Turning 65 in Massachusetts or New England: Medicare Checklist"
-        description="Your month by month Medicare enrollment checklist for turning 65, from a licensed agency serving Greater Boston and all of New England."
+        description="Your month by month Medicare enrollment checklist for turning 65, from a licensed agency serving Greater Boston, Massachusetts and New England."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Turning 65' }]}

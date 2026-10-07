@@ -169,11 +169,11 @@ export default function Home() {
 
       {/* Service area */}
       <section className="wrap sect">
-        <h2>Serving Greater Boston and all of New England</h2>
+        <h2>Serving Greater Boston, Massachusetts and New England</h2>
         <p style={{ maxWidth: 860, fontSize: 19, margin: '0 0 16px' }}>
-          From our office in Waltham, Massachusetts, we help people across Greater Boston and the
-          surrounding communities, and throughout New England: Massachusetts, Maine, New Hampshire,
-          Rhode Island and Connecticut, as well as New York. Medicare plan choices change from
+          From our office in Waltham, Massachusetts, we help people across Greater Boston, the
+          surrounding areas of Massachusetts, and the rest of New England: Maine, New Hampshire,
+          Rhode Island and Connecticut. Medicare plan choices change from
           county to county, so advice that starts with your zip code matters. Wherever you are in
           the region, a licensed agent reviews the plans we offer where you live, by phone
           or in person.

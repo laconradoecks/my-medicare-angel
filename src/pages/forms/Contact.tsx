@@ -31,7 +31,7 @@ export default function Contact() {
     <>
       <Seo
         title="Contact a Medicare Agent in Waltham, MA"
-        description="Call, message or visit My Medicare Angel in Waltham, Massachusetts. Serving Greater Boston, all of New England and New York."
+        description="Call, message or visit My Medicare Angel in Waltham, Massachusetts. Serving Greater Boston, surrounding areas in Massachusetts and New England."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Contact Us' }]}
@@ -61,8 +61,8 @@ export default function Contact() {
                 {site.address.city}, {site.address.state} {site.address.zip}
               </div>
               <div style={{ fontSize: 15, color: 'var(--muted)', marginTop: 6 }}>
-                Based in Waltham, we serve Greater Boston and communities across Massachusetts,
-                Maine, New Hampshire, Rhode Island, Connecticut and New York, by phone or in person.
+                Based in Waltham, we serve Greater Boston, surrounding areas in Massachusetts and New
+                England, by phone or in person.
               </div>
             </div>
             <div>

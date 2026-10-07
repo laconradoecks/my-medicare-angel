@@ -16,7 +16,7 @@ export default function MedicareExplained() {
     <>
       <Seo
         title="Medicare Explained in Plain English, for New England"
-        description="What Medicare covers, who qualifies and when to enroll, explained simply by a Massachusetts based agency serving all of New England and New York."
+        description="What Medicare covers, who qualifies and when to enroll, explained simply by a Massachusetts based agency serving Greater Boston and New England."
       />
       <TitleBand
         crumbs={[{ label: 'Home', to: paths.home }, { label: 'Medicare Explained' }]}

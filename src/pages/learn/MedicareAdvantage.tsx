@@ -16,7 +16,7 @@ export default function MedicareAdvantage() {
     <>
       <Seo
         title="Medicare Advantage Plans in Massachusetts and New England"
-        description="HMO, PPO, PFFS, MSA and Special Needs Plans explained. Compare Medicare Advantage options across Greater Boston, New England and New York with a licensed agent, at no cost to you."
+        description="HMO, PPO, PFFS, MSA and Special Needs Plans explained. Compare Medicare Advantage options across Greater Boston, Massachusetts and New England with a licensed agent, at no cost to you."
       />
       <TitleBand
         crumbs={[
